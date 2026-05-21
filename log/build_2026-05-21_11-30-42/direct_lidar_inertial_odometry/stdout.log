@@ -1,0 +1,262 @@
+-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 5.3.7 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found sensor_msgs: 5.3.7 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+-- Found nav_msgs: 5.3.7 (/opt/ros/jazzy/share/nav_msgs/cmake)
+-- Found pcl_ros: 2.6.4 (/opt/ros/jazzy/share/pcl_ros/cmake)
+-- Found flann version 1.9.2
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5") found components: CXX 
+-- Checking for module 'libusb-1.0'
+--   Found libusb-1.0, version 1.0.27
+-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  
+-- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.43") 
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+-- Found Qhull version 8.0.2
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+-- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+-- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+-- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+-- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+-- Found PCL_2D: /usr/include/pcl-1.14  
+-- Found PCL_GEOMETRY: /usr/include/pcl-1.14  
+-- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+-- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+-- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+-- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+-- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+-- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+-- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+-- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+-- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+-- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+-- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+-- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  
+-- Found PCL_MODELER: /usr/include/pcl-1.14  
+-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  
+-- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+-- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found Threads: TRUE  
+-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found PythonExtra: /usr/bin/python3  
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- Configuring done (6.2s)
+-- Generating done (0.2s)
+-- Build files have been written to: /root/ros2_ws/build/direct_lidar_inertial_odometry
+[  4%] [32mBuilding CXX object CMakeFiles/nanoflann.dir/src/nano_gicp/nanoflann.cc.o[0m
+[  4%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[  6%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[  6%] Built target ament_cmake_python_symlink_direct_lidar_inertial_odometry
+[  6%] Built target direct_lidar_inertial_odometry__rosidl_generator_type_description
+running egg_info
+creating direct_lidar_inertial_odometry.egg-info
+[  8%] [34m[1mGenerating C code for ROS interfaces[0m
+[ 10%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[ 10%] Built target direct_lidar_inertial_odometry__rs
+writing direct_lidar_inertial_odometry.egg-info/PKG-INFO
+writing dependency_links to direct_lidar_inertial_odometry.egg-info/dependency_links.txt
+writing top-level names to direct_lidar_inertial_odometry.egg-info/top_level.txt
+writing manifest file 'direct_lidar_inertial_odometry.egg-info/SOURCES.txt'
+reading manifest file 'direct_lidar_inertial_odometry.egg-info/SOURCES.txt'
+writing manifest file 'direct_lidar_inertial_odometry.egg-info/SOURCES.txt'
+[ 10%] Built target ament_cmake_python_build_direct_lidar_inertial_odometry_egg
+[ 10%] Built target direct_lidar_inertial_odometry__cpp
+[ 15%] [32mBuilding C object CMakeFiles/direct_lidar_inertial_odometry__rosidl_generator_c.dir/rosidl_generator_c/direct_lidar_inertial_odometry/srv/detail/save_pcd__description.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/direct_lidar_inertial_odometry__rosidl_generator_c.dir/rosidl_generator_c/direct_lidar_inertial_odometry/srv/detail/save_pcd__functions.c.o[0m
+[ 17%] [32mBuilding C object CMakeFiles/direct_lidar_inertial_odometry__rosidl_generator_c.dir/rosidl_generator_c/direct_lidar_inertial_odometry/srv/detail/save_pcd__type_support.c.o[0m
+[ 19%] [32m[1mLinking C shared library libdirect_lidar_inertial_odometry__rosidl_generator_c.so[0m
+[ 19%] Built target direct_lidar_inertial_odometry__rosidl_generator_c
+[ 21%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 28%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 28%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 28%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 30%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/direct_lidar_inertial_odometry__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/direct_lidar_inertial_odometry/srv/save_pcd__type_support.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/direct_lidar_inertial_odometry__rosidl_typesupport_c.dir/rosidl_typesupport_c/direct_lidar_inertial_odometry/srv/save_pcd__type_support.cpp.o[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/direct_lidar_inertial_odometry/srv/detail/save_pcd__type_support.cpp.o[0m
+[ 41%] [32mBuilding C object CMakeFiles/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/direct_lidar_inertial_odometry/srv/detail/save_pcd__type_support.c.o[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/direct_lidar_inertial_odometry/srv/detail/dds_fastrtps/save_pcd__type_support.cpp.o[0m
+[ 45%] [32m[1mLinking CXX shared library libdirect_lidar_inertial_odometry__rosidl_typesupport_c.so[0m
+[ 47%] [32mBuilding CXX object CMakeFiles/direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/direct_lidar_inertial_odometry/srv/detail/save_pcd__type_support_c.cpp.o[0m
+[ 50%] [32m[1mLinking C shared library libdirect_lidar_inertial_odometry__rosidl_typesupport_introspection_c.so[0m
+[ 50%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_c
+[ 50%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_introspection_c
+[ 52%] [32m[1mLinking CXX shared library libdirect_lidar_inertial_odometry__rosidl_typesupport_cpp.so[0m
+[ 52%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_cpp
+[ 54%] [32mBuilding CXX object CMakeFiles/dlio_map_node.dir/src/dlio/map.cc.o[0m
+[ 56%] [32mBuilding CXX object CMakeFiles/dlio_map_node.dir/src/dlio/map_node.cc.o[0m
+[ 58%] [32m[1mLinking CXX shared library libdirect_lidar_inertial_odometry__rosidl_typesupport_introspection_cpp.so[0m
+[ 60%] [32m[1mLinking CXX shared library libdirect_lidar_inertial_odometry__rosidl_typesupport_fastrtps_c.so[0m
+[ 60%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cpp
+[ 60%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_c
+[ 63%] [32m[1mLinking CXX shared library libdirect_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 63%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cpp
+[ 63%] Built target direct_lidar_inertial_odometry
+[ 65%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 65%] Built target direct_lidar_inertial_odometry__py
+[ 67%] [32mBuilding C object CMakeFiles/direct_lidar_inertial_odometry__rosidl_generator_py.dir/rosidl_generator_py/direct_lidar_inertial_odometry/srv/_save_pcd_s.c.o[0m
+[ 69%] [32m[1mLinking C shared library libdirect_lidar_inertial_odometry__rosidl_generator_py.so[0m
+[ 69%] Built target direct_lidar_inertial_odometry__rosidl_generator_py
+[ 76%] [32mBuilding C object CMakeFiles/direct_lidar_inertial_odometry_s__rosidl_typesupport_c.dir/rosidl_generator_py/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_c.c.o[0m
+[ 76%] [32mBuilding C object CMakeFiles/direct_lidar_inertial_odometry_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 76%] [32mBuilding C object CMakeFiles/direct_lidar_inertial_odometry_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 78%] [32m[1mLinking C shared module rosidl_generator_py/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_c.so[0m
+[ 78%] Built target direct_lidar_inertial_odometry_s__rosidl_typesupport_c
+[ 80%] [32m[1mLinking C shared module rosidl_generator_py/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_introspection_c.so[0m
+[ 82%] [32m[1mLinking C shared module rosidl_generator_py/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_fastrtps_c.so[0m
+[ 82%] Built target direct_lidar_inertial_odometry_s__rosidl_typesupport_fastrtps_c
+[ 82%] Built target direct_lidar_inertial_odometry_s__rosidl_typesupport_introspection_c
+[ 84%] [32m[1mLinking CXX static library libnanoflann.a[0m
+[ 84%] Built target nanoflann
+[ 89%] [32mBuilding CXX object CMakeFiles/nano_gicp.dir/src/nano_gicp/nano_gicp.cc.o[0m
+[ 89%] [32mBuilding CXX object CMakeFiles/nano_gicp.dir/src/nano_gicp/lsq_registration.cc.o[0m
+[ 91%] [32m[1mLinking CXX executable dlio_map_node[0m
+[ 91%] Built target dlio_map_node
+[ 93%] [32m[1mLinking CXX static library libnano_gicp.a[0m
+[ 93%] Built target nano_gicp
+[ 95%] [32mBuilding CXX object CMakeFiles/dlio_odom_node.dir/src/dlio/odom_node.cc.o[0m
+[ 97%] [32mBuilding CXX object CMakeFiles/dlio_odom_node.dir/src/dlio/odom.cc.o[0m
+[100%] [32m[1mLinking CXX executable dlio_odom_node[0m
+[100%] Built target dlio_odom_node
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/rosidl_interfaces/direct_lidar_inertial_odometry
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/srv/SavePCD.json
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_generator_c__visibility_control.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__functions.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__struct.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__type_support.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/save_pcd.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/library_path.sh
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/library_path.dsv
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__rosidl_typesupport_introspection_c.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__builder.hpp
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__struct.hpp
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__traits.hpp
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__type_support.hpp
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/save_pcd.hpp
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/pythonpath.sh
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/pythonpath.dsv
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry-1.1.1-py3.12.egg-info/PKG-INFO
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry-1.1.1-py3.12.egg-info/SOURCES.txt
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry-1.1.1-py3.12.egg-info/dependency_links.txt
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry-1.1.1-py3.12.egg-info/top_level.txt
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/__init__.py
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_c.c
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_introspection_c.c
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_c.so
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_fastrtps_c.so
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_introspection_c.so
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv/__init__.py
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv/_save_pcd.py
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv/_save_pcd_s.c
+-- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_introspection_c.so
+-- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_c.so
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/rust_packages/direct_lidar_inertial_odometry
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/Cargo.toml
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/build.rs
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/src/lib.rs
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/src/srv.rs
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/src/srv/rmw.rs
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/srv/SavePCD.idl
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/srv/SavePCD.srv
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/package_run_dependencies/direct_lidar_inertial_odometry
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/parent_prefix_path/direct_lidar_inertial_odometry
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/ament_prefix_path.sh
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/ament_prefix_path.dsv
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/path.sh
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/path.dsv
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/local_setup.bash
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/local_setup.sh
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/local_setup.zsh
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/local_setup.dsv
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/package.dsv
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/packages/direct_lidar_inertial_odometry
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/rosidl_cmake-extras.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometryConfig.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometryConfig-version.cmake
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/package.xml
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/direct_lidar_inertial_odometry/dlio_odom_node
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/direct_lidar_inertial_odometry/dlio_map_node
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cfg/dlio.yaml
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cfg/params.yaml
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/launch/dlio.launch.py
+-- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/launch/dlio.rviz
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_generator_c.so
+-- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_generator_c.so" to ""
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_c.so" to ""
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cpp.so
+-- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_introspection_cpp.so
+-- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_cpp.so
+-- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_cpp.so" to ""
+Listing '/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry'...
+Compiling '/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/__init__.py'...
+Listing '/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv'...
+Compiling '/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv/__init__.py'...
+Compiling '/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv/_save_pcd.py'...
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_generator_py.so
+-- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_generator_py.so" to ""
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_cExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_cExport-release.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cExport-release.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cExport-release.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_cExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_cExport-release.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_cppExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cppExport-release.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cppExport-release.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_cppExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_cppExport-release.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_pyExport.cmake
+-- Installing: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_pyExport-release.cmake

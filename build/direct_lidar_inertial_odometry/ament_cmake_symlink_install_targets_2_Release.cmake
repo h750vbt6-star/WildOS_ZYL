@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/root/ros2_ws/build/direct_lidar_inertial_odometry/rosidl_generator_py/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_c.so" "TARGETS" "direct_lidar_inertial_odometry_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/direct_lidar_inertial_odometry")

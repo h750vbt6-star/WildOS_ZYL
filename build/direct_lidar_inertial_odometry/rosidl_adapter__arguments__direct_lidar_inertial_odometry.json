@@ -1,0 +1,6 @@
+{
+  "package_name": "direct_lidar_inertial_odometry",
+  "non_idl_tuples": [
+    "/root/ros2_ws/src/direct_lidar_inertial_odometry-feature-ros2:srv/SavePCD.srv"
+  ]
+}
