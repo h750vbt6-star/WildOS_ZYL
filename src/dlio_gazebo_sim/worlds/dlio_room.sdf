@@ -4,6 +4,10 @@
     <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
     <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
     <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
 
     <light name="sun" type="directional">
       <pose>0 0 8 0 0 0</pose>
@@ -120,6 +124,22 @@
       <link name="link">
         <collision name="collision"><geometry><box><size>1.2 1.2 1.1</size></box></geometry></collision>
         <visual name="visual"><geometry><box><size>1.2 1.2 1.1</size></box></geometry><material><diffuse>0.55 0.55 0.30 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="low_step">
+      <static>true</static>
+      <pose>1.8 1.5 0.10 0 0 0.15</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>2.2 1.0 0.20</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>2.2 1.0 0.20</size></box></geometry><material><diffuse>0.35 0.55 0.55 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="small_ramp">
+      <static>true</static>
+      <pose>-2.7 -2.7 0.18 0 -0.18 0.2</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>2.4 1.0 0.16</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>2.4 1.0 0.16</size></box></geometry><material><diffuse>0.48 0.48 0.62 1</diffuse></material></visual>
       </link>
     </model>
 

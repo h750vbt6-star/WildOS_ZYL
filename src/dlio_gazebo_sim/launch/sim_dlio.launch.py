@@ -23,6 +23,8 @@ def generate_launch_description():
     start_delay = LaunchConfiguration('start_delay')
     auto_drive = LaunchConfiguration('auto_drive')
     launch_elevation = LaunchConfiguration('launch_elevation')
+    use_synthetic_sensors = LaunchConfiguration('use_synthetic_sensors')
+    use_gazebo_cloud_adapter = LaunchConfiguration('use_gazebo_cloud_adapter')
 
     gazebo_gui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -78,6 +80,8 @@ def generate_launch_description():
             '/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
             '/gazebo/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry',
             '/model/dlio_car/pose@geometry_msgs/msg/Pose[gz.msgs.Pose',
+            '/points_raw/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked',
+            '/imu_raw@sensor_msgs/msg/Imu[gz.msgs.IMU',
         ],
         output='screen',
     )
@@ -86,6 +90,7 @@ def generate_launch_description():
         package='dlio_gazebo_sim',
         executable='synthetic_dlio_sensors',
         output='screen',
+        condition=IfCondition(use_synthetic_sensors),
         parameters=[{
             'use_sim_time': True,
             'pointcloud_topic': '/points_raw',
@@ -93,6 +98,19 @@ def generate_launch_description():
             'start_delay': start_delay,
             'linear_x': linear_x,
             'angular_z': angular_z,
+        }],
+    )
+
+    gazebo_cloud_adapter = Node(
+        package='dlio_gazebo_sim',
+        executable='gazebo_cloud_adapter',
+        output='screen',
+        condition=IfCondition(use_gazebo_cloud_adapter),
+        parameters=[{
+            'use_sim_time': True,
+            'input_topic': '/points_raw/points',
+            'output_topic': '/points_raw',
+            'frame_id': 'lidar',
         }],
     )
 
@@ -118,10 +136,13 @@ def generate_launch_description():
         DeclareLaunchArgument('start_delay', default_value='4.0'),
         DeclareLaunchArgument('auto_drive', default_value='false'),
         DeclareLaunchArgument('launch_elevation', default_value='true'),
+        DeclareLaunchArgument('use_synthetic_sensors', default_value='false'),
+        DeclareLaunchArgument('use_gazebo_cloud_adapter', default_value='true'),
         SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', model_path),
         gazebo_gui,
         gazebo_headless,
         bridge,
+        gazebo_cloud_adapter,
         synthetic_sensors,
         circle_cmd,
         dlio,

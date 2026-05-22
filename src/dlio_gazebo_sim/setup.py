@@ -24,6 +24,7 @@ setup(
         'console_scripts': [
             'synthetic_dlio_sensors = dlio_gazebo_sim.synthetic_dlio_sensors:main',
             'circle_cmd = dlio_gazebo_sim.circle_cmd:main',
+            'gazebo_cloud_adapter = dlio_gazebo_sim.gazebo_cloud_adapter:main',
         ],
     },
 )
