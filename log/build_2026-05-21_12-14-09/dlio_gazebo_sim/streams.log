@@ -1,0 +1,33 @@
+[0.968s] Invoking command in '/root/ros2_ws/build/dlio_gazebo_sim': AMENT_PREFIX_PATH=/root/ros2_ws/install/direct_lidar_inertial_odometry:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/direct_lidar_inertial_odometry:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/root/ros2_ws/install/direct_lidar_inertial_odometry/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/dlio_gazebo_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/dlio_gazebo_sim/build --no-deps symlink_data
+[1.288s] running develop
+[1.477s] running egg_info
+[1.477s] creating dlio_gazebo_sim.egg-info
+[1.495s] writing dlio_gazebo_sim.egg-info/PKG-INFO
+[1.495s] writing dependency_links to dlio_gazebo_sim.egg-info/dependency_links.txt
+[1.495s] writing entry points to dlio_gazebo_sim.egg-info/entry_points.txt
+[1.495s] writing requirements to dlio_gazebo_sim.egg-info/requires.txt
+[1.495s] writing top-level names to dlio_gazebo_sim.egg-info/top_level.txt
+[1.496s] writing manifest file 'dlio_gazebo_sim.egg-info/SOURCES.txt'
+[1.532s] reading manifest file 'dlio_gazebo_sim.egg-info/SOURCES.txt'
+[1.533s] writing manifest file 'dlio_gazebo_sim.egg-info/SOURCES.txt'
+[1.552s] running build_ext
+[1.552s] Creating /root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages/dlio-gazebo-sim.egg-link (link to .)
+[1.553s] Installing circle_cmd script to /root/ros2_ws/install/dlio_gazebo_sim/lib/dlio_gazebo_sim
+[1.553s] Installing synthetic_dlio_sensors script to /root/ros2_ws/install/dlio_gazebo_sim/lib/dlio_gazebo_sim
+[1.553s] 
+[1.554s] Installed /root/ros2_ws/build/dlio_gazebo_sim
+[1.554s] running symlink_data
+[1.554s] creating /root/ros2_ws/install/dlio_gazebo_sim/share/ament_index
+[1.554s] creating /root/ros2_ws/install/dlio_gazebo_sim/share/ament_index/resource_index
+[1.554s] creating /root/ros2_ws/install/dlio_gazebo_sim/share/ament_index/resource_index/packages
+[1.554s] symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/resource/dlio_gazebo_sim -> /root/ros2_ws/install/dlio_gazebo_sim/share/ament_index/resource_index/packages
+[1.554s] symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/package.xml -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim
+[1.555s] creating /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/launch
+[1.555s] symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/launch/sim_dlio.launch.py -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/launch
+[1.555s] creating /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/models
+[1.555s] creating /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/models/dlio_car
+[1.555s] symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/models/dlio_car/model.config -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/models/dlio_car
+[1.555s] symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/models/dlio_car/model.sdf -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/models/dlio_car
+[1.555s] creating /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/worlds
+[1.555s] symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/worlds/dlio_room.sdf -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/worlds
+[1.582s] Invoked command in '/root/ros2_ws/build/dlio_gazebo_sim' returned '0': AMENT_PREFIX_PATH=/root/ros2_ws/install/direct_lidar_inertial_odometry:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/direct_lidar_inertial_odometry:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/root/ros2_ws/install/direct_lidar_inertial_odometry/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/dlio_gazebo_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/dlio_gazebo_sim/build --no-deps symlink_data

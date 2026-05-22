@@ -1,0 +1,31 @@
+running develop
+running egg_info
+creating dlio_gazebo_sim.egg-info
+writing dlio_gazebo_sim.egg-info/PKG-INFO
+writing dependency_links to dlio_gazebo_sim.egg-info/dependency_links.txt
+writing entry points to dlio_gazebo_sim.egg-info/entry_points.txt
+writing requirements to dlio_gazebo_sim.egg-info/requires.txt
+writing top-level names to dlio_gazebo_sim.egg-info/top_level.txt
+writing manifest file 'dlio_gazebo_sim.egg-info/SOURCES.txt'
+reading manifest file 'dlio_gazebo_sim.egg-info/SOURCES.txt'
+writing manifest file 'dlio_gazebo_sim.egg-info/SOURCES.txt'
+running build_ext
+Creating /root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages/dlio-gazebo-sim.egg-link (link to .)
+Installing circle_cmd script to /root/ros2_ws/install/dlio_gazebo_sim/lib/dlio_gazebo_sim
+Installing synthetic_dlio_sensors script to /root/ros2_ws/install/dlio_gazebo_sim/lib/dlio_gazebo_sim
+
+Installed /root/ros2_ws/build/dlio_gazebo_sim
+running symlink_data
+creating /root/ros2_ws/install/dlio_gazebo_sim/share/ament_index
+creating /root/ros2_ws/install/dlio_gazebo_sim/share/ament_index/resource_index
+creating /root/ros2_ws/install/dlio_gazebo_sim/share/ament_index/resource_index/packages
+symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/resource/dlio_gazebo_sim -> /root/ros2_ws/install/dlio_gazebo_sim/share/ament_index/resource_index/packages
+symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/package.xml -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim
+creating /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/launch
+symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/launch/sim_dlio.launch.py -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/launch
+creating /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/models
+creating /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/models/dlio_car
+symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/models/dlio_car/model.config -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/models/dlio_car
+symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/models/dlio_car/model.sdf -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/models/dlio_car
+creating /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/worlds
+symbolically linking /root/ros2_ws/build/dlio_gazebo_sim/worlds/dlio_room.sdf -> /root/ros2_ws/install/dlio_gazebo_sim/share/dlio_gazebo_sim/worlds

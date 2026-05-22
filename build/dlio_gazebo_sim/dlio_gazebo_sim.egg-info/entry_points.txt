@@ -1,0 +1,3 @@
+[console_scripts]
+circle_cmd = dlio_gazebo_sim.circle_cmd:main
+synthetic_dlio_sensors = dlio_gazebo_sim.synthetic_dlio_sensors:main

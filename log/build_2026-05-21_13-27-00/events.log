@@ -1,0 +1,46 @@
+[0.000000] (-) TimerEvent: {}
+[0.000070] (-) JobUnselected: {'identifier': 'direct_lidar_inertial_odometry'}
+[0.000246] (-) JobUnselected: {'identifier': 'gps_visualization'}
+[0.000328] (-) JobUnselected: {'identifier': 'graaf_vendor'}
+[0.000491] (-) JobUnselected: {'identifier': 'graphnav_builder'}
+[0.000523] (-) JobUnselected: {'identifier': 'graphnav_msgs'}
+[0.000693] (-) JobUnselected: {'identifier': 'graphnav_planner'}
+[0.000860] (-) JobUnselected: {'identifier': 'object_search_msgs'}
+[0.000902] (-) JobUnselected: {'identifier': 'triangulation3d'}
+[0.000934] (-) JobUnselected: {'identifier': 'visual_navigation'}
+[0.000964] (dlio_gazebo_sim) JobQueued: {'identifier': 'dlio_gazebo_sim', 'dependencies': OrderedDict({'direct_lidar_inertial_odometry': '/root/ros2_ws/install/direct_lidar_inertial_odometry'})}
+[0.001013] (dlio_gazebo_sim) JobStarted: {'identifier': 'dlio_gazebo_sim'}
+[0.099808] (-) TimerEvent: {}
+[0.199947] (-) TimerEvent: {}
+[0.300121] (-) TimerEvent: {}
+[0.400232] (-) TimerEvent: {}
+[0.500390] (-) TimerEvent: {}
+[0.600544] (-) TimerEvent: {}
+[0.700728] (-) TimerEvent: {}
+[0.800895] (-) TimerEvent: {}
+[0.901123] (-) TimerEvent: {}
+[0.917828] (dlio_gazebo_sim) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/root/ros2_ws/build/dlio_gazebo_sim/build', '--no-deps', 'symlink_data'], 'cwd': '/root/ros2_ws/build/dlio_gazebo_sim', 'env': {'VSCODE_CWD': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'HTTPS_PROXY': 'http://127.0.0.1:10808', 'CODEX_CI': '1', 'CODEX_INTERNAL_ORIGINATOR_OVERRIDE': 'codex_vscode', 'VSCODE_NLS_CONFIG': '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/out/nls.messages.json","locale":"en","availableLanguages":{}}', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'HOSTNAME': 'nx-NHx0DB-DE', '__GLX_VENDOR_LIBRARY_NAME': 'nvidia', 'DEBUG': 'release', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/root/ros2_ws/install/direct_lidar_inertial_odometry/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/helpers/browser.sh', 'HOME': '/root', 'VSCODE_RECONNECTION_GRACE_TIME': '10800000', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-197d5041-ce8d-4464-a835-9f5531d071dd.sock', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'COLORTERM': '', 'REMOTE_CONTAINERS': 'true', 'NODE_TLS_REJECT_UNAUTHORIZED': '0', 'APPLICATION_INSIGHTS_NO_STATSBEAT': 'true', 'ROS_DISTRO': 'jazzy', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-eeb7fca6-d24e-4881-8ce2-9908684f6bef.sock', '__VK_LAYER_NV_optimus': 'NVIDIA_only', 'VSCODE_HANDLES_SIGPIPE': 'true', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'RUST_LOG': 'warn', 'TERM': 'dumb', 'QT_X11_NO_MITSHM': '1', 'PATH': '/root/.codex/tmp/arg0/codex-arg0XGWsZ8:/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/extensions/openai.chatgpt-26.513.21555-linux-x64/bin/linux-x86_64', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-eeb7fca6-d24e-4881-8ce2-9908684f6bef.sock","/root/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'C.UTF-8', '__NV_PRIME_RENDER_OFFLOAD': '1', 'GH_PAGER': 'cat', 'LS_COLORS': '', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-eeb7fca6-d24e-4881-8ce2-9908684f6bef.sock', 'AMENT_PREFIX_PATH': '/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'ELECTRON_RUN_AS_NODE': '1', 'CODEX_THREAD_ID': '019e4a28-5602-71b0-9319-0c80bbafcb27', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'PWD': '/root/ros2_ws/build/dlio_gazebo_sim', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/ros2_ws/build/dlio_gazebo_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:10808', 'NVIDIA_VISIBLE_DEVICES': 'all', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[1.001220] (-) TimerEvent: {}
+[1.101367] (-) TimerEvent: {}
+[1.201494] (-) TimerEvent: {}
+[1.211891] (dlio_gazebo_sim) StdoutLine: {'line': b'running develop\n'}
+[1.301609] (-) TimerEvent: {}
+[1.383157] (dlio_gazebo_sim) StdoutLine: {'line': b'running egg_info\n'}
+[1.399554] (dlio_gazebo_sim) StdoutLine: {'line': b'writing dlio_gazebo_sim.egg-info/PKG-INFO\n'}
+[1.399782] (dlio_gazebo_sim) StdoutLine: {'line': b'writing dependency_links to dlio_gazebo_sim.egg-info/dependency_links.txt\n'}
+[1.400026] (dlio_gazebo_sim) StdoutLine: {'line': b'writing entry points to dlio_gazebo_sim.egg-info/entry_points.txt\n'}
+[1.400244] (dlio_gazebo_sim) StdoutLine: {'line': b'writing requirements to dlio_gazebo_sim.egg-info/requires.txt\n'}
+[1.400322] (dlio_gazebo_sim) StdoutLine: {'line': b'writing top-level names to dlio_gazebo_sim.egg-info/top_level.txt\n'}
+[1.401671] (-) TimerEvent: {}
+[1.434624] (dlio_gazebo_sim) StdoutLine: {'line': b"reading manifest file 'dlio_gazebo_sim.egg-info/SOURCES.txt'\n"}
+[1.435294] (dlio_gazebo_sim) StdoutLine: {'line': b"writing manifest file 'dlio_gazebo_sim.egg-info/SOURCES.txt'\n"}
+[1.453029] (dlio_gazebo_sim) StdoutLine: {'line': b'running build_ext\n'}
+[1.453225] (dlio_gazebo_sim) StdoutLine: {'line': b'Creating /root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages/dlio-gazebo-sim.egg-link (link to .)\n'}
+[1.453734] (dlio_gazebo_sim) StdoutLine: {'line': b'Installing circle_cmd script to /root/ros2_ws/install/dlio_gazebo_sim/lib/dlio_gazebo_sim\n'}
+[1.453937] (dlio_gazebo_sim) StdoutLine: {'line': b'Installing synthetic_dlio_sensors script to /root/ros2_ws/install/dlio_gazebo_sim/lib/dlio_gazebo_sim\n'}
+[1.454111] (dlio_gazebo_sim) StdoutLine: {'line': b'\n'}
+[1.454325] (dlio_gazebo_sim) StdoutLine: {'line': b'Installed /root/ros2_ws/build/dlio_gazebo_sim\n'}
+[1.454409] (dlio_gazebo_sim) StdoutLine: {'line': b'running symlink_data\n'}
+[1.478081] (dlio_gazebo_sim) CommandEnded: {'returncode': 0}
+[1.489198] (dlio_gazebo_sim) JobEnded: {'identifier': 'dlio_gazebo_sim', 'rc': 0}
+[1.489964] (-) EventReactorShutdown: {}

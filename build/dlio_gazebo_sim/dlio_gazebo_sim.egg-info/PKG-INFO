@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: dlio-gazebo-sim
+Version: 0.0.1
+Summary: Gazebo simulation helpers for DLIO.
+Maintainer: ros2_ws
+Maintainer-email: user@example.com
+License: MIT
