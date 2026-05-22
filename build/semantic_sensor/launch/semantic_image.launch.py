@@ -1,0 +1,1 @@
+/root/ros2_ws/src/elevation_mapping_cupy/sensor_processing/semantic_sensor/launch/semantic_image.launch.py

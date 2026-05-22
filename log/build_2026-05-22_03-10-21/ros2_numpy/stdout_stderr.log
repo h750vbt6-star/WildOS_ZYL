@@ -1,0 +1,75 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found sensor_msgs: 5.3.7 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found nav_msgs: 5.3.7 (/opt/ros/jazzy/share/nav_msgs/cmake)
+-- Found rclpy: 7.1.11 (/opt/ros/jazzy/share/rclpy/cmake)
+-- Found ament_cmake_pytest: 2.5.6 (/opt/ros/jazzy/share/ament_cmake_pytest/cmake)
+-- Configuring done (3.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /root/ros2_ws/build/ros2_numpy
+Built target ament_cmake_python_symlink_ros2_numpy
+running egg_info
+creating ros2_numpy.egg-info
+writing ros2_numpy.egg-info/PKG-INFO
+writing dependency_links to ros2_numpy.egg-info/dependency_links.txt
+writing top-level names to ros2_numpy.egg-info/top_level.txt
+writing manifest file 'ros2_numpy.egg-info/SOURCES.txt'
+reading manifest file 'ros2_numpy.egg-info/SOURCES.txt'
+writing manifest file 'ros2_numpy.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_ros2_numpy_egg
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/pythonpath.sh
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/pythonpath.dsv
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy-2.0.12-py3.12.egg-info/PKG-INFO
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy-2.0.12-py3.12.egg-info/SOURCES.txt
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy-2.0.12-py3.12.egg-info/dependency_links.txt
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy-2.0.12-py3.12.egg-info/top_level.txt
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/__init__.py
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/geometry.py
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/image.py
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/laser_scan.py
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/occupancy_grid.py
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/point_cloud2.py
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/registry.py
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ament_index/resource_index/package_run_dependencies/ros2_numpy
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ament_index/resource_index/parent_prefix_path/ros2_numpy
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/ament_prefix_path.sh
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/ament_prefix_path.dsv
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/path.sh
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/path.dsv
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/local_setup.bash
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/local_setup.sh
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/local_setup.zsh
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/local_setup.dsv
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.dsv
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ament_index/resource_index/packages/ros2_numpy
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/cmake/ros2_numpyConfig.cmake
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/cmake/ros2_numpyConfig-version.cmake
+-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.xml
+Listing '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy'...
+Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/__init__.py'...
+Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/geometry.py'...
+Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/image.py'...
+Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/laser_scan.py'...
+Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/occupancy_grid.py'...
+Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/point_cloud2.py'...
+Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/registry.py'...

@@ -1,0 +1,9 @@
+{
+  "package_name": "elevation_map_msgs",
+  "non_idl_tuples": [
+    "/root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs:msg/Statistics.msg",
+    "/root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs:msg/ChannelInfo.msg",
+    "/root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs:srv/CheckSafety.srv",
+    "/root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs:srv/Initialize.srv"
+  ]
+}

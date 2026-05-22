@@ -1,0 +1,1 @@
+/root/ros2_ws/build/ros2_numpy/ament_cmake_core/ros2_numpyConfig-version.cmake

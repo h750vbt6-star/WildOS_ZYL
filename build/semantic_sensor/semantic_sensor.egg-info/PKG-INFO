@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: semantic-sensor
+Version: 2.1.0
+Summary: Semantic image and semantic pointcloud publishers for elevation_mapping_cupy
+Maintainer: Lorenzo Terenzi
+Maintainer-email: lorenzoterenzi96@gmail.com
+License: MIT

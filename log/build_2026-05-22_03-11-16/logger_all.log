@@ -1,0 +1,694 @@
+[0.105s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install', '--packages-up-to', 'semantic_sensor', 'elevation_mapping_cupy']
+[0.106s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=['semantic_sensor', 'elevation_mapping_cupy'], packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7088922dea20>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7088922de510>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7088922de510>>, mixin_verb=('build',))
+[0.138s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.139s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/Gazebo.meta'
+[0.139s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastdds.meta'
+[0.140s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastrtps.meta'
+[0.140s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.140s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.140s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.140s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.140s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.140s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/root/ros2_ws'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.140s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extension 'ignore'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extension 'ignore_ament_install'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extensions ['colcon_pkg']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extension 'colcon_pkg'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extensions ['colcon_meta']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extension 'colcon_meta'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extensions ['ros']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/direct_lidar_inertial_odometry-feature-ros2) by extension 'ros'
+[0.167s] DEBUG:colcon.colcon_core.package_identification:Package 'src/direct_lidar_inertial_odometry-feature-ros2' with type 'ros.ament_cmake' and name 'direct_lidar_inertial_odometry'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extension 'ignore'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extension 'ignore_ament_install'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extensions ['colcon_pkg']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extension 'colcon_pkg'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extensions ['colcon_meta']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extension 'colcon_meta'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extensions ['ros']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(src/dlio_gazebo_sim) by extension 'ros'
+[0.167s] DEBUG:colcon.colcon_core.package_identification:Package 'src/dlio_gazebo_sim' with type 'ros.ament_python' and name 'dlio_gazebo_sim'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extensions ['ignore', 'ignore_ament_install']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extension 'ignore'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extension 'ignore_ament_install'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extensions ['colcon_pkg']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extension 'colcon_pkg'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extensions ['colcon_meta']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extension 'colcon_meta'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extensions ['ros']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extension 'ros'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extensions ['cmake', 'python']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extension 'cmake'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extension 'python'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extensions ['python_setup_py']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy) by extension 'python_setup_py'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extensions ['ignore', 'ignore_ament_install']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extension 'ignore'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extension 'ignore_ament_install'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extensions ['colcon_pkg']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extension 'colcon_pkg'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extensions ['colcon_meta']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extension 'colcon_meta'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extensions ['ros']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extension 'ros'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extensions ['cmake', 'python']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extension 'cmake'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extension 'python'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extensions ['python_setup_py']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docker) by extension 'python_setup_py'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extensions ['ignore', 'ignore_ament_install']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extension 'ignore'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extension 'ignore_ament_install'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extensions ['colcon_pkg']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extension 'colcon_pkg'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extensions ['colcon_meta']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extension 'colcon_meta'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extensions ['ros']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extension 'ros'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extensions ['cmake', 'python']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extension 'cmake'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extension 'python'
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extensions ['python_setup_py']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs) by extension 'python_setup_py'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extensions ['ignore', 'ignore_ament_install']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extension 'ignore'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extension 'ignore_ament_install'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extensions ['colcon_pkg']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extension 'colcon_pkg'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extensions ['colcon_meta']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extension 'colcon_meta'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extensions ['ros']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extension 'ros'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extensions ['cmake', 'python']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extension 'cmake'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extension 'python'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extensions ['python_setup_py']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/media) by extension 'python_setup_py'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extensions ['ignore', 'ignore_ament_install']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extension 'ignore'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extension 'ignore_ament_install'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extensions ['colcon_pkg']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extension 'colcon_pkg'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extensions ['colcon_meta']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extension 'colcon_meta'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extensions ['ros']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extension 'ros'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extensions ['cmake', 'python']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extension 'cmake'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extension 'python'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extensions ['python_setup_py']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/reviews) by extension 'python_setup_py'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extensions ['ignore', 'ignore_ament_install']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extension 'ignore'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extension 'ignore_ament_install'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extensions ['colcon_pkg']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extension 'colcon_pkg'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extensions ['colcon_meta']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extension 'colcon_meta'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extensions ['ros']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extension 'ros'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extensions ['cmake', 'python']
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extension 'cmake'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extension 'python'
+[0.171s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extensions ['python_setup_py']
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source) by extension 'python_setup_py'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extensions ['ignore', 'ignore_ament_install']
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extension 'ignore'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extension 'ignore_ament_install'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extensions ['colcon_pkg']
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extension 'colcon_pkg'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extensions ['colcon_meta']
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extension 'colcon_meta'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extensions ['ros']
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extension 'ros'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extensions ['cmake', 'python']
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extension 'cmake'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extension 'python'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extensions ['python_setup_py']
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/getting_started) by extension 'python_setup_py'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extensions ['ignore', 'ignore_ament_install']
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extension 'ignore'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extension 'ignore_ament_install'
+[0.172s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extensions ['colcon_pkg']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extension 'colcon_pkg'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extensions ['colcon_meta']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extension 'colcon_meta'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extensions ['ros']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extension 'ros'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extensions ['cmake', 'python']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extension 'cmake'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extension 'python'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extensions ['python_setup_py']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/python) by extension 'python_setup_py'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extensions ['ignore', 'ignore_ament_install']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extension 'ignore'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extension 'ignore_ament_install'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extensions ['colcon_pkg']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extension 'colcon_pkg'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extensions ['colcon_meta']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extension 'colcon_meta'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extensions ['ros']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extension 'ros'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extensions ['cmake', 'python']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extension 'cmake'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extension 'python'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extensions ['python_setup_py']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/release_notes) by extension 'python_setup_py'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extensions ['ignore', 'ignore_ament_install']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extension 'ignore'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extension 'ignore_ament_install'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extensions ['colcon_pkg']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extension 'colcon_pkg'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extensions ['colcon_meta']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extension 'colcon_meta'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extensions ['ros']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extension 'ros'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extensions ['cmake', 'python']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extension 'cmake'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extension 'python'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extensions ['python_setup_py']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/docs/source/usage) by extension 'python_setup_py'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extension 'ignore'
+[0.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extension 'ignore_ament_install'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extensions ['colcon_pkg']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extension 'colcon_pkg'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extensions ['colcon_meta']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extension 'colcon_meta'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extensions ['ros']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_map_msgs) by extension 'ros'
+[0.175s] DEBUG:colcon.colcon_core.package_identification:Package 'src/elevation_mapping_cupy/elevation_map_msgs' with type 'ros.ament_cmake' and name 'elevation_map_msgs'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extensions ['ignore', 'ignore_ament_install']
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extension 'ignore'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extension 'ignore_ament_install'
+[0.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extensions ['colcon_pkg']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extension 'colcon_pkg'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extensions ['colcon_meta']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extension 'colcon_meta'
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extensions ['ros']
+[0.176s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/elevation_mapping_cupy) by extension 'ros'
+[0.177s] DEBUG:colcon.colcon_core.package_identification:Package 'src/elevation_mapping_cupy/elevation_mapping_cupy' with type 'ros.ament_cmake' and name 'elevation_mapping_cupy'
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/plane_segmentation) by extensions ['ignore', 'ignore_ament_install']
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/plane_segmentation) by extension 'ignore'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/plane_segmentation) ignored
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extension 'ignore'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extension 'ignore_ament_install'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extensions ['colcon_pkg']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extension 'colcon_pkg'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extensions ['colcon_meta']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extension 'colcon_meta'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extensions ['ros']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extension 'ros'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extensions ['cmake', 'python']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extension 'cmake'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extension 'python'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extensions ['python_setup_py']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts) by extension 'python_setup_py'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extensions ['ignore', 'ignore_ament_install']
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extension 'ignore'
+[0.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extension 'ignore_ament_install'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extensions ['colcon_pkg']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extension 'colcon_pkg'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extensions ['colcon_meta']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extension 'colcon_meta'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extensions ['ros']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extension 'ros'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extensions ['cmake', 'python']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extension 'cmake'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extension 'python'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extensions ['python_setup_py']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/scripts/ci) by extension 'python_setup_py'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extensions ['ignore', 'ignore_ament_install']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extension 'ignore'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extension 'ignore_ament_install'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extensions ['colcon_pkg']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extension 'colcon_pkg'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extensions ['colcon_meta']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extension 'colcon_meta'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extensions ['ros']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extension 'ros'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extensions ['cmake', 'python']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extension 'cmake'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extension 'python'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extensions ['python_setup_py']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing) by extension 'python_setup_py'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extensions ['ignore', 'ignore_ament_install']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extension 'ignore'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extension 'ignore_ament_install'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extensions ['colcon_pkg']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extension 'colcon_pkg'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extensions ['colcon_meta']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extension 'colcon_meta'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extensions ['ros']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/elevation_mapping_cupy/sensor_processing/semantic_sensor) by extension 'ros'
+[0.181s] DEBUG:colcon.colcon_core.package_identification:Package 'src/elevation_mapping_cupy/sensor_processing/semantic_sensor' with type 'ros.ament_python' and name 'semantic_sensor'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extensions ['ignore', 'ignore_ament_install']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extension 'ignore'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extension 'ignore_ament_install'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extensions ['colcon_pkg']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extension 'colcon_pkg'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extensions ['colcon_meta']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extension 'colcon_meta'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extensions ['ros']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extension 'ros'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extensions ['cmake', 'python']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extension 'cmake'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extension 'python'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extensions ['python_setup_py']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main) by extension 'python_setup_py'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/assets) by extensions ['ignore', 'ignore_ament_install']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/assets) by extension 'ignore'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/assets) ignored
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extensions ['ignore', 'ignore_ament_install']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extension 'ignore'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extension 'ignore_ament_install'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extensions ['colcon_pkg']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extension 'colcon_pkg'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extensions ['colcon_meta']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extension 'colcon_meta'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extensions ['ros']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extension 'ros'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extensions ['cmake', 'python']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extension 'cmake'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extension 'python'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extensions ['python_setup_py']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/ckpts) by extension 'python_setup_py'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/explorfm) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/explorfm) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/explorfm) ignored
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/explorfm_trainer) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/explorfm_trainer) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/explorfm_trainer) ignored
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extensions ['ignore', 'ignore_ament_install']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extension 'ignore'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extension 'ignore_ament_install'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extensions ['colcon_pkg']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extension 'colcon_pkg'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extensions ['colcon_meta']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extension 'colcon_meta'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extensions ['ros']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/gps_visualization) by extension 'ros'
+[0.185s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nebula2-wildos-main/gps_visualization' with type 'ros.ament_cmake' and name 'gps_visualization'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extension 'ignore_ament_install'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extensions ['colcon_pkg']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graaf_vendor) by extension 'ros'
+[0.185s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nebula2-wildos-main/graaf_vendor' with type 'ros.ament_cmake' and name 'graaf_vendor'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extension 'colcon_pkg'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extensions ['colcon_meta']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extension 'colcon_meta'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extensions ['ros']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_builder) by extension 'ros'
+[0.186s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nebula2-wildos-main/graphnav_builder' with type 'ros.ament_python' and name 'graphnav_builder'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extension 'ignore'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extension 'ignore_ament_install'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extensions ['colcon_pkg']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extension 'colcon_pkg'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extensions ['colcon_meta']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_msgs) by extension 'ros'
+[0.187s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nebula2-wildos-main/graphnav_msgs' with type 'ros.ament_cmake' and name 'graphnav_msgs'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extension 'ignore_ament_install'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extensions ['colcon_pkg']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extension 'colcon_pkg'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extensions ['colcon_meta']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extension 'colcon_meta'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extensions ['ros']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/graphnav_planner) by extension 'ros'
+[0.189s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nebula2-wildos-main/graphnav_planner' with type 'ros.ament_cmake' and name 'graphnav_planner'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/nvidia_radio) by extensions ['ignore', 'ignore_ament_install']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/nvidia_radio) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/nvidia_radio) ignored
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extension 'ignore_ament_install'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extensions ['colcon_pkg']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extension 'colcon_pkg'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extensions ['colcon_meta']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extension 'colcon_meta'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extensions ['ros']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/object_search_msgs) by extension 'ros'
+[0.190s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nebula2-wildos-main/object_search_msgs' with type 'ros.ament_cmake' and name 'object_search_msgs'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extensions ['ignore', 'ignore_ament_install']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extension 'ignore'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extension 'ignore_ament_install'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extensions ['colcon_pkg']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extension 'colcon_pkg'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extensions ['colcon_meta']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extension 'colcon_meta'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extensions ['ros']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/triangulation3d) by extension 'ros'
+[0.191s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nebula2-wildos-main/triangulation3d' with type 'ros.ament_python' and name 'triangulation3d'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extensions ['ignore', 'ignore_ament_install']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extension 'ignore'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extension 'ignore_ament_install'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extensions ['colcon_pkg']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extension 'colcon_pkg'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extensions ['colcon_meta']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extension 'colcon_meta'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extensions ['ros']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/nebula2-wildos-main/visual_navigation) by extension 'ros'
+[0.192s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nebula2-wildos-main/visual_navigation' with type 'ros.ament_python' and name 'visual_navigation'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extension 'ignore'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extension 'ignore_ament_install'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extensions ['colcon_pkg']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extension 'colcon_pkg'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extensions ['colcon_meta']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extension 'colcon_meta'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extensions ['ros']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros2_numpy) by extension 'ros'
+[0.193s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros2_numpy' with type 'ros.ament_cmake' and name 'ros2_numpy'
+[0.193s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.193s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.193s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.193s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.193s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'visual_navigation' in 'src/nebula2-wildos-main/visual_navigation'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'graphnav_planner' in 'src/nebula2-wildos-main/graphnav_planner'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'graphnav_builder' in 'src/nebula2-wildos-main/graphnav_builder'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'dlio_gazebo_sim' in 'src/dlio_gazebo_sim'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'triangulation3d' in 'src/nebula2-wildos-main/triangulation3d'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'object_search_msgs' in 'src/nebula2-wildos-main/object_search_msgs'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'graphnav_msgs' in 'src/nebula2-wildos-main/graphnav_msgs'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'graaf_vendor' in 'src/nebula2-wildos-main/graaf_vendor'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'gps_visualization' in 'src/nebula2-wildos-main/gps_visualization'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping package 'direct_lidar_inertial_odometry' in 'src/direct_lidar_inertial_odometry-feature-ros2'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'cmake_args' from command line to 'None'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'cmake_target' from command line to 'None'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.212s] Level 5:colcon.colcon_core.verb:set package 'elevation_map_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.212s] DEBUG:colcon.colcon_core.verb:Building package 'elevation_map_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/elevation_map_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/elevation_map_msgs', 'merge_install': False, 'path': '/root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs', 'symlink_install': True, 'test_result_base': None}
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'cmake_args' from command line to 'None'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'cmake_target' from command line to 'None'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'cmake_clean_cache' from command line to 'False'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'cmake_clean_first' from command line to 'False'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'cmake_force_configure' from command line to 'False'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'ament_cmake_args' from command line to 'None'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'catkin_cmake_args' from command line to 'None'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'ros2_numpy' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.213s] DEBUG:colcon.colcon_core.verb:Building package 'ros2_numpy' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/ros2_numpy', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/ros2_numpy', 'merge_install': False, 'path': '/root/ros2_ws/src/ros2_numpy', 'symlink_install': True, 'test_result_base': None}
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'cmake_args' from command line to 'None'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'cmake_target' from command line to 'None'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'cmake_clean_cache' from command line to 'False'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'cmake_clean_first' from command line to 'False'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'cmake_force_configure' from command line to 'False'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'ament_cmake_args' from command line to 'None'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'catkin_cmake_args' from command line to 'None'
+[0.213s] Level 5:colcon.colcon_core.verb:set package 'semantic_sensor' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.213s] DEBUG:colcon.colcon_core.verb:Building package 'semantic_sensor' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/semantic_sensor', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/semantic_sensor', 'merge_install': False, 'path': '/root/ros2_ws/src/elevation_mapping_cupy/sensor_processing/semantic_sensor', 'symlink_install': True, 'test_result_base': None}
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'cmake_args' from command line to 'None'
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'cmake_target' from command line to 'None'
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'cmake_clean_cache' from command line to 'False'
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'cmake_clean_first' from command line to 'False'
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'cmake_force_configure' from command line to 'False'
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'ament_cmake_args' from command line to 'None'
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'catkin_cmake_args' from command line to 'None'
+[0.214s] Level 5:colcon.colcon_core.verb:set package 'elevation_mapping_cupy' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.214s] DEBUG:colcon.colcon_core.verb:Building package 'elevation_mapping_cupy' with the following arguments: {'ament_cmake_args': None, 'build_base': '/root/ros2_ws/build/elevation_mapping_cupy', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/root/ros2_ws/install/elevation_mapping_cupy', 'merge_install': False, 'path': '/root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy', 'symlink_install': True, 'test_result_base': None}
+[0.214s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.215s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.215s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs' with build type 'ament_cmake'
+[0.215s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs'
+[0.217s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.217s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.217s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.222s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/ros2_numpy' with build type 'ament_cmake'
+[0.222s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/ros2_numpy'
+[0.222s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.222s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.230s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/elevation_map_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake /root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/elevation_map_msgs
+[0.238s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/ros2_numpy': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake --build /root/ros2_ws/build/ros2_numpy -- -j8 -l8
+[0.646s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/ros2_numpy' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake --build /root/ros2_ws/build/ros2_numpy -- -j8 -l8
+[0.654s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/ros2_numpy': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake --install /root/ros2_ws/build/ros2_numpy
+[0.721s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros2_numpy)
+[0.723s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/ros2_numpy' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake --install /root/ros2_ws/build/ros2_numpy
+[0.725s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy' for CMake module files
+[0.726s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy' for CMake config files
+[0.726s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_numpy', 'cmake_prefix_path')
+[0.726s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/cmake_prefix_path.ps1'
+[0.727s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/cmake_prefix_path.dsv'
+[0.727s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/cmake_prefix_path.sh'
+[0.728s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/lib'
+[0.728s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/bin'
+[0.728s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/lib/pkgconfig/ros2_numpy.pc'
+[0.731s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages'
+[0.731s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_numpy', 'pythonpath')
+[0.732s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/pythonpath.ps1'
+[0.732s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/pythonpath.dsv'
+[0.732s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/pythonpath.sh'
+[0.733s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/bin'
+[0.733s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.ps1'
+[0.734s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.dsv'
+[0.735s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.sh'
+[0.736s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.bash'
+[0.737s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.zsh'
+[0.738s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/ros2_numpy/share/colcon-core/packages/ros2_numpy)
+[0.739s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros2_numpy)
+[0.739s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy' for CMake module files
+[0.740s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy' for CMake config files
+[0.740s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_numpy', 'cmake_prefix_path')
+[0.740s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/cmake_prefix_path.ps1'
+[0.741s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/cmake_prefix_path.dsv'
+[0.741s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/cmake_prefix_path.sh'
+[0.742s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/lib'
+[0.742s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/bin'
+[0.742s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/lib/pkgconfig/ros2_numpy.pc'
+[0.742s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages'
+[0.742s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros2_numpy', 'pythonpath')
+[0.742s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/pythonpath.ps1'
+[0.743s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/pythonpath.dsv'
+[0.744s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/hook/pythonpath.sh'
+[0.746s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/ros2_numpy/bin'
+[0.746s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.ps1'
+[0.747s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.dsv'
+[0.747s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.sh'
+[0.748s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.bash'
+[0.748s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.zsh'
+[0.749s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/ros2_numpy/share/colcon-core/packages/ros2_numpy)
+[3.588s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/elevation_map_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake /root/ros2_ws/src/elevation_mapping_cupy/elevation_map_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/elevation_map_msgs
+[3.588s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/elevation_map_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake --build /root/ros2_ws/build/elevation_map_msgs -- -j8 -l8
+[8.553s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/elevation_map_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake --build /root/ros2_ws/build/elevation_map_msgs -- -j8 -l8
+[8.555s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/elevation_map_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake --install /root/ros2_ws/build/elevation_map_msgs
+[9.579s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(elevation_map_msgs)
+[9.580s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs' for CMake module files
+[9.580s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/elevation_map_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy /usr/bin/cmake --install /root/ros2_ws/build/elevation_map_msgs
+[9.581s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs' for CMake config files
+[9.581s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_map_msgs', 'cmake_prefix_path')
+[9.581s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/cmake_prefix_path.ps1'
+[9.581s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/cmake_prefix_path.dsv'
+[9.582s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/cmake_prefix_path.sh'
+[9.582s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/lib'
+[9.582s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_map_msgs', 'ld_library_path_lib')
+[9.582s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/ld_library_path_lib.ps1'
+[9.583s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/ld_library_path_lib.dsv'
+[9.583s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/ld_library_path_lib.sh'
+[9.583s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/bin'
+[9.583s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/lib/pkgconfig/elevation_map_msgs.pc'
+[9.584s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages'
+[9.584s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_map_msgs', 'pythonpath')
+[9.584s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/pythonpath.ps1'
+[9.584s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/pythonpath.dsv'
+[9.585s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/pythonpath.sh'
+[9.585s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/bin'
+[9.585s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.ps1'
+[9.586s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.dsv'
+[9.586s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.sh'
+[9.587s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.bash'
+[9.587s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.zsh'
+[9.587s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/elevation_map_msgs/share/colcon-core/packages/elevation_map_msgs)
+[9.588s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(elevation_map_msgs)
+[9.588s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs' for CMake module files
+[9.589s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs' for CMake config files
+[9.589s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_map_msgs', 'cmake_prefix_path')
+[9.589s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/cmake_prefix_path.ps1'
+[9.590s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/cmake_prefix_path.dsv'
+[9.590s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/cmake_prefix_path.sh'
+[9.591s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/lib'
+[9.591s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_map_msgs', 'ld_library_path_lib')
+[9.591s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/ld_library_path_lib.ps1'
+[9.591s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/ld_library_path_lib.dsv'
+[9.592s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/ld_library_path_lib.sh'
+[9.592s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/bin'
+[9.592s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/lib/pkgconfig/elevation_map_msgs.pc'
+[9.592s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages'
+[9.592s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_map_msgs', 'pythonpath')
+[9.593s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/pythonpath.ps1'
+[9.593s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/pythonpath.dsv'
+[9.593s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/hook/pythonpath.sh'
+[9.594s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_map_msgs/bin'
+[9.594s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.ps1'
+[9.595s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.dsv'
+[9.596s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.sh'
+[9.596s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.bash'
+[9.596s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_map_msgs/share/elevation_map_msgs/package.zsh'
+[9.597s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/elevation_map_msgs/share/colcon-core/packages/elevation_map_msgs)
+[9.597s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/root/ros2_ws/src/elevation_mapping_cupy/sensor_processing/semantic_sensor' with build type 'ament_python'
+[9.597s] Level 1:colcon.colcon_core.shell:create_environment_hook('semantic_sensor', 'ament_prefix_path')
+[9.597s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/hook/ament_prefix_path.ps1'
+[9.598s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/hook/ament_prefix_path.dsv'
+[9.599s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/hook/ament_prefix_path.sh'
+[9.599s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[9.599s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[9.818s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/root/ros2_ws/src/elevation_mapping_cupy/sensor_processing/semantic_sensor'
+[9.819s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[9.819s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.495s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/semantic_sensor': AMENT_PREFIX_PATH=/root/ros2_ws/install/elevation_map_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/ros2_numpy:/root/ros2_ws/install/elevation_map_msgs:/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor LD_LIBRARY_PATH=/root/ros2_ws/install/elevation_map_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/semantic_sensor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages:/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages:/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages:/root/ros2_ws/build/dlio_gazebo_sim:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/semantic_sensor/build --no-deps symlink_data
+[11.131s] Level 1:colcon.colcon_core.shell:create_environment_hook('semantic_sensor', 'pythonpath_develop')
+[11.131s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/build/semantic_sensor/share/semantic_sensor/hook/pythonpath_develop.ps1'
+[11.132s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/semantic_sensor' returned '0': AMENT_PREFIX_PATH=/root/ros2_ws/install/elevation_map_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/ros2_numpy:/root/ros2_ws/install/elevation_map_msgs:/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor LD_LIBRARY_PATH=/root/ros2_ws/install/elevation_map_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/semantic_sensor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages:/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages:/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages:/root/ros2_ws/build/dlio_gazebo_sim:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/semantic_sensor/build --no-deps symlink_data
+[11.132s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/build/semantic_sensor/share/semantic_sensor/hook/pythonpath_develop.dsv'
+[11.132s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/build/semantic_sensor/share/semantic_sensor/hook/pythonpath_develop.sh'
+[11.133s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/semantic_sensor' for CMake module files
+[11.133s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/semantic_sensor' for CMake config files
+[11.133s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/semantic_sensor/lib'
+[11.134s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/semantic_sensor/bin'
+[11.134s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/semantic_sensor/lib/pkgconfig/semantic_sensor.pc'
+[11.134s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages'
+[11.134s] Level 1:colcon.colcon_core.shell:create_environment_hook('semantic_sensor', 'pythonpath')
+[11.134s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/hook/pythonpath.ps1'
+[11.134s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/hook/pythonpath.dsv'
+[11.135s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/hook/pythonpath.sh'
+[11.135s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/semantic_sensor/bin'
+[11.135s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(semantic_sensor)
+[11.135s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/package.ps1'
+[11.136s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/package.dsv'
+[11.136s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/package.sh'
+[11.137s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/package.bash'
+[11.137s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/semantic_sensor/share/semantic_sensor/package.zsh'
+[11.137s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/semantic_sensor/share/colcon-core/packages/semantic_sensor)
+[11.137s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy' with build type 'ament_cmake'
+[11.137s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy'
+[11.138s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[11.138s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[11.149s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/elevation_mapping_cupy': AMENT_PREFIX_PATH=/root/ros2_ws/install/semantic_sensor:/root/ros2_ws/install/elevation_map_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/ros2_numpy:/root/ros2_ws/install/elevation_map_msgs:/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy LD_LIBRARY_PATH=/root/ros2_ws/install/elevation_map_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/semantic_sensor:/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages:/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages:/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages:/root/ros2_ws/build/dlio_gazebo_sim:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake /root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/elevation_mapping_cupy
+[15.660s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/elevation_mapping_cupy' returned '0': AMENT_PREFIX_PATH=/root/ros2_ws/install/semantic_sensor:/root/ros2_ws/install/elevation_map_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/ros2_numpy:/root/ros2_ws/install/elevation_map_msgs:/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy LD_LIBRARY_PATH=/root/ros2_ws/install/elevation_map_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/semantic_sensor:/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages:/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages:/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages:/root/ros2_ws/build/dlio_gazebo_sim:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake /root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/elevation_mapping_cupy
+[15.661s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/elevation_mapping_cupy': AMENT_PREFIX_PATH=/root/ros2_ws/install/semantic_sensor:/root/ros2_ws/install/elevation_map_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/ros2_numpy:/root/ros2_ws/install/elevation_map_msgs:/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy LD_LIBRARY_PATH=/root/ros2_ws/install/elevation_map_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/semantic_sensor:/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages:/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages:/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages:/root/ros2_ws/build/dlio_gazebo_sim:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /root/ros2_ws/build/elevation_mapping_cupy -- -j8 -l8
+[16.041s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/elevation_mapping_cupy' returned '0': AMENT_PREFIX_PATH=/root/ros2_ws/install/semantic_sensor:/root/ros2_ws/install/elevation_map_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/ros2_numpy:/root/ros2_ws/install/elevation_map_msgs:/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy LD_LIBRARY_PATH=/root/ros2_ws/install/elevation_map_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/semantic_sensor:/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages:/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages:/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages:/root/ros2_ws/build/dlio_gazebo_sim:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /root/ros2_ws/build/elevation_mapping_cupy -- -j8 -l8
+[16.042s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/root/ros2_ws/build/elevation_mapping_cupy': AMENT_PREFIX_PATH=/root/ros2_ws/install/semantic_sensor:/root/ros2_ws/install/elevation_map_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/ros2_numpy:/root/ros2_ws/install/elevation_map_msgs:/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy LD_LIBRARY_PATH=/root/ros2_ws/install/elevation_map_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/semantic_sensor:/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages:/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages:/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages:/root/ros2_ws/build/dlio_gazebo_sim:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --install /root/ros2_ws/build/elevation_mapping_cupy
+[16.838s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(elevation_mapping_cupy)
+[16.838s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy' for CMake module files
+[16.839s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/root/ros2_ws/build/elevation_mapping_cupy' returned '0': AMENT_PREFIX_PATH=/root/ros2_ws/install/semantic_sensor:/root/ros2_ws/install/elevation_map_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/ros2_numpy:/root/ros2_ws/install/elevation_map_msgs:/root/ros2_ws/install/direct_lidar_inertial_odometry:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/root/ros2_ws/install/dlio_gazebo_sim:/opt/ros/jazzy LD_LIBRARY_PATH=/root/ros2_ws/install/elevation_map_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/semantic_sensor:/root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages:/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages:/root/ros2_ws/install/elevation_map_msgs/lib/python3.12/site-packages:/root/ros2_ws/build/dlio_gazebo_sim:/root/ros2_ws/install/dlio_gazebo_sim/lib/python3.12/site-packages:/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --install /root/ros2_ws/build/elevation_mapping_cupy
+[16.839s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy' for CMake config files
+[16.839s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_mapping_cupy', 'cmake_prefix_path')
+[16.840s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/cmake_prefix_path.ps1'
+[16.840s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/cmake_prefix_path.dsv'
+[16.840s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/cmake_prefix_path.sh'
+[16.841s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/lib'
+[16.841s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/bin'
+[16.841s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/lib/pkgconfig/elevation_mapping_cupy.pc'
+[16.841s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages'
+[16.841s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_mapping_cupy', 'pythonpath')
+[16.841s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/pythonpath.ps1'
+[16.842s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/pythonpath.dsv'
+[16.842s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/pythonpath.sh'
+[16.842s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/bin'
+[16.843s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.ps1'
+[16.843s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.dsv'
+[16.844s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.sh'
+[16.844s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.bash'
+[16.844s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.zsh'
+[16.844s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/elevation_mapping_cupy/share/colcon-core/packages/elevation_mapping_cupy)
+[16.845s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(elevation_mapping_cupy)
+[16.845s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy' for CMake module files
+[16.845s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy' for CMake config files
+[16.846s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_mapping_cupy', 'cmake_prefix_path')
+[16.846s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/cmake_prefix_path.ps1'
+[16.846s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/cmake_prefix_path.dsv'
+[16.846s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/cmake_prefix_path.sh'
+[16.847s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/lib'
+[16.847s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/bin'
+[16.847s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/lib/pkgconfig/elevation_mapping_cupy.pc'
+[16.847s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages'
+[16.847s] Level 1:colcon.colcon_core.shell:create_environment_hook('elevation_mapping_cupy', 'pythonpath')
+[16.848s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/pythonpath.ps1'
+[16.848s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/pythonpath.dsv'
+[16.848s] INFO:colcon.colcon_core.shell:Creating environment hook '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/hook/pythonpath.sh'
+[16.849s] Level 1:colcon.colcon_core.environment:checking '/root/ros2_ws/install/elevation_mapping_cupy/bin'
+[16.849s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.ps1'
+[16.849s] INFO:colcon.colcon_core.shell:Creating package descriptor '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.dsv'
+[16.850s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.sh'
+[16.850s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.bash'
+[16.851s] INFO:colcon.colcon_core.shell:Creating package script '/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.zsh'
+[16.851s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/root/ros2_ws/install/elevation_mapping_cupy/share/colcon-core/packages/elevation_mapping_cupy)
+[16.851s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[16.851s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[16.852s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[16.852s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[16.856s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[16.856s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[16.856s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[16.856s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[16.859s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.Spawn.ExecFailed: /usr/bin/dbus-launch terminated abnormally without any error message
+[16.859s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[16.859s] INFO:colcon.colcon_core.shell:Creating prefix script '/root/ros2_ws/install/local_setup.ps1'
+[16.860s] INFO:colcon.colcon_core.shell:Creating prefix util module '/root/ros2_ws/install/_local_setup_util_ps1.py'
+[16.861s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/root/ros2_ws/install/setup.ps1'
+[16.862s] INFO:colcon.colcon_core.shell:Creating prefix script '/root/ros2_ws/install/local_setup.sh'
+[16.863s] INFO:colcon.colcon_core.shell:Creating prefix util module '/root/ros2_ws/install/_local_setup_util_sh.py'
+[16.863s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/root/ros2_ws/install/setup.sh'
+[16.864s] INFO:colcon.colcon_core.shell:Creating prefix script '/root/ros2_ws/install/local_setup.bash'
+[16.865s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/root/ros2_ws/install/setup.bash'
+[16.866s] INFO:colcon.colcon_core.shell:Creating prefix script '/root/ros2_ws/install/local_setup.zsh'
+[16.866s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/root/ros2_ws/install/setup.zsh'

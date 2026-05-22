@@ -1,0 +1,3 @@
+[console_scripts]
+image_node = semantic_sensor.image_node:main
+pointcloud_node = semantic_sensor.pointcloud_node:main

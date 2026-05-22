@@ -1,0 +1,16 @@
+{
+  "package_name": "elevation_map_msgs",
+  "output_dir": "/root/ros2_ws/build/elevation_map_msgs/rosidl_generator_type_description/elevation_map_msgs",
+  "idl_tuples": [
+    "/root/ros2_ws/build/elevation_map_msgs/rosidl_adapter/elevation_map_msgs:msg/Statistics.idl",
+    "/root/ros2_ws/build/elevation_map_msgs/rosidl_adapter/elevation_map_msgs:msg/ChannelInfo.idl",
+    "/root/ros2_ws/build/elevation_map_msgs/rosidl_adapter/elevation_map_msgs:srv/CheckSafety.idl",
+    "/root/ros2_ws/build/elevation_map_msgs/rosidl_adapter/elevation_map_msgs:srv/Initialize.idl"
+  ],
+  "include_paths": [
+    "geometry_msgs:/opt/ros/jazzy/share/geometry_msgs",
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "service_msgs:/opt/ros/jazzy/share/service_msgs"
+  ]
+}

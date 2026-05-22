@@ -1,0 +1,4 @@
+/root/ros2_ws/build/elevation_map_msgs/rosidl_adapter/elevation_map_msgs:msg/Statistics.idl
+/root/ros2_ws/build/elevation_map_msgs/rosidl_adapter/elevation_map_msgs:msg/ChannelInfo.idl
+/root/ros2_ws/build/elevation_map_msgs/rosidl_adapter/elevation_map_msgs:srv/CheckSafety.idl
+/root/ros2_ws/build/elevation_map_msgs/rosidl_adapter/elevation_map_msgs:srv/Initialize.idl

@@ -11,6 +11,7 @@ def generate_launch_description():
     pkg = FindPackageShare('dlio_gazebo_sim')
     gz_pkg = FindPackageShare('ros_gz_sim')
     dlio_pkg = FindPackageShare('direct_lidar_inertial_odometry')
+    elevation_pkg = FindPackageShare('elevation_mapping_cupy')
 
     world = PathJoinSubstitution([pkg, 'worlds', 'dlio_room.sdf'])
     model_path = PathJoinSubstitution([pkg, 'models'])
@@ -21,6 +22,7 @@ def generate_launch_description():
     angular_z = LaunchConfiguration('angular_z')
     start_delay = LaunchConfiguration('start_delay')
     auto_drive = LaunchConfiguration('auto_drive')
+    launch_elevation = LaunchConfiguration('launch_elevation')
 
     gazebo_gui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -53,6 +55,18 @@ def generate_launch_description():
             'pointcloud_topic': '/points_raw',
             'imu_topic': '/imu_raw',
         }.items(),
+    )
+
+    elevation_mapping = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([elevation_pkg, 'launch', 'elevation_mapping.launch.py'])
+        ),
+        launch_arguments={
+            'robot_config': 'dlio_gazebo/base.yaml',
+            'launch_rviz': 'false',
+            'use_sim_time': 'true',
+        }.items(),
+        condition=IfCondition(launch_elevation),
     )
 
     bridge = Node(
@@ -103,6 +117,7 @@ def generate_launch_description():
         DeclareLaunchArgument('angular_z', default_value='0.22'),
         DeclareLaunchArgument('start_delay', default_value='4.0'),
         DeclareLaunchArgument('auto_drive', default_value='false'),
+        DeclareLaunchArgument('launch_elevation', default_value='true'),
         SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', model_path),
         gazebo_gui,
         gazebo_headless,
@@ -110,4 +125,5 @@ def generate_launch_description():
         synthetic_sensors,
         circle_cmd,
         dlio,
+        elevation_mapping,
     ])

@@ -1,0 +1,28 @@
+running develop
+running egg_info
+creating semantic_sensor.egg-info
+writing semantic_sensor.egg-info/PKG-INFO
+writing dependency_links to semantic_sensor.egg-info/dependency_links.txt
+writing entry points to semantic_sensor.egg-info/entry_points.txt
+writing requirements to semantic_sensor.egg-info/requires.txt
+writing top-level names to semantic_sensor.egg-info/top_level.txt
+writing manifest file 'semantic_sensor.egg-info/SOURCES.txt'
+reading manifest file 'semantic_sensor.egg-info/SOURCES.txt'
+writing manifest file 'semantic_sensor.egg-info/SOURCES.txt'
+running build_ext
+Creating /root/ros2_ws/install/semantic_sensor/lib/python3.12/site-packages/semantic-sensor.egg-link (link to .)
+Installing image_node script to /root/ros2_ws/install/semantic_sensor/lib/semantic_sensor
+Installing pointcloud_node script to /root/ros2_ws/install/semantic_sensor/lib/semantic_sensor
+
+Installed /root/ros2_ws/build/semantic_sensor
+running symlink_data
+creating /root/ros2_ws/install/semantic_sensor/share/ament_index
+creating /root/ros2_ws/install/semantic_sensor/share/ament_index/resource_index
+creating /root/ros2_ws/install/semantic_sensor/share/ament_index/resource_index/packages
+symbolically linking /root/ros2_ws/build/semantic_sensor/resource/semantic_sensor -> /root/ros2_ws/install/semantic_sensor/share/ament_index/resource_index/packages
+symbolically linking /root/ros2_ws/build/semantic_sensor/package.xml -> /root/ros2_ws/install/semantic_sensor/share/semantic_sensor
+creating /root/ros2_ws/install/semantic_sensor/share/semantic_sensor/launch
+symbolically linking /root/ros2_ws/build/semantic_sensor/launch/semantic_image.launch.py -> /root/ros2_ws/install/semantic_sensor/share/semantic_sensor/launch
+symbolically linking /root/ros2_ws/build/semantic_sensor/launch/semantic_pointcloud.launch.py -> /root/ros2_ws/install/semantic_sensor/share/semantic_sensor/launch
+creating /root/ros2_ws/install/semantic_sensor/share/semantic_sensor/config
+symbolically linking /root/ros2_ws/build/semantic_sensor/config/sensor_parameter.yaml -> /root/ros2_ws/install/semantic_sensor/share/semantic_sensor/config

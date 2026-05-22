@@ -1,0 +1,1 @@
+/root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy/launch/turtlesim_semantic_image_example.launch.py

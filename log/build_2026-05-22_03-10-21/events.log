@@ -1,0 +1,140 @@
+[0.000000] (-) TimerEvent: {}
+[0.000081] (-) JobUnselected: {'identifier': 'direct_lidar_inertial_odometry'}
+[0.000211] (-) JobUnselected: {'identifier': 'dlio_gazebo_sim'}
+[0.000425] (-) JobUnselected: {'identifier': 'elevation_map_msgs'}
+[0.000545] (-) JobUnselected: {'identifier': 'elevation_mapping_cupy'}
+[0.000680] (-) JobUnselected: {'identifier': 'gps_visualization'}
+[0.000719] (-) JobUnselected: {'identifier': 'graaf_vendor'}
+[0.000764] (-) JobUnselected: {'identifier': 'graphnav_builder'}
+[0.000800] (-) JobUnselected: {'identifier': 'graphnav_msgs'}
+[0.000839] (-) JobUnselected: {'identifier': 'graphnav_planner'}
+[0.000874] (-) JobUnselected: {'identifier': 'object_search_msgs'}
+[0.000905] (-) JobUnselected: {'identifier': 'semantic_sensor'}
+[0.000937] (-) JobUnselected: {'identifier': 'triangulation3d'}
+[0.000957] (-) JobUnselected: {'identifier': 'visual_navigation'}
+[0.000986] (ros2_numpy) JobQueued: {'identifier': 'ros2_numpy', 'dependencies': OrderedDict()}
+[0.001073] (ros2_numpy) JobStarted: {'identifier': 'ros2_numpy'}
+[0.014466] (ros2_numpy) JobProgress: {'identifier': 'ros2_numpy', 'progress': 'cmake'}
+[0.014982] (ros2_numpy) Command: {'cmd': ['/usr/bin/cmake', '/root/ros2_ws/src/ros2_numpy', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/ros2_numpy'], 'cwd': '/root/ros2_ws/build/ros2_numpy', 'env': OrderedDict({'VSCODE_CWD': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'HTTPS_PROXY': 'http://127.0.0.1:10808', 'CODEX_CI': '1', 'CODEX_INTERNAL_ORIGINATOR_OVERRIDE': 'codex_vscode', 'VSCODE_NLS_CONFIG': '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/out/nls.messages.json","locale":"en","availableLanguages":{}}', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'HOSTNAME': 'nx-NHx0DB-DE', '__GLX_VENDOR_LIBRARY_NAME': 'nvidia', 'DEBUG': 'release', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/helpers/browser.sh', 'HOME': '/root', 'VSCODE_RECONNECTION_GRACE_TIME': '10800000', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-b77b0b0d-d49f-40ee-ba00-27914ec7bae0.sock', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'COLORTERM': '', 'REMOTE_CONTAINERS': 'true', 'NODE_TLS_REJECT_UNAUTHORIZED': '0', 'APPLICATION_INSIGHTS_NO_STATSBEAT': 'true', 'ROS_DISTRO': 'jazzy', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-a9e57fff-f518-4ccc-823f-44679aa1c304.sock', '__VK_LAYER_NV_optimus': 'NVIDIA_only', 'VSCODE_HANDLES_SIGPIPE': 'true', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'RUST_LOG': 'warn', 'TERM': 'dumb', 'QT_X11_NO_MITSHM': '1', 'PATH': '/root/.codex/tmp/arg0/codex-arg0hYZhxu:/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/extensions/openai.chatgpt-26.513.21555-linux-x64/bin/linux-x86_64', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-a9e57fff-f518-4ccc-823f-44679aa1c304.sock","/root/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'C.UTF-8', '__NV_PRIME_RENDER_OFFLOAD': '1', 'GH_PAGER': 'cat', 'LS_COLORS': '', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-a9e57fff-f518-4ccc-823f-44679aa1c304.sock', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'ELECTRON_RUN_AS_NODE': '1', 'CODEX_THREAD_ID': '019e4a28-5602-71b0-9319-0c80bbafcb27', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'PWD': '/root/ros2_ws/build/ros2_numpy', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:10808', 'NVIDIA_VISIBLE_DEVICES': 'all', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099822] (-) TimerEvent: {}
+[0.128274] (ros2_numpy) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.199943] (-) TimerEvent: {}
+[0.216661] (ros2_numpy) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.238826] (ros2_numpy) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.300039] (-) TimerEvent: {}
+[0.325469] (ros2_numpy) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.335651] (ros2_numpy) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.338770] (ros2_numpy) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.339287] (ros2_numpy) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.347571] (ros2_numpy) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.400140] (-) TimerEvent: {}
+[0.449253] (ros2_numpy) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.460740] (ros2_numpy) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.461109] (ros2_numpy) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.461935] (ros2_numpy) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.476623] (ros2_numpy) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.500234] (-) TimerEvent: {}
+[0.600427] (-) TimerEvent: {}
+[0.628211] (ros2_numpy) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.700518] (-) TimerEvent: {}
+[0.701909] (ros2_numpy) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.779079] (ros2_numpy) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.7 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[0.800599] (-) TimerEvent: {}
+[0.840175] (ros2_numpy) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.860268] (ros2_numpy) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.884964] (ros2_numpy) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.900678] (-) TimerEvent: {}
+[0.909965] (ros2_numpy) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.000768] (-) TimerEvent: {}
+[1.017010] (ros2_numpy) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.7 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[1.100845] (-) TimerEvent: {}
+[1.148729] (ros2_numpy) StdoutLine: {'line': b'-- Found rclpy: 7.1.11 (/opt/ros/jazzy/share/rclpy/cmake)\n'}
+[1.152559] (ros2_numpy) StdoutLine: {'line': b'-- Found ament_cmake_pytest: 2.5.6 (/opt/ros/jazzy/share/ament_cmake_pytest/cmake)\n'}
+[1.200961] (-) TimerEvent: {}
+[1.301110] (-) TimerEvent: {}
+[1.401260] (-) TimerEvent: {}
+[1.501417] (-) TimerEvent: {}
+[1.601571] (-) TimerEvent: {}
+[1.701704] (-) TimerEvent: {}
+[1.801882] (-) TimerEvent: {}
+[1.902019] (-) TimerEvent: {}
+[2.002180] (-) TimerEvent: {}
+[2.102318] (-) TimerEvent: {}
+[2.202458] (-) TimerEvent: {}
+[2.302597] (-) TimerEvent: {}
+[2.402739] (-) TimerEvent: {}
+[2.502918] (-) TimerEvent: {}
+[2.603083] (-) TimerEvent: {}
+[2.703194] (-) TimerEvent: {}
+[2.803362] (-) TimerEvent: {}
+[2.903513] (-) TimerEvent: {}
+[3.003659] (-) TimerEvent: {}
+[3.103830] (-) TimerEvent: {}
+[3.107770] (ros2_numpy) StdoutLine: {'line': b'-- Configuring done (3.1s)\n'}
+[3.112480] (ros2_numpy) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[3.114709] (ros2_numpy) StdoutLine: {'line': b'-- Build files have been written to: /root/ros2_ws/build/ros2_numpy\n'}
+[3.119740] (ros2_numpy) CommandEnded: {'returncode': 0}
+[3.120646] (ros2_numpy) JobProgress: {'identifier': 'ros2_numpy', 'progress': 'build'}
+[3.120678] (ros2_numpy) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/ros2_ws/build/ros2_numpy', '--', '-j8', '-l8'], 'cwd': '/root/ros2_ws/build/ros2_numpy', 'env': OrderedDict({'VSCODE_CWD': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'HTTPS_PROXY': 'http://127.0.0.1:10808', 'CODEX_CI': '1', 'CODEX_INTERNAL_ORIGINATOR_OVERRIDE': 'codex_vscode', 'VSCODE_NLS_CONFIG': '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/out/nls.messages.json","locale":"en","availableLanguages":{}}', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'HOSTNAME': 'nx-NHx0DB-DE', '__GLX_VENDOR_LIBRARY_NAME': 'nvidia', 'DEBUG': 'release', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/helpers/browser.sh', 'HOME': '/root', 'VSCODE_RECONNECTION_GRACE_TIME': '10800000', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-b77b0b0d-d49f-40ee-ba00-27914ec7bae0.sock', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'COLORTERM': '', 'REMOTE_CONTAINERS': 'true', 'NODE_TLS_REJECT_UNAUTHORIZED': '0', 'APPLICATION_INSIGHTS_NO_STATSBEAT': 'true', 'ROS_DISTRO': 'jazzy', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-a9e57fff-f518-4ccc-823f-44679aa1c304.sock', '__VK_LAYER_NV_optimus': 'NVIDIA_only', 'VSCODE_HANDLES_SIGPIPE': 'true', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'RUST_LOG': 'warn', 'TERM': 'dumb', 'QT_X11_NO_MITSHM': '1', 'PATH': '/root/.codex/tmp/arg0/codex-arg0hYZhxu:/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/extensions/openai.chatgpt-26.513.21555-linux-x64/bin/linux-x86_64', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-a9e57fff-f518-4ccc-823f-44679aa1c304.sock","/root/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'C.UTF-8', '__NV_PRIME_RENDER_OFFLOAD': '1', 'GH_PAGER': 'cat', 'LS_COLORS': '', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-a9e57fff-f518-4ccc-823f-44679aa1c304.sock', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'ELECTRON_RUN_AS_NODE': '1', 'CODEX_THREAD_ID': '019e4a28-5602-71b0-9319-0c80bbafcb27', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'PWD': '/root/ros2_ws/build/ros2_numpy', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:10808', 'NVIDIA_VISIBLE_DEVICES': 'all', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[3.169100] (ros2_numpy) StdoutLine: {'line': b'Built target ament_cmake_python_symlink_ros2_numpy\n'}
+[3.203906] (-) TimerEvent: {}
+[3.304079] (-) TimerEvent: {}
+[3.380618] (ros2_numpy) StdoutLine: {'line': b'running egg_info\n'}
+[3.381620] (ros2_numpy) StdoutLine: {'line': b'creating ros2_numpy.egg-info\n'}
+[3.402415] (ros2_numpy) StdoutLine: {'line': b'writing ros2_numpy.egg-info/PKG-INFO\n'}
+[3.402710] (ros2_numpy) StdoutLine: {'line': b'writing dependency_links to ros2_numpy.egg-info/dependency_links.txt\n'}
+[3.402958] (ros2_numpy) StdoutLine: {'line': b'writing top-level names to ros2_numpy.egg-info/top_level.txt\n'}
+[3.403177] (ros2_numpy) StdoutLine: {'line': b"writing manifest file 'ros2_numpy.egg-info/SOURCES.txt'\n"}
+[3.404148] (-) TimerEvent: {}
+[3.461550] (ros2_numpy) StdoutLine: {'line': b"reading manifest file 'ros2_numpy.egg-info/SOURCES.txt'\n"}
+[3.462072] (ros2_numpy) StdoutLine: {'line': b"writing manifest file 'ros2_numpy.egg-info/SOURCES.txt'\n"}
+[3.490105] (ros2_numpy) StdoutLine: {'line': b'Built target ament_cmake_python_build_ros2_numpy_egg\n'}
+[3.499390] (ros2_numpy) CommandEnded: {'returncode': 0}
+[3.500029] (ros2_numpy) JobProgress: {'identifier': 'ros2_numpy', 'progress': 'install'}
+[3.504277] (-) TimerEvent: {}
+[3.509359] (ros2_numpy) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/ros2_ws/build/ros2_numpy'], 'cwd': '/root/ros2_ws/build/ros2_numpy', 'env': OrderedDict({'VSCODE_CWD': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'HTTPS_PROXY': 'http://127.0.0.1:10808', 'CODEX_CI': '1', 'CODEX_INTERNAL_ORIGINATOR_OVERRIDE': 'codex_vscode', 'VSCODE_NLS_CONFIG': '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/out/nls.messages.json","locale":"en","availableLanguages":{}}', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'HOSTNAME': 'nx-NHx0DB-DE', '__GLX_VENDOR_LIBRARY_NAME': 'nvidia', 'DEBUG': 'release', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/helpers/browser.sh', 'HOME': '/root', 'VSCODE_RECONNECTION_GRACE_TIME': '10800000', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-b77b0b0d-d49f-40ee-ba00-27914ec7bae0.sock', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'COLORTERM': '', 'REMOTE_CONTAINERS': 'true', 'NODE_TLS_REJECT_UNAUTHORIZED': '0', 'APPLICATION_INSIGHTS_NO_STATSBEAT': 'true', 'ROS_DISTRO': 'jazzy', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-a9e57fff-f518-4ccc-823f-44679aa1c304.sock', '__VK_LAYER_NV_optimus': 'NVIDIA_only', 'VSCODE_HANDLES_SIGPIPE': 'true', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'RUST_LOG': 'warn', 'TERM': 'dumb', 'QT_X11_NO_MITSHM': '1', 'PATH': '/root/.codex/tmp/arg0/codex-arg0hYZhxu:/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/extensions/openai.chatgpt-26.513.21555-linux-x64/bin/linux-x86_64', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-a9e57fff-f518-4ccc-823f-44679aa1c304.sock","/root/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'C.UTF-8', '__NV_PRIME_RENDER_OFFLOAD': '1', 'GH_PAGER': 'cat', 'LS_COLORS': '', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-a9e57fff-f518-4ccc-823f-44679aa1c304.sock', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'ELECTRON_RUN_AS_NODE': '1', 'CODEX_THREAD_ID': '019e4a28-5602-71b0-9319-0c80bbafcb27', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'PWD': '/root/ros2_ws/build/ros2_numpy', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:10808', 'NVIDIA_VISIBLE_DEVICES': 'all', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[3.519720] (ros2_numpy) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.520106] (ros2_numpy) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[3.520371] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/pythonpath.sh\n'}
+[3.528569] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/pythonpath.dsv\n'}
+[3.536803] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy-2.0.12-py3.12.egg-info/PKG-INFO\n'}
+[3.544456] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy-2.0.12-py3.12.egg-info/SOURCES.txt\n'}
+[3.555109] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy-2.0.12-py3.12.egg-info/dependency_links.txt\n'}
+[3.563177] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy-2.0.12-py3.12.egg-info/top_level.txt\n'}
+[3.571191] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/__init__.py\n'}
+[3.578719] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/geometry.py\n'}
+[3.586107] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/image.py\n'}
+[3.594884] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/laser_scan.py\n'}
+[3.602570] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/occupancy_grid.py\n'}
+[3.604342] (-) TimerEvent: {}
+[3.609971] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/point_cloud2.py\n'}
+[3.617434] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/registry.py\n'}
+[3.625077] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ament_index/resource_index/package_run_dependencies/ros2_numpy\n'}
+[3.632695] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ament_index/resource_index/parent_prefix_path/ros2_numpy\n'}
+[3.640627] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/ament_prefix_path.sh\n'}
+[3.648103] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/ament_prefix_path.dsv\n'}
+[3.657593] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/path.sh\n'}
+[3.665596] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/environment/path.dsv\n'}
+[3.674753] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/local_setup.bash\n'}
+[3.682869] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/local_setup.sh\n'}
+[3.690854] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/local_setup.zsh\n'}
+[3.702963] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/local_setup.dsv\n'}
+[3.704417] (-) TimerEvent: {}
+[3.711171] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.dsv\n'}
+[3.719967] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ament_index/resource_index/packages/ros2_numpy\n'}
+[3.727945] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[3.742254] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/cmake/ros2_numpyConfig.cmake\n'}
+[3.748868] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/cmake/ros2_numpyConfig-version.cmake\n'}
+[3.757564] (ros2_numpy) StdoutLine: {'line': b'-- Symlinking: /root/ros2_ws/install/ros2_numpy/share/ros2_numpy/package.xml\n'}
+[3.804534] (-) TimerEvent: {}
+[3.811167] (ros2_numpy) StdoutLine: {'line': b"Listing '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy'...\n"}
+[3.811384] (ros2_numpy) StdoutLine: {'line': b"Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/__init__.py'...\n"}
+[3.811507] (ros2_numpy) StdoutLine: {'line': b"Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/geometry.py'...\n"}
+[3.811618] (ros2_numpy) StdoutLine: {'line': b"Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/image.py'...\n"}
+[3.811724] (ros2_numpy) StdoutLine: {'line': b"Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/laser_scan.py'...\n"}
+[3.811831] (ros2_numpy) StdoutLine: {'line': b"Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/occupancy_grid.py'...\n"}
+[3.811937] (ros2_numpy) StdoutLine: {'line': b"Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/point_cloud2.py'...\n"}
+[3.812041] (ros2_numpy) StdoutLine: {'line': b"Compiling '/root/ros2_ws/install/ros2_numpy/lib/python3.12/site-packages/ros2_numpy/registry.py'...\n"}
+[3.819182] (ros2_numpy) CommandEnded: {'returncode': 0}
+[3.847344] (ros2_numpy) JobEnded: {'identifier': 'ros2_numpy', 'rc': 0}
+[3.847894] (-) EventReactorShutdown: {}

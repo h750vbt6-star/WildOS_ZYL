@@ -1,0 +1,1 @@
+/root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy/test/test_synthetic_demo_launch.py

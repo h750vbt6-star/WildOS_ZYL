@@ -1,0 +1,25 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/elevation_map_msgs/msg/detail/channel_info__type_support_c.cpp.o"
+  "CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/elevation_map_msgs/msg/detail/channel_info__type_support_c.cpp.o.d"
+  "CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/elevation_map_msgs/msg/detail/statistics__type_support_c.cpp.o"
+  "CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/elevation_map_msgs/msg/detail/statistics__type_support_c.cpp.o.d"
+  "CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/elevation_map_msgs/srv/detail/check_safety__type_support_c.cpp.o"
+  "CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/elevation_map_msgs/srv/detail/check_safety__type_support_c.cpp.o.d"
+  "CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/elevation_map_msgs/srv/detail/initialize__type_support_c.cpp.o"
+  "CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/elevation_map_msgs/srv/detail/initialize__type_support_c.cpp.o.d"
+  "libelevation_map_msgs__rosidl_typesupport_fastrtps_c.pdb"
+  "libelevation_map_msgs__rosidl_typesupport_fastrtps_c.so"
+  "rosidl_typesupport_fastrtps_c/elevation_map_msgs/msg/detail/channel_info__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/elevation_map_msgs/msg/detail/channel_info__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/elevation_map_msgs/msg/detail/statistics__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/elevation_map_msgs/msg/detail/statistics__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/elevation_map_msgs/srv/detail/check_safety__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/elevation_map_msgs/srv/detail/check_safety__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/elevation_map_msgs/srv/detail/initialize__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/elevation_map_msgs/srv/detail/initialize__type_support_c.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/elevation_map_msgs__rosidl_typesupport_fastrtps_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

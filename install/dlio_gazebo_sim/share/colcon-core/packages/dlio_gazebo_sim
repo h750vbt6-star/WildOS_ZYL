@@ -1,1 +1,1 @@
-direct_lidar_inertial_odometry:geometry_msgs:launch:launch_ros:nav_msgs:rclpy:ros_gz_bridge:ros_gz_sim:sensor_msgs
+direct_lidar_inertial_odometry:elevation_mapping_cupy:geometry_msgs:launch:launch_ros:nav_msgs:rclpy:ros_gz_bridge:ros_gz_sim:sensor_msgs

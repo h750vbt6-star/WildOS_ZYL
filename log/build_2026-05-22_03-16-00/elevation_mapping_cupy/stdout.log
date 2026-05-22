@@ -1,0 +1,103 @@
+Built target ament_cmake_python_symlink_elevation_mapping_cupy_setup
+Built target ament_cmake_python_symlink_elevation_mapping_cupy
+running egg_info
+writing elevation_mapping_cupy.egg-info/PKG-INFO
+writing dependency_links to elevation_mapping_cupy.egg-info/dependency_links.txt
+writing top-level names to elevation_mapping_cupy.egg-info/top_level.txt
+reading manifest file 'elevation_mapping_cupy.egg-info/SOURCES.txt'
+writing manifest file 'elevation_mapping_cupy.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_elevation_mapping_cupy_egg
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/environment/pythonpath.sh
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/environment/pythonpath.dsv
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy-2.1.0-py3.12.egg-info/PKG-INFO
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy-2.1.0-py3.12.egg-info/SOURCES.txt
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy-2.1.0-py3.12.egg-info/dependency_links.txt
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy-2.1.0-py3.12.egg-info/top_level.txt
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/__init__.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/elevation_mapping.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/elevation_mapping_node.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/gridmap_utils.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/kernels/__init__.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/kernels/custom_image_kernels.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/kernels/custom_kernels.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/kernels/custom_semantic_kernels.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/kernels/kk.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/listener_test.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/map_initializer.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/parameter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/__init__.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/erosion.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/inpainting.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/max_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/max_layer_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/min_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/near_base_height_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/plugin_manager.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/positive_spike_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/robot_centric_elevation.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins/smooth_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/__init__.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/data/mole_elevation_snapshot.npz
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_elevation_mapping.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_gridmap_layout.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_height_gate_translation_invariance.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_indexing_center.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_inpainting_plugin.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_kernel_compile_smoke.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_map_services.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_map_shifting.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_near_base_height_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_parameter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_positive_spike_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_positive_spike_filter_shovel_snapshot.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/test_repo_config_sanity.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/traversability_filter.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/traversability_polygon.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/elevation_mapping_cupy/elevation_mapping_node.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/lib/elevation_mapping_cupy/synthetic_pointcloud_tf_publisher.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/launch/elevation_mapping.launch.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/launch/synthetic_depth_demo.launch.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/launch/turtlesim_init.launch.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/launch/turtlesim_semantic_image_example.launch.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/launch/turtlesim_semantic_pointcloud_example.launch.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/core/core_param.yaml
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/core/plugin_config.yaml
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/core/weights.dat
+-- Symlinking: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/dlio_gazebo/base.yaml
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/menzi/base.yaml
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/synthetic/synthetic_depth.yaml
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/turtle_bot/turtle_bot_semantics_image.yaml
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/turtle_bot/turtle_bot_semantics_pointcloud.yaml
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/rviz/synthetic_demo.rviz
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/rviz/turtle_example.rviz
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/rviz/turtle_features_example.rviz
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/rviz/turtle_semantic_example.rviz
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/rviz/turtle_sim_laser.rviz
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/test/config/test_integration.yaml
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/test/test_map_save_load_services.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/test/test_semantic_launch_descriptions.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/test/test_synthetic_demo_launch.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/test/test_tf_gridmap_integration.py
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/ament_index/resource_index/package_run_dependencies/elevation_mapping_cupy
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/ament_index/resource_index/parent_prefix_path/elevation_mapping_cupy
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/environment/path.sh
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/environment/path.dsv
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/local_setup.bash
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/local_setup.sh
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/local_setup.zsh
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/local_setup.dsv
+-- Symlinking: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.dsv
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/ament_index/resource_index/packages/elevation_mapping_cupy
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/cmake/elevation_mapping_cupyConfig.cmake
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/cmake/elevation_mapping_cupyConfig-version.cmake
+-- Up-to-date symlink: /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/package.xml
+Listing '/root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy'...
+Listing '/root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/kernels'...
+Listing '/root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/plugins'...
+Listing '/root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests'...
+Listing '/root/ros2_ws/install/elevation_mapping_cupy/lib/python3.12/site-packages/elevation_mapping_cupy/tests/data'...
