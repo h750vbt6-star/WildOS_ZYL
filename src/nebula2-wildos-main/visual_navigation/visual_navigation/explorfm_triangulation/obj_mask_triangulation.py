@@ -421,10 +421,24 @@ class ObjectMaskTriangulator(Node):
 def main(args=None):
     rclpy.init(args=args)
     from ament_index_python.packages import get_package_share_directory
-    import os
+    import argparse
+
+    custom_args = rclpy.utilities.remove_ros_args(args)
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--config",
+        type=str,
+        default="triangulation3d_objsearch_conf.yaml",
+        help="Configuration file name (YAML) for the node."
+    )
+    custom_args = parser.parse_args(custom_args[1:])
+
+    conf_name = f"{custom_args.config}"
+    if conf_name.endswith(".yaml") is False:
+        conf_name += ".yaml"
 
     package_share_directory = Path(get_package_share_directory('visual_navigation'))
-    conf = package_share_directory / "configs" / "triangulation3d_objsearch_conf.yaml"
+    conf = package_share_directory / "configs" / conf_name
 
     mask_triang_node = ObjectMaskTriangulator(OmegaConf.load(conf))
     rclpy.spin(mask_triang_node)

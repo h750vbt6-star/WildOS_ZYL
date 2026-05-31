@@ -9,6 +9,7 @@ from cv_bridge import CvBridge
 from object_search_msgs.msg import ObjectMaskWithTf
 
 from pathlib import Path
+import time
 from omegaconf import OmegaConf
 import cv2
 import numpy as np
@@ -82,6 +83,7 @@ class WildOS_Nav(TFLookupSubscriber):
         "valid_geofrontiers_topic": "within_range_geofrontiers",
         "score_ring_topic": "/spot1/score_rings",
         "graph_viz_topic": "/spot1/navgraph_viz",
+        "object_mask_topic": "/spot1/object_mask",
 
         # ROS2 subscriber params
         "qos_history_depth": 1,
@@ -221,6 +223,14 @@ class WildOS_Nav(TFLookupSubscriber):
             config.adaptor_version = "siglip2"
 
         # radio model
+        model_start = time.perf_counter()
+        print(
+            f"[wildos bootstrap] Loading ExploRFM "
+            f"precision={config.model_precision}, "
+            f"frontier_ckpt={config.frontier_ckpt}, "
+            f"traversability_ckpt={config.traversability_ckpt}",
+            flush=True,
+        )
         self.model = ExploRFMInference(
             frontier_ckpt=HOME_DIR / "ckpts" / config.frontier_ckpt,
             traversability_ckpt=HOME_DIR / "ckpts" / config.traversability_ckpt,
@@ -233,6 +243,7 @@ class WildOS_Nav(TFLookupSubscriber):
             static_scale_factor=config.static_scale_factor,
             model_precision=config.model_precision,
         )
+        print(f"[wildos bootstrap] Finished loading ExploRFM in {time.perf_counter() - model_start:.2f}s", flush=True)
         self.transforms = transforms.Compose([
             transforms.ToTensor(),
         ])
@@ -280,7 +291,7 @@ class WildOS_Nav(TFLookupSubscriber):
         if self.object_search_mode:
             self.object_mask_publisher = self.create_publisher(
                 ObjectMaskWithTf,
-                "/spot1/object_mask",
+                config.object_mask_topic,
                 10
             )
 
@@ -291,25 +302,66 @@ class WildOS_Nav(TFLookupSubscriber):
         img_msg_type = CompressedImage if self.using_compressed_imgs else ImageMsg
 
         self.camera_subs = {}
+        self.latest_camera_info = {}
+        self.latest_image_msgs = {}
+        self.latest_odom_msg = None
         for i in range(self.num_cameras):
-            self.camera_subs[i] = {
-                "image": Subscriber(self, img_msg_type, cameraimg_topic_str.format(CAMERA_MAPPING[i]), qos_profile=config.qos_history_depth),
-                "info": Subscriber(self, CameraInfo, camerainfo_topic_str.format(CAMERA_MAPPING[i]), qos_profile=config.qos_history_depth)
-            }
-        self.odom_sub = Subscriber(self, Odometry, config.odometry_topic, qos_profile=config.qos_history_depth)
-        self.navgraph_sub = Subscriber(self, NavigationGraph, config.navigation_graph_topic, qos_profile=config.qos_history_depth)
-
-        ts_subs = [self.odom_sub, self.navgraph_sub]
-        for i in range(self.num_cameras):
-            ts_subs.append(self.camera_subs[i]["image"])
-            ts_subs.append(self.camera_subs[i]["info"])
-
-        self.ts = ApproximateTimeSynchronizer(
-            ts_subs, queue_size=config.syncsub_queue_size, slop=config.syncsub_slop
+            self.create_subscription(
+                img_msg_type,
+                cameraimg_topic_str.format(CAMERA_MAPPING[i]),
+                lambda msg, cam_idx=i: self.image_callback(cam_idx, msg),
+                config.qos_history_depth,
+            )
+            self.create_subscription(
+                CameraInfo,
+                camerainfo_topic_str.format(CAMERA_MAPPING[i]),
+                lambda msg, cam_idx=i: self.camera_info_callback(cam_idx, msg),
+                config.qos_history_depth,
+            )
+        self.create_subscription(
+            Odometry,
+            config.odometry_topic,
+            self.odom_callback,
+            config.qos_history_depth,
         )
-        self.ts.registerCallback(self.listener_callback)
+        self.create_subscription(
+            NavigationGraph,
+            config.navigation_graph_topic,
+            self.navgraph_callback,
+            config.qos_history_depth,
+        )
+
+    def image_callback(self, cam_idx, msg):
+        self.latest_image_msgs[cam_idx] = msg
+
+    def camera_info_callback(self, cam_idx, msg):
+        self.latest_camera_info[cam_idx] = msg
+
+    def odom_callback(self, msg):
+        self.latest_odom_msg = msg
+
+    def navgraph_callback(self, navgraph_msg):
+        if self.latest_odom_msg is None:
+            self.get_logger().warn("Skipping WildOS callback until odometry is available.")
+            return
+
+        missing_images = [CAMERA_MAPPING[i] for i in range(self.num_cameras) if i not in self.latest_image_msgs]
+        if missing_images:
+            self.get_logger().warn(f"Skipping WildOS callback until images are available for: {missing_images}")
+            return
+
+        missing_info = [CAMERA_MAPPING[i] for i in range(self.num_cameras) if i not in self.latest_camera_info]
+        if missing_info:
+            self.get_logger().warn(f"Skipping WildOS callback until CameraInfo is available for: {missing_info}")
+            return
+
+        self.listener_callback(
+            self.latest_odom_msg,
+            navgraph_msg,
+            *[self.latest_image_msgs[i] for i in range(self.num_cameras)],
+        )
     
-    def listener_callback(self, odom_msg, navgraph_msg, *msgs):
+    def listener_callback(self, odom_msg, navgraph_msg, *image_msgs):
         self.clbk_cntr += 1
         self.get_logger().info(f"Received callback {self.clbk_cntr}")
 
@@ -322,22 +374,24 @@ class WildOS_Nav(TFLookupSubscriber):
             msg={
                 "odom": odom_msg,
                 "navgraph": navgraph_msg,
-                "cam_msgs": msgs
+                "image_msgs": image_msgs,
+                "camera_info_msgs": [self.latest_camera_info[i] for i in range(self.num_cameras)]
             },
             stamp=odom_msg.header.stamp,
         )
 
     def do_processing(self, msg, tf_data):
-        
-        print(f"Started Heavy")
+        heavy_start = time.perf_counter()
+        self.get_logger().info("Started Heavy")
 
         # Extract messages
         odom_msg = msg["odom"]
         navgraph_msg = msg["navgraph"]
-        msgs = msg["cam_msgs"]
+        image_msgs = msg["image_msgs"]
+        cam_info_msgs = msg["camera_info_msgs"]
 
         # Extract camera images and info
-        rgb_imgs, cam_info_msgs = [], []
+        rgb_imgs = []
         for i in range(self.num_cameras):
             if self.using_compressed_imgs:
                 convert_func = self.br.compressed_imgmsg_to_cv2
@@ -346,13 +400,13 @@ class WildOS_Nav(TFLookupSubscriber):
 
             if self.cam_inverted:
                 rgb_imgs.append(
-                    np.rot90(convert_func(msgs[i * 2], desired_encoding='rgb8'), k=2)
+                    np.rot90(convert_func(image_msgs[i], desired_encoding='rgb8'), k=2)
                 )
             else:
                 rgb_imgs.append(
-                    convert_func(msgs[i * 2], desired_encoding='rgb8')
+                    convert_func(image_msgs[i], desired_encoding='rgb8')
                 )
-            cam_info_msgs.append(msgs[i * 2 + 1])
+        self.get_logger().info(f"Decoded {len(rgb_imgs)} camera images in {time.perf_counter() - heavy_start:.2f}s")
 
         # Get geofrontiers from navgraph_msg
         all_cam_data = []
@@ -361,10 +415,16 @@ class WildOS_Nav(TFLookupSubscriber):
             all_cam_data.append(cam_data)
 
         try:
+            step_start = time.perf_counter()
             geofrontiers = self.geofrontier_to_image.extract_geofrontiers(
                 current_odom_msg=odom_msg,
                 navgraph=navgraph_msg,
                 all_cam_data=all_cam_data
+            )
+            geofrontier_items = geofrontiers.values() if hasattr(geofrontiers, "values") else geofrontiers
+            num_frontiers = sum(len(g.get("frontier_pixel_coords", [])) for g in geofrontier_items if g)
+            self.get_logger().info(
+                f"Extracted {num_frontiers} projected geofrontiers in {time.perf_counter() - step_start:.2f}s"
             )
         except Exception as e:
             self.get_logger().error(f"Error in extracting geofrontiers: {e}")
@@ -372,9 +432,13 @@ class WildOS_Nav(TFLookupSubscriber):
 
         
         # Model Forward pass
+        step_start = time.perf_counter()
         rgb_tensors = [self.transforms(img.copy()) for img in rgb_imgs]
         batch_tensor = torch.stack(rgb_tensors)
+        self.get_logger().info(f"Prepared model batch in {time.perf_counter() - step_start:.2f}s")
+        step_start = time.perf_counter()
         batch_img_traversability, batch_img_frontiers, spatial_feats = self.model.forward(batch_tensor)
+        self.get_logger().info(f"Finished model forward in {time.perf_counter() - step_start:.2f}s")
 
         batch_img_frontiers = batch_img_frontiers.cpu().numpy().astype(np.float32)
         batch_img_traversability = batch_img_traversability.cpu().numpy().astype(np.float32)
@@ -402,6 +466,7 @@ class WildOS_Nav(TFLookupSubscriber):
                 self.get_logger().warn("No object detected in the scene, skipping object mask publish.")
 
         # Scoring Geometric Frontiers
+        step_start = time.perf_counter()
         nav_data = []
         for i in range(self.num_cameras):
             cam_data = all_cam_data[i]
@@ -432,8 +497,10 @@ class WildOS_Nav(TFLookupSubscriber):
                 "scores": scores,
                 "paths": paths,
             })
+        self.get_logger().info(f"Scored geofrontiers in {time.perf_counter() - step_start:.2f}s")
 
         # Publish scored navgraph
+        step_start = time.perf_counter()
         robot_pos = np.array([
             odom_msg.pose.pose.position.x,
             odom_msg.pose.pose.position.y,
@@ -442,6 +509,7 @@ class WildOS_Nav(TFLookupSubscriber):
         updated_navgraph, removed_uuids, updated_uuids = self.update_navgraph_with_scores(
             navgraph_msg, geofrontiers, nav_data, robot_pos
         )
+        self.get_logger().info(f"Updated navgraph scores in {time.perf_counter() - step_start:.2f}s")
         self.scored_navgraph_pub.publish(updated_navgraph)
         self.viz.delete_markers(self.withinrange_geofront_pub)
         self.withinrange_geofront_pub.publish(
@@ -451,6 +519,7 @@ class WildOS_Nav(TFLookupSubscriber):
             # self.br.cv2_to_imgmsg(self.viz.visualize_model_det_front(nav_data, all_cam_data), encoding="rgb8")
             self.br.cv2_to_imgmsg(self.viz.visualize_model_det(nav_data, all_cam_data), encoding="rgb8")
         )
+        self.get_logger().info("Published model visualization")
         self.navgraph_vis_pub.publish(
             self.viz.visualize_navgraph(
                 navgraph_msg,
@@ -468,7 +537,7 @@ class WildOS_Nav(TFLookupSubscriber):
             )
         )
         
-        print(f"Finished Heavy")
+        self.get_logger().info(f"Finished Heavy in {time.perf_counter() - heavy_start:.2f}s")
 
     def remove_old_frontiers(self, navgraph_msg):
         # Remove frontiers that are no longer in the navgraph

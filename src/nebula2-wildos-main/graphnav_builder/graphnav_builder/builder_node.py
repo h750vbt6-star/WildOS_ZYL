@@ -413,6 +413,8 @@ class GlobalTraversabilityMemory:
     def __init__(self, resolution: float):
         self.resolution = float(resolution)
         self.cells: Dict[Tuple[int, int], int] = {}
+        self.elevation_sums: Dict[Tuple[int, int], float] = {}
+        self.elevation_counts: Dict[Tuple[int, int], int] = {}
         self.z = 0.0
 
     def integrate(self, local_grid: TraversabilityGrid):
@@ -422,9 +424,15 @@ class GlobalTraversabilityMemory:
                 state = local_grid.state_at_cell((row, col))
                 if state == TraversabilityGrid.UNKNOWN:
                     continue
+                idx = local_grid.flat_index((row, col))
                 x, y = local_grid.cell_to_xy((row, col))
                 global_cell = self.xy_to_global_cell((x, y))
                 self.cells[global_cell] = state
+                if local_grid.observed_values is not None:
+                    elevation = local_grid.observed_values[idx]
+                    if math.isfinite(elevation):
+                        self.elevation_sums[global_cell] = self.elevation_sums.get(global_cell, 0.0) + elevation
+                        self.elevation_counts[global_cell] = self.elevation_counts.get(global_cell, 0) + 1
 
     def to_grid(self) -> Optional[TraversabilityGrid]:
         if not self.cells:
@@ -459,6 +467,7 @@ class GlobalTraversabilityMemory:
         grid.height = height
         grid.cell_radius = 0.5 * math.sqrt(2.0) * self.resolution
         grid.values = [float('nan')] * (width * height)
+        grid.elevation_values = [float('nan')] * (width * height)
         grid.observed_values = None
         grid.state = [TraversabilityGrid.UNKNOWN] * (width * height)
         grid.free_cells = []
@@ -474,6 +483,9 @@ class GlobalTraversabilityMemory:
             idx = grid.flat_index((row, col))
             grid.state[idx] = state
             grid.values[idx] = 1.0 if state == TraversabilityGrid.FREE else 0.0
+            elevation_count = self.elevation_counts.get((gx, gy), 0)
+            if elevation_count > 0:
+                grid.elevation_values[idx] = self.elevation_sums[(gx, gy)] / elevation_count
             if state == TraversabilityGrid.FREE:
                 grid.free_cells.append((row, col))
             elif state == TraversabilityGrid.OBSTACLE:
@@ -596,27 +608,20 @@ class SparseGraphBuilderNode(RclpyNode):
 
         self.global_memory.integrate(grid)
         global_grid = self.global_memory.to_grid()
-        if global_grid is None or not global_grid.free_cells:
-            self.get_logger().warn('No free cells in global traversability memory; skipping graph update')
-            return
 
-        sdf_unknown = global_grid.distance_field(global_grid.unknown_cells)
-        sdf_obstacle = global_grid.distance_field(global_grid.obstacle_cells)
+        sdf_unknown = grid.distance_field(grid.unknown_cells)
+        sdf_obstacle = grid.distance_field(grid.obstacle_cells)
         robot_xy = self.pose_xy(self.latest_odom.pose.pose) if self.latest_odom is not None else None
-        local_reachable_free_cells = grid.reachable_free_cells(robot_xy)
-        reachable_free_cells = []
-        for local_cell in local_reachable_free_cells:
-            global_key = self.global_memory.xy_to_global_cell(grid.cell_to_xy(local_cell))
-            global_cell = self.global_memory.global_cell_to_grid_cell(global_grid, global_key)
-            if global_cell is not None and global_grid.is_free(global_cell):
-                reachable_free_cells.append(global_cell)
+        reachable_free_cells = grid.reachable_free_cells(robot_xy)
 
         if self.should_update_navigation_graph():
-            self.update_navigation_graph(global_grid, sdf_unknown, sdf_obstacle, reachable_free_cells)
+            self.update_navigation_graph(grid, sdf_unknown, sdf_obstacle, reachable_free_cells)
             self.update_current_node()
             self.remember_graph_update()
-        self.publish_global_memory_grid(global_grid, msg.header.frame_id, msg.header.stamp)
-        self.publish_global_memory_markers(msg.header.frame_id, msg.header.stamp)
+
+        if global_grid is not None and global_grid.free_cells:
+            self.publish_global_memory_grid(global_grid, msg.header.frame_id, msg.header.stamp)
+            self.publish_global_memory_markers(msg.header.frame_id, msg.header.stamp)
         self.publish_graph(msg.header.frame_id, msg.header.stamp)
 
     def publish_global_memory_grid(self, grid: TraversabilityGrid, frame_id: str, stamp):
@@ -634,6 +639,7 @@ class SparseGraphBuilderNode(RclpyNode):
         elevation = []
         traversability = []
         observed = []
+        elevation_values = getattr(grid, 'elevation_values', None)
 
         for row in range(rows):
             x = center_x + 0.5 * length_x - (row + 0.5) * resolution
@@ -641,13 +647,17 @@ class SparseGraphBuilderNode(RclpyNode):
                 y = center_y + 0.5 * length_y - (col + 0.5) * resolution
                 cell = grid.xy_to_cell((x, y))
                 state = grid.state_at_cell(cell) if cell is not None else grid.UNKNOWN
+                elevation_value = (
+                    elevation_values[grid.flat_index(cell)]
+                    if cell is not None and elevation_values is not None else float('nan')
+                )
 
                 if state == grid.FREE:
-                    elevation.append(0.0)
+                    elevation.append(elevation_value)
                     traversability.append(1.0)
                     observed.append(1.0)
                 elif state == grid.OBSTACLE:
-                    elevation.append(0.0)
+                    elevation.append(elevation_value)
                     traversability.append(0.0)
                     observed.append(1.0)
                 else:
@@ -753,7 +763,7 @@ class SparseGraphBuilderNode(RclpyNode):
         sdf_obstacle: List[float],
         reachable_free_cells: Sequence[Cell],
     ):
-        # Algorithm 1: Update Navigation Graph.
+        # Algorithm 1: Update Navigation Graph over the current sensed local map.
         self.update_nodes(grid, sdf_unknown, sdf_obstacle)
         self.sample_new_nodes(grid, sdf_unknown, sdf_obstacle, reachable_free_cells, self.num_samples)
         self.update_frontier_nodes(grid, reachable_free_cells)
@@ -761,7 +771,7 @@ class SparseGraphBuilderNode(RclpyNode):
         self.build_edges(grid, sdf_unknown, sdf_obstacle)
 
     def update_nodes(self, grid: TraversabilityGrid, sdf_unknown: List[float], sdf_obstacle: List[float]):
-        # Algorithm 2: Update Nodes.
+        # Algorithm 2: Update Nodes. Nodes outside the current local map are kept unchanged.
         valid_nodes: List[GraphNodeState] = []
         index_remap: Dict[int, int] = {}
 
@@ -843,7 +853,7 @@ class SparseGraphBuilderNode(RclpyNode):
                 if not self.in_workspace_bounds(xy):
                     continue
                 cell = grid.xy_to_cell(xy)
-                if cell is not None and not grid.is_known(cell):
+                if cell is None or not grid.is_known(cell):
                     kept_frontiers.append(point)
             node.frontier_points = kept_frontiers
             node.is_frontier = bool(node.frontier_points)

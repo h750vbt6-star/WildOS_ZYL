@@ -1,0 +1,79 @@
+[0.000000] (-) TimerEvent: {}
+[0.002612] (-) JobUnselected: {'identifier': 'direct_lidar_inertial_odometry'}
+[0.002707] (-) JobUnselected: {'identifier': 'dlio_gazebo_sim'}
+[0.002741] (-) JobUnselected: {'identifier': 'elevation_map_msgs'}
+[0.002770] (-) JobUnselected: {'identifier': 'elevation_mapping_cupy'}
+[0.002797] (-) JobUnselected: {'identifier': 'gps_visualization'}
+[0.002824] (-) JobUnselected: {'identifier': 'graaf_vendor'}
+[0.002850] (-) JobUnselected: {'identifier': 'graphnav_builder'}
+[0.002872] (-) JobUnselected: {'identifier': 'graphnav_msgs'}
+[0.002892] (-) JobUnselected: {'identifier': 'graphnav_planner'}
+[0.002911] (-) JobUnselected: {'identifier': 'object_search_msgs'}
+[0.002928] (-) JobUnselected: {'identifier': 'ros2_numpy'}
+[0.002946] (-) JobUnselected: {'identifier': 'semantic_sensor'}
+[0.002965] (-) JobUnselected: {'identifier': 'triangulation3d'}
+[0.002991] (visual_navigation) JobQueued: {'identifier': 'visual_navigation', 'dependencies': OrderedDict({'gps_visualization': '/root/ros2_ws/install/gps_visualization', 'graphnav_msgs': '/root/ros2_ws/install/graphnav_msgs', 'object_search_msgs': '/root/ros2_ws/install/object_search_msgs', 'triangulation3d': '/root/ros2_ws/install/triangulation3d'})}
+[0.003030] (visual_navigation) JobStarted: {'identifier': 'visual_navigation'}
+[0.101533] (-) TimerEvent: {}
+[0.201732] (-) TimerEvent: {}
+[0.301920] (-) TimerEvent: {}
+[0.402104] (-) TimerEvent: {}
+[0.502283] (-) TimerEvent: {}
+[0.602495] (-) TimerEvent: {}
+[0.702680] (-) TimerEvent: {}
+[0.803456] (-) TimerEvent: {}
+[0.903652] (-) TimerEvent: {}
+[1.004013] (-) TimerEvent: {}
+[1.105012] (-) TimerEvent: {}
+[1.205312] (-) TimerEvent: {}
+[1.306703] (-) TimerEvent: {}
+[1.406999] (-) TimerEvent: {}
+[1.507741] (-) TimerEvent: {}
+[1.608373] (-) TimerEvent: {}
+[1.708517] (-) TimerEvent: {}
+[1.809100] (-) TimerEvent: {}
+[1.910584] (-) TimerEvent: {}
+[2.010750] (-) TimerEvent: {}
+[2.110934] (-) TimerEvent: {}
+[2.127417] (visual_navigation) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/root/ros2_ws/build/visual_navigation/build', '--no-deps', 'symlink_data'], 'cwd': '/root/ros2_ws/build/visual_navigation', 'env': {'VSCODE_CWD': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'HTTPS_PROXY': 'http://127.0.0.1:10808', 'CODEX_CI': '1', 'CODEX_INTERNAL_ORIGINATOR_OVERRIDE': 'codex_vscode', 'VSCODE_NLS_CONFIG': '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/out/nls.messages.json","locale":"en","availableLanguages":{}}', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'HOSTNAME': 'nx-NHx0DB-DE', '__GLX_VENDOR_LIBRARY_NAME': 'nvidia', 'DEBUG': 'release', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/root/ros2_ws/install/object_search_msgs/lib:/root/ros2_ws/install/graphnav_msgs/lib:/root/ros2_ws/install/gps_visualization/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/helpers/browser.sh', 'HOME': '/root', 'VSCODE_RECONNECTION_GRACE_TIME': '10800000', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-95d229b7-ad15-4612-a0e2-7af3365a0f41.sock', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'COLORTERM': '', 'REMOTE_CONTAINERS': 'true', 'NODE_TLS_REJECT_UNAUTHORIZED': '0', 'APPLICATION_INSIGHTS_NO_STATSBEAT': 'true', 'ROS_DISTRO': 'jazzy', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-37ddde33-99a2-4488-b5ea-31ca910d8383.sock', '__VK_LAYER_NV_optimus': 'NVIDIA_only', 'VSCODE_HANDLES_SIGPIPE': 'true', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'RUST_LOG': 'warn', 'TERM': 'dumb', 'QT_X11_NO_MITSHM': '1', 'PATH': '/root/.codex/tmp/arg0/codex-arg0GyA6JL:/root/.vscode-server/bin/f6cfa2ea2403534de03f069bdf160d06451ed282/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vscode-server/extensions/openai.chatgpt-26.519.32039/bin/linux-x86_64', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-37ddde33-99a2-4488-b5ea-31ca910d8383.sock","/root/.gnupg/S.gpg-agent"]', 'DISPLAY': ':1', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'C.UTF-8', '__NV_PRIME_RENDER_OFFLOAD': '1', 'GH_PAGER': 'cat', 'LS_COLORS': '', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-37ddde33-99a2-4488-b5ea-31ca910d8383.sock', 'AMENT_PREFIX_PATH': '/root/ros2_ws/install/triangulation3d:/root/ros2_ws/install/object_search_msgs:/root/ros2_ws/install/graphnav_msgs:/root/ros2_ws/install/gps_visualization:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'ELECTRON_RUN_AS_NODE': '1', 'CODEX_THREAD_ID': '019e6448-65b5-7853-beae-2074d197a700', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'PWD': '/root/ros2_ws/build/visual_navigation', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/ros2_ws/build/visual_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/visual_navigation/lib/python3.12/site-packages:/root/ros2_ws/build/triangulation3d:/root/ros2_ws/install/triangulation3d/lib/python3.12/site-packages:/root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages:/root/ros2_ws/install/graphnav_msgs/lib/python3.12/site-packages:/root/ros2_ws/install/gps_visualization/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:10808', 'NVIDIA_VISIBLE_DEVICES': 'all', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/ros2_ws/install/object_search_msgs:/root/ros2_ws/install/graphnav_msgs:/root/ros2_ws/install/gps_visualization:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[2.211252] (-) TimerEvent: {}
+[2.311437] (-) TimerEvent: {}
+[2.412513] (-) TimerEvent: {}
+[2.512690] (-) TimerEvent: {}
+[2.613973] (-) TimerEvent: {}
+[2.714315] (-) TimerEvent: {}
+[2.814490] (-) TimerEvent: {}
+[2.818542] (visual_navigation) StdoutLine: {'line': b'running develop\n'}
+[2.914572] (-) TimerEvent: {}
+[3.014738] (-) TimerEvent: {}
+[3.115174] (-) TimerEvent: {}
+[3.215368] (-) TimerEvent: {}
+[3.241439] (visual_navigation) StdoutLine: {'line': b'running egg_info\n'}
+[3.274972] (visual_navigation) StdoutLine: {'line': b'writing visual_navigation.egg-info/PKG-INFO\n'}
+[3.276255] (visual_navigation) StdoutLine: {'line': b'writing dependency_links to visual_navigation.egg-info/dependency_links.txt\n'}
+[3.276463] (visual_navigation) StdoutLine: {'line': b'writing entry points to visual_navigation.egg-info/entry_points.txt\n'}
+[3.276858] (visual_navigation) StdoutLine: {'line': b'writing requirements to visual_navigation.egg-info/requires.txt\n'}
+[3.277162] (visual_navigation) StdoutLine: {'line': b'writing top-level names to visual_navigation.egg-info/top_level.txt\n'}
+[3.315767] (-) TimerEvent: {}
+[3.367593] (visual_navigation) StdoutLine: {'line': b"reading manifest file 'visual_navigation.egg-info/SOURCES.txt'\n"}
+[3.370521] (visual_navigation) StdoutLine: {'line': b"writing manifest file 'visual_navigation.egg-info/SOURCES.txt'\n"}
+[3.410717] (visual_navigation) StdoutLine: {'line': b'running build_ext\n'}
+[3.411826] (visual_navigation) StdoutLine: {'line': b'Creating /root/ros2_ws/install/visual_navigation/lib/python3.12/site-packages/visual-navigation.egg-link (link to .)\n'}
+[3.414332] (visual_navigation) StdoutLine: {'line': b'Installing explorfm_triangulate script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.415202] (visual_navigation) StdoutLine: {'line': b'Installing geo_frontier_nav script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.418220] (-) TimerEvent: {}
+[3.418851] (visual_navigation) StdoutLine: {'line': b'Installing gps_save script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.419089] (visual_navigation) StdoutLine: {'line': b'Installing gps_viz script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.419263] (visual_navigation) StdoutLine: {'line': b'Installing img_frontier_nav script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.419398] (visual_navigation) StdoutLine: {'line': b'Installing lrn script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.419551] (visual_navigation) StdoutLine: {'line': b'Installing metrics_save script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.419686] (visual_navigation) StdoutLine: {'line': b'Installing obj_mask_triangulation script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.419812] (visual_navigation) StdoutLine: {'line': b'Installing viz_net script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.419951] (visual_navigation) StdoutLine: {'line': b'Installing wildos script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation\n'}
+[3.420099] (visual_navigation) StdoutLine: {'line': b'\n'}
+[3.420259] (visual_navigation) StdoutLine: {'line': b'Installed /root/ros2_ws/build/visual_navigation\n'}
+[3.420409] (visual_navigation) StdoutLine: {'line': b'running symlink_data\n'}
+[3.518332] (-) TimerEvent: {}
+[3.526605] (visual_navigation) CommandEnded: {'returncode': 0}
+[3.548378] (visual_navigation) JobEnded: {'identifier': 'visual_navigation', 'rc': 0}
+[3.550136] (-) EventReactorShutdown: {}

@@ -123,6 +123,138 @@
       </sensor>
     </link>
 
+    <link name="wildos_front_camera">
+      <pose relative_to="base_link">0.36 0 0.24 0 0 0</pose>
+      <inertial>
+        <mass>0.08</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <iyy>0.00005</iyy>
+          <izz>0.00005</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="front_camera_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.04 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="front_camera_sensor" type="camera">
+        <topic>/wildos/front/color/image_raw</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <camera>
+          <optical_frame_id>wildos_front_camera_color_optical_frame</optical_frame_id>
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>40.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+
+    <link name="wildos_left_camera">
+      <pose relative_to="base_link">0.08 0.25 0.24 0 0 1.57079632679</pose>
+      <inertial>
+        <mass>0.08</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <iyy>0.00005</iyy>
+          <izz>0.00005</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="left_camera_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.04 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="left_camera_sensor" type="camera">
+        <topic>/wildos/left/color/image_raw</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <camera>
+          <optical_frame_id>wildos_left_camera_color_optical_frame</optical_frame_id>
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>40.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+
+    <link name="wildos_right_camera">
+      <pose relative_to="base_link">0.08 -0.25 0.24 0 0 -1.57079632679</pose>
+      <inertial>
+        <mass>0.08</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <iyy>0.00005</iyy>
+          <izz>0.00005</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="right_camera_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.04 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="right_camera_sensor" type="camera">
+        <topic>/wildos/right/color/image_raw</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <camera>
+          <optical_frame_id>wildos_right_camera_color_optical_frame</optical_frame_id>
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>40.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+
     <link name="left_wheel">
       <pose relative_to="base_link">0 0.26 -0.04 1.57079632679 0 0</pose>
       <inertial>
@@ -198,6 +330,18 @@
     <joint name="imu_joint" type="fixed">
       <parent>base_link</parent>
       <child>imu</child>
+    </joint>
+    <joint name="wildos_front_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>wildos_front_camera</child>
+    </joint>
+    <joint name="wildos_left_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>wildos_left_camera</child>
+    </joint>
+    <joint name="wildos_right_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>wildos_right_camera</child>
     </joint>
     <joint name="left_wheel_joint" type="revolute">
       <parent>base_link</parent>

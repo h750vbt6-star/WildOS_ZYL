@@ -1,0 +1,214 @@
+[0.018s] Invoking command in '/root/ros2_ws/build/object_search_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /root/ros2_ws/src/nebula2-wildos-main/object_search_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/object_search_msgs
+[0.393s] -- The C compiler identification is GNU 13.3.0
+[0.393s] -- The CXX compiler identification is GNU 13.3.0
+[0.393s] -- Detecting C compiler ABI info
+[0.481s] -- Detecting C compiler ABI info - done
+[0.497s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.498s] -- Detecting C compile features
+[0.498s] -- Detecting C compile features - done
+[0.512s] -- Detecting CXX compiler ABI info
+[0.633s] -- Detecting CXX compiler ABI info - done
+[0.638s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.639s] -- Detecting CXX compile features
+[0.639s] -- Detecting CXX compile features - done
+[0.650s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.920s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.055s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.156s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[1.167s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.257s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.364s] -- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[1.373s] -- Found std_msgs: 5.3.7 (/opt/ros/jazzy/share/std_msgs/cmake)
+[1.443s] -- Found nav_msgs: 5.3.7 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[1.527s] -- Found sensor_msgs: 5.3.7 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.559s] -- Found tf2_msgs: 0.36.20 (/opt/ros/jazzy/share/tf2_msgs/cmake)
+[2.213s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[2.751s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.428s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.433s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[3.547s] -- Found PythonExtra: /usr/bin/python3  
+[3.958s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[4.124s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[4.130s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[4.168s] -- Added test 'lint_cmake' to check CMake code style
+[4.169s] -- Added test 'xmllint' to check XML markup files
+[4.173s] -- Configuring done (4.1s)
+[4.219s] -- Generating done (0.0s)
+[4.233s] -- Build files have been written to: /root/ros2_ws/build/object_search_msgs
+[4.245s] Invoked command in '/root/ros2_ws/build/object_search_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /root/ros2_ws/src/nebula2-wildos-main/object_search_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/object_search_msgs
+[4.246s] Invoking command in '/root/ros2_ws/build/object_search_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /root/ros2_ws/build/object_search_msgs -- -j8 -l8
+[4.291s] [  2%] Generating type hashes for ROS interfaces
+[4.291s] [  5%] Generating Rust code for ROS interfaces
+[4.299s] [  5%] Built target ament_cmake_python_symlink_object_search_msgs
+[4.509s] [  5%] Built target object_search_msgs__rosidl_generator_type_description
+[4.530s] [  8%] Generating C code for ROS interfaces
+[4.542s] [ 11%] Generating C++ code for ROS interfaces
+[4.638s] running egg_info
+[4.638s] creating object_search_msgs.egg-info
+[4.653s] [ 11%] Built target object_search_msgs__rs
+[4.671s] writing object_search_msgs.egg-info/PKG-INFO
+[4.672s] writing dependency_links to object_search_msgs.egg-info/dependency_links.txt
+[4.672s] writing top-level names to object_search_msgs.egg-info/top_level.txt
+[4.672s] writing manifest file 'object_search_msgs.egg-info/SOURCES.txt'
+[4.774s] reading manifest file 'object_search_msgs.egg-info/SOURCES.txt'
+[4.775s] writing manifest file 'object_search_msgs.egg-info/SOURCES.txt'
+[4.824s] [ 11%] Built target ament_cmake_python_build_object_search_msgs_egg
+[4.937s] [ 11%] Built target object_search_msgs__cpp
+[4.945s] [ 14%] Building C object CMakeFiles/object_search_msgs__rosidl_generator_c.dir/rosidl_generator_c/object_search_msgs/msg/detail/object_mask_with_tf__type_support.c.o
+[4.947s] [ 17%] Building C object CMakeFiles/object_search_msgs__rosidl_generator_c.dir/rosidl_generator_c/object_search_msgs/msg/detail/object_mask_with_tf__description.c.o
+[4.948s] [ 20%] Building C object CMakeFiles/object_search_msgs__rosidl_generator_c.dir/rosidl_generator_c/object_search_msgs/msg/detail/object_mask_with_tf__functions.c.o
+[5.033s] [ 22%] Linking C shared library libobject_search_msgs__rosidl_generator_c.so
+[5.078s] [ 22%] Built target object_search_msgs__rosidl_generator_c
+[5.093s] [ 25%] Generating C type support dispatch for ROS interfaces
+[5.093s] [ 31%] Generating C type support for eProsima Fast-RTPS
+[5.093s] [ 31%] Generating C++ type support dispatch for ROS interfaces
+[5.094s] [ 37%] Generating C++ introspection for ROS interfaces
+[5.095s] [ 37%] Generating C++ type support for eProsima Fast-RTPS
+[5.095s] [ 40%] Generating C introspection for ROS interfaces
+[5.444s] [ 42%] Building CXX object CMakeFiles/object_search_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/object_search_msgs/msg/object_mask_with_tf__type_support.cpp.o
+[5.500s] [ 45%] Building CXX object CMakeFiles/object_search_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/object_search_msgs/msg/detail/object_mask_with_tf__type_support_c.cpp.o
+[5.531s] [ 48%] Building C object CMakeFiles/object_search_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/object_search_msgs/msg/detail/object_mask_with_tf__type_support.c.o
+[5.631s] [ 51%] Building CXX object CMakeFiles/object_search_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/object_search_msgs/msg/object_mask_with_tf__type_support.cpp.o
+[5.672s] [ 54%] Linking C shared library libobject_search_msgs__rosidl_typesupport_introspection_c.so
+[5.692s] [ 57%] Building CXX object CMakeFiles/object_search_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/object_search_msgs/msg/detail/dds_fastrtps/object_mask_with_tf__type_support.cpp.o
+[5.747s] [ 60%] Building CXX object CMakeFiles/object_search_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/object_search_msgs/msg/detail/object_mask_with_tf__type_support.cpp.o
+[5.781s] [ 62%] Linking CXX shared library libobject_search_msgs__rosidl_typesupport_c.so
+[5.781s] [ 62%] Built target object_search_msgs__rosidl_typesupport_introspection_c
+[5.901s] [ 62%] Built target object_search_msgs__rosidl_typesupport_c
+[6.172s] [ 65%] Linking CXX shared library libobject_search_msgs__rosidl_typesupport_cpp.so
+[6.246s] [ 65%] Built target object_search_msgs__rosidl_typesupport_cpp
+[6.366s] [ 68%] Linking CXX shared library libobject_search_msgs__rosidl_typesupport_fastrtps_c.so
+[6.419s] [ 68%] Built target object_search_msgs__rosidl_typesupport_fastrtps_c
+[6.436s] [ 71%] Linking CXX shared library libobject_search_msgs__rosidl_typesupport_introspection_cpp.so
+[6.492s] [ 74%] Linking CXX shared library libobject_search_msgs__rosidl_typesupport_fastrtps_cpp.so
+[6.518s] [ 74%] Built target object_search_msgs__rosidl_typesupport_introspection_cpp
+[6.569s] [ 74%] Built target object_search_msgs__rosidl_typesupport_fastrtps_cpp
+[6.585s] [ 74%] Built target object_search_msgs
+[6.604s] [ 77%] Generating Python code for ROS interfaces
+[6.866s] [ 77%] Built target object_search_msgs__py
+[6.884s] [ 80%] Building C object CMakeFiles/object_search_msgs__rosidl_generator_py.dir/rosidl_generator_py/object_search_msgs/msg/_object_mask_with_tf_s.c.o
+[7.022s] [ 82%] Linking C shared library libobject_search_msgs__rosidl_generator_py.so
+[7.074s] [ 82%] Built target object_search_msgs__rosidl_generator_py
+[7.098s] [ 85%] Building C object CMakeFiles/object_search_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/object_search_msgs/_object_search_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[7.101s] [ 91%] Building C object CMakeFiles/object_search_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/object_search_msgs/_object_search_msgs_s.ep.rosidl_typesupport_c.c.o
+[7.101s] [ 91%] Building C object CMakeFiles/object_search_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/object_search_msgs/_object_search_msgs_s.ep.rosidl_typesupport_introspection_c.c.o
+[7.262s] [ 94%] Linking C shared module rosidl_generator_py/object_search_msgs/object_search_msgs_s__rosidl_typesupport_fastrtps_c.so
+[7.265s] [ 97%] Linking C shared module rosidl_generator_py/object_search_msgs/object_search_msgs_s__rosidl_typesupport_c.so
+[7.265s] [100%] Linking C shared module rosidl_generator_py/object_search_msgs/object_search_msgs_s__rosidl_typesupport_introspection_c.so
+[7.299s] [100%] Built target object_search_msgs_s__rosidl_typesupport_c
+[7.302s] [100%] Built target object_search_msgs_s__rosidl_typesupport_introspection_c
+[7.303s] [100%] Built target object_search_msgs_s__rosidl_typesupport_fastrtps_c
+[7.313s] Invoked command in '/root/ros2_ws/build/object_search_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /root/ros2_ws/build/object_search_msgs -- -j8 -l8
+[7.314s] Invoking command in '/root/ros2_ws/build/object_search_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /root/ros2_ws/build/object_search_msgs
+[7.321s] -- Install configuration: ""
+[7.322s] -- Execute custom install script
+[7.322s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/ament_index/resource_index/rosidl_interfaces/object_search_msgs
+[7.330s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/msg/ObjectMaskWithTf.json
+[7.337s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__functions.h
+[7.345s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__struct.h
+[7.352s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__type_support.h
+[7.360s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/object_mask_with_tf.h
+[7.367s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/rosidl_generator_c__visibility_control.h
+[7.374s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/environment/library_path.sh
+[7.382s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/environment/library_path.dsv
+[7.389s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__rosidl_typesupport_fastrtps_c.h
+[7.397s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[7.404s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__rosidl_typesupport_introspection_c.h
+[7.411s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[7.419s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__builder.hpp
+[7.426s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__struct.hpp
+[7.433s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__traits.hpp
+[7.441s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__type_support.hpp
+[7.448s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/object_mask_with_tf.hpp
+[7.455s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[7.463s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__rosidl_typesupport_fastrtps_cpp.hpp
+[7.470s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[7.478s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/include/object_search_msgs/object_search_msgs/msg/detail/object_mask_with_tf__rosidl_typesupport_introspection_cpp.hpp
+[7.485s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/environment/pythonpath.sh
+[7.493s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/environment/pythonpath.dsv
+[7.501s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs-0.0.0-py3.12.egg-info/PKG-INFO
+[7.508s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs-0.0.0-py3.12.egg-info/SOURCES.txt
+[7.516s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs-0.0.0-py3.12.egg-info/dependency_links.txt
+[7.523s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs-0.0.0-py3.12.egg-info/top_level.txt
+[7.531s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/__init__.py
+[7.539s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/_object_search_msgs_s.ep.rosidl_typesupport_c.c
+[7.546s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/_object_search_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[7.554s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/_object_search_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[7.561s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/msg/__init__.py
+[7.569s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/msg/_object_mask_with_tf.py
+[7.576s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/msg/_object_mask_with_tf_s.c
+[7.584s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/object_search_msgs_s__rosidl_typesupport_c.so
+[7.591s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/object_search_msgs_s__rosidl_typesupport_fastrtps_c.so
+[7.599s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/object_search_msgs_s__rosidl_typesupport_introspection_c.so
+[7.607s] -- Up-to-date symlink: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/object_search_msgs_s__rosidl_typesupport_fastrtps_c.so
+[7.607s] -- Up-to-date symlink: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/object_search_msgs_s__rosidl_typesupport_introspection_c.so
+[7.607s] -- Up-to-date symlink: /root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/object_search_msgs_s__rosidl_typesupport_c.so
+[7.608s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/ament_index/resource_index/rust_packages/object_search_msgs
+[7.616s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/rust/Cargo.toml
+[7.624s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/rust/build.rs
+[7.632s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/rust/src/lib.rs
+[7.639s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/rust/src/msg.rs
+[7.647s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/rust/src/msg/rmw.rs
+[7.655s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/msg/ObjectMaskWithTf.idl
+[7.662s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/msg/ObjectMaskWithTf.msg
+[7.670s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/ament_index/resource_index/package_run_dependencies/object_search_msgs
+[7.678s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/ament_index/resource_index/parent_prefix_path/object_search_msgs
+[7.685s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/environment/ament_prefix_path.sh
+[7.692s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/environment/ament_prefix_path.dsv
+[7.700s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/environment/path.sh
+[7.707s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/environment/path.dsv
+[7.714s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/local_setup.bash
+[7.722s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/local_setup.sh
+[7.729s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/local_setup.zsh
+[7.737s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/local_setup.dsv
+[7.745s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/package.dsv
+[7.753s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/ament_index/resource_index/packages/object_search_msgs
+[7.760s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/rosidl_cmake-extras.cmake
+[7.767s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[7.775s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[7.782s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[7.790s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[7.797s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[7.805s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[7.812s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgsConfig.cmake
+[7.820s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgsConfig-version.cmake
+[7.827s] -- Symlinking: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/package.xml
+[7.835s] -- Installing: /root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_generator_c.so
+[7.835s] -- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_generator_c.so" to ""
+[7.835s] -- Installing: /root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_fastrtps_c.so
+[7.836s] -- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[7.836s] -- Installing: /root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_introspection_c.so
+[7.836s] -- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_introspection_c.so" to ""
+[7.836s] -- Installing: /root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_c.so
+[7.837s] -- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_c.so" to ""
+[7.837s] -- Installing: /root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_fastrtps_cpp.so
+[7.837s] -- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[7.837s] -- Installing: /root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_introspection_cpp.so
+[7.838s] -- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[7.838s] -- Installing: /root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_cpp.so
+[7.838s] -- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_typesupport_cpp.so" to ""
+[7.873s] Listing '/root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs'...
+[7.873s] Compiling '/root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/__init__.py'...
+[7.873s] Listing '/root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/msg'...
+[7.873s] Compiling '/root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/msg/__init__.py'...
+[7.873s] Compiling '/root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages/object_search_msgs/msg/_object_mask_with_tf.py'...
+[7.878s] -- Installing: /root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_generator_py.so
+[7.879s] -- Set non-toolchain portion of runtime path of "/root/ros2_ws/install/object_search_msgs/lib/libobject_search_msgs__rosidl_generator_py.so" to ""
+[7.879s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_generator_cExport.cmake
+[7.879s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_generator_cExport-noconfig.cmake
+[7.879s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[7.879s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[7.879s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgs__rosidl_typesupport_introspection_cExport.cmake
+[7.880s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[7.880s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgs__rosidl_typesupport_cExport.cmake
+[7.880s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[7.880s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_generator_cppExport.cmake
+[7.880s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[7.880s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[7.881s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[7.881s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[7.881s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgs__rosidl_typesupport_cppExport.cmake
+[7.881s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/object_search_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[7.881s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_generator_pyExport.cmake
+[7.881s] -- Installing: /root/ros2_ws/install/object_search_msgs/share/object_search_msgs/cmake/export_object_search_msgs__rosidl_generator_pyExport-noconfig.cmake
+[7.884s] Invoked command in '/root/ros2_ws/build/object_search_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /root/ros2_ws/build/object_search_msgs

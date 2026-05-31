@@ -1,0 +1,1 @@
+/root/ros2_ws/build/object_search_msgs/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake

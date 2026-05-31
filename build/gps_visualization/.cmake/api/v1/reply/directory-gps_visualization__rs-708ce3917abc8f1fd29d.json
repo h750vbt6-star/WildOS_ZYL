@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "gps_visualization__rs",
+		"source" : "/root/ros2_ws/build/gps_visualization/gps_visualization__rs"
+	}
+}

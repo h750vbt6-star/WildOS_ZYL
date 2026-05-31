@@ -1,0 +1,1 @@
+/root/ros2_ws/build/visual_navigation/launch/imgfrontier_nav_launch.py

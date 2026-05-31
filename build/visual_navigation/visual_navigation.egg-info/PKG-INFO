@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: visual-navigation
+Version: 0.0.0
+Summary: Long-range visual navigation and object search.
+Maintainer: Hardik Shah
+Maintainer-email: hardikns@jpl.nasa.gov
+License: Apache-2.0

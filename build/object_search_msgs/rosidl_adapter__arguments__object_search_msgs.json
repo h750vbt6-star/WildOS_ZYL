@@ -1,0 +1,6 @@
+{
+  "package_name": "object_search_msgs",
+  "non_idl_tuples": [
+    "/root/ros2_ws/src/nebula2-wildos-main/object_search_msgs:msg/ObjectMaskWithTf.msg"
+  ]
+}

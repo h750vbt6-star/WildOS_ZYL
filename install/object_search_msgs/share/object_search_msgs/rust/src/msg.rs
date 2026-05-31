@@ -1,0 +1,1 @@
+/root/ros2_ws/build/object_search_msgs/rosidl_generator_rs/object_search_msgs/rust/src/msg.rs

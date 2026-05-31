@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing graphnav_builder.egg-info/PKG-INFO
+writing dependency_links to graphnav_builder.egg-info/dependency_links.txt
+writing entry points to graphnav_builder.egg-info/entry_points.txt
+writing requirements to graphnav_builder.egg-info/requires.txt
+writing top-level names to graphnav_builder.egg-info/top_level.txt
+reading manifest file 'graphnav_builder.egg-info/SOURCES.txt'
+writing manifest file 'graphnav_builder.egg-info/SOURCES.txt'
+running build_ext
+Creating /root/ros2_ws/install/graphnav_builder/lib/python3.12/site-packages/graphnav-builder.egg-link (link to .)
+Installing graphnav_builder script to /root/ros2_ws/install/graphnav_builder/lib/graphnav_builder
+
+Installed /root/ros2_ws/build/graphnav_builder
+running symlink_data

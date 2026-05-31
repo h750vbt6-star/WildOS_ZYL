@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: triangulation3d
+Version: 0.0.0
+Summary: Particle filter based 3D triangulation
+Maintainer: Hardik Shah
+Maintainer-email: hardikns@jpl.nasa.gov
+License: Apache-2.0

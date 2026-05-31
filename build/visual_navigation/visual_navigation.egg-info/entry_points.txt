@@ -1,0 +1,12 @@
+[console_scripts]
+explorfm_camera_probe = visual_navigation.wildos.explorfm_camera_probe:main
+explorfm_triangulate = visual_navigation.explorfm_triangulation.explorfm_triangulator:main
+geo_frontier_nav = visual_navigation.geofrontier_nav.nav:main
+gps_save = visual_navigation.gps.save_gps_path:main
+gps_viz = visual_navigation.gps.gps_viz:main
+img_frontier_nav = visual_navigation.imgfrontier_nav.nav:main
+lrn = visual_navigation.lrn.nav:main
+metrics_save = visual_navigation.gps.save_metrics:main
+obj_mask_triangulation = visual_navigation.explorfm_triangulation.obj_mask_triangulation:main
+viz_net = visual_navigation.imgfrontier_nav.viz_net:main
+wildos = visual_navigation.wildos.nav:main

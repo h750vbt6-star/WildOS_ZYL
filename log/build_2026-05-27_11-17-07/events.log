@@ -1,0 +1,20 @@
+[0.000000] (-) TimerEvent: {}
+[0.000052] (-) JobUnselected: {'identifier': 'direct_lidar_inertial_odometry'}
+[0.000180] (-) JobUnselected: {'identifier': 'elevation_map_msgs'}
+[0.000405] (-) JobUnselected: {'identifier': 'elevation_mapping_cupy'}
+[0.000513] (-) JobUnselected: {'identifier': 'gps_visualization'}
+[0.000639] (-) JobUnselected: {'identifier': 'graaf_vendor'}
+[0.000691] (-) JobUnselected: {'identifier': 'graphnav_builder'}
+[0.000717] (-) JobUnselected: {'identifier': 'graphnav_msgs'}
+[0.000743] (-) JobUnselected: {'identifier': 'graphnav_planner'}
+[0.000767] (-) JobUnselected: {'identifier': 'object_search_msgs'}
+[0.000795] (-) JobUnselected: {'identifier': 'ros2_numpy'}
+[0.000810] (-) JobUnselected: {'identifier': 'semantic_sensor'}
+[0.000823] (-) JobUnselected: {'identifier': 'triangulation3d'}
+[0.000836] (visual_navigation) JobQueued: {'identifier': 'visual_navigation', 'dependencies': OrderedDict({'gps_visualization': '/root/ros2_ws/install/gps_visualization', 'graphnav_msgs': '/root/ros2_ws/install/graphnav_msgs', 'object_search_msgs': '/root/ros2_ws/install/object_search_msgs', 'triangulation3d': '/root/ros2_ws/install/triangulation3d'})}
+[0.000858] (dlio_gazebo_sim) JobQueued: {'identifier': 'dlio_gazebo_sim', 'dependencies': OrderedDict({'direct_lidar_inertial_odometry': '/root/ros2_ws/install/direct_lidar_inertial_odometry', 'elevation_map_msgs': '/root/ros2_ws/install/elevation_map_msgs', 'graphnav_msgs': '/root/ros2_ws/install/graphnav_msgs', 'ros2_numpy': '/root/ros2_ws/install/ros2_numpy', 'graphnav_builder': '/root/ros2_ws/install/graphnav_builder', 'semantic_sensor': '/root/ros2_ws/install/semantic_sensor', 'elevation_mapping_cupy': '/root/ros2_ws/install/elevation_mapping_cupy'})}
+[0.000885] (visual_navigation) JobStarted: {'identifier': 'visual_navigation'}
+[0.009873] (visual_navigation) JobEnded: {'identifier': 'visual_navigation', 'rc': 1}
+[0.010665] (dlio_gazebo_sim) JobStarted: {'identifier': 'dlio_gazebo_sim'}
+[0.015826] (dlio_gazebo_sim) JobEnded: {'identifier': 'dlio_gazebo_sim', 'rc': 'SIGINT'}
+[0.016366] (-) EventReactorShutdown: {}

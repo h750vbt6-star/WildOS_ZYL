@@ -36,6 +36,7 @@ class TFLookupSubscriber(Node, ABC):
         "wait_for_oldest": False,  # whether to wait when buffer is full
         "clear_buffer_on_process": False,  # whether to clear buffer after processing
         "spin_thread": False,     # whether to spin tf listener in a separate thread
+        "use_latest_transform": False,  # whether to lookup the latest available TF instead of message time
     }
 
     def __init__(
@@ -63,6 +64,7 @@ class TFLookupSubscriber(Node, ABC):
         self.timer_duration = config.timer_duration
         self.lookup_timeout = config.lookup_timeout
         self.clear_buffer_on_process = config.clear_buffer_on_process
+        self.use_latest_transform = config.use_latest_transform
 
         self._required_transforms: Dict[str, TFEdge] = {}
 
@@ -95,10 +97,11 @@ class TFLookupSubscriber(Node, ABC):
                 tfs = {}
                 for edge_name, edge in self._required_transforms.items():
                     try:
+                        lookup_stamp = Time() if self.use_latest_transform else old_msg_stamp
                         tf_oldest_msg = self.tf_buffer.lookup_transform(
                             edge.target_frame,
                             edge.source_frame, 
-                            old_msg_stamp, 
+                            lookup_stamp,
                             timeout=Duration(seconds=self.lookup_timeout)
                         )
                         tfs[edge_name] = tf_oldest_msg

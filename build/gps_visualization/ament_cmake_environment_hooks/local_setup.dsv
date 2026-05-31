@@ -1,0 +1,4 @@
+source;share/gps_visualization/environment/ament_prefix_path.sh
+source;share/gps_visualization/environment/library_path.sh
+source;share/gps_visualization/environment/path.sh
+source;share/gps_visualization/environment/pythonpath.sh

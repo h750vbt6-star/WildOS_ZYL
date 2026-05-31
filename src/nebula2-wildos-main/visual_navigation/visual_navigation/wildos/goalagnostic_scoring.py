@@ -58,17 +58,22 @@ class GoalAgnosticScoring(ScoringGeometricFrontiers):
         goal_conf = self.get_goal_conf(h, w, cam_data)  # (H, W, num_angular_bins)
         frontier_conf = self.get_frontier_conf(img_frontiers, traversability)[..., np.newaxis] # (H, W, 1)
 
-        trav = cv2.resize(traversability.astype(np.float32), (0,0), fx=self.reach_scale, fy=self.reach_scale)
-        trav_costs = 1 / (trav + 1e-3)
-        trav_costs[trav < self.traversability_threshold] = -1
-        mcp = MCP_Geometric(trav_costs, fully_connected=True)
+        mcp = None
+        if compute_paths:
+            trav = cv2.resize(traversability.astype(np.float32), (0,0), fx=self.reach_scale, fy=self.reach_scale)
+            trav_costs = 1 / (trav + 1e-3)
+            trav_costs[trav < self.traversability_threshold] = -1
+            mcp = MCP_Geometric(trav_costs, fully_connected=True)
 
         scores = []
         paths = []
         score_maps = []
 
         for geofrontier in geometric_frontiers:
-            reachability_conf, mcp = self.get_reachability_conf(geofrontier * self.reach_scale, (h,w), mcp)
+            if compute_paths:
+                reachability_conf, mcp = self.get_reachability_conf(geofrontier * self.reach_scale, (h,w), mcp)
+            else:
+                reachability_conf = np.ones((h, w), dtype=np.float32)
             reachability_conf = reachability_conf[..., np.newaxis] # (H, W, 1)
 
             score_map = np.zeros_like(goal_conf, dtype=np.float32)
