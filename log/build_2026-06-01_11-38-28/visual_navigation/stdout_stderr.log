@@ -1,0 +1,25 @@
+running develop
+running egg_info
+writing visual_navigation.egg-info/PKG-INFO
+writing dependency_links to visual_navigation.egg-info/dependency_links.txt
+writing entry points to visual_navigation.egg-info/entry_points.txt
+writing requirements to visual_navigation.egg-info/requires.txt
+writing top-level names to visual_navigation.egg-info/top_level.txt
+reading manifest file 'visual_navigation.egg-info/SOURCES.txt'
+writing manifest file 'visual_navigation.egg-info/SOURCES.txt'
+running build_ext
+Creating /root/ros2_ws/install/visual_navigation/lib/python3.12/site-packages/visual-navigation.egg-link (link to .)
+Installing explorfm_camera_probe script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing explorfm_triangulate script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing geo_frontier_nav script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing gps_save script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing gps_viz script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing img_frontier_nav script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing lrn script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing metrics_save script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing obj_mask_triangulation script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing viz_net script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+Installing wildos script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+
+Installed /root/ros2_ws/build/visual_navigation
+running symlink_data

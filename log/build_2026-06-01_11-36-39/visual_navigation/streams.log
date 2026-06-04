@@ -1,0 +1,27 @@
+[2.951s] Invoking command in '/root/ros2_ws/build/visual_navigation': AMENT_PREFIX_PATH=/root/ros2_ws/install/triangulation3d:/root/ros2_ws/install/object_search_msgs:/root/ros2_ws/install/graphnav_msgs:/root/ros2_ws/install/gps_visualization:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/object_search_msgs:/root/ros2_ws/install/graphnav_msgs:/root/ros2_ws/install/gps_visualization:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/root/ros2_ws/install/object_search_msgs/lib:/root/ros2_ws/install/graphnav_msgs/lib:/root/ros2_ws/install/gps_visualization/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/visual_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/visual_navigation/lib/python3.12/site-packages:/root/ros2_ws/build/triangulation3d:/root/ros2_ws/install/triangulation3d/lib/python3.12/site-packages:/root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages:/root/ros2_ws/install/graphnav_msgs/lib/python3.12/site-packages:/root/ros2_ws/install/gps_visualization/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/visual_navigation/build --no-deps symlink_data
+[4.063s] running develop
+[4.640s] running egg_info
+[4.686s] writing visual_navigation.egg-info/PKG-INFO
+[4.686s] writing dependency_links to visual_navigation.egg-info/dependency_links.txt
+[4.687s] writing entry points to visual_navigation.egg-info/entry_points.txt
+[4.687s] writing requirements to visual_navigation.egg-info/requires.txt
+[4.687s] writing top-level names to visual_navigation.egg-info/top_level.txt
+[4.799s] reading manifest file 'visual_navigation.egg-info/SOURCES.txt'
+[4.801s] writing manifest file 'visual_navigation.egg-info/SOURCES.txt'
+[4.867s] running build_ext
+[4.867s] Creating /root/ros2_ws/install/visual_navigation/lib/python3.12/site-packages/visual-navigation.egg-link (link to .)
+[4.870s] Installing explorfm_camera_probe script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.870s] Installing explorfm_triangulate script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.870s] Installing geo_frontier_nav script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.871s] Installing gps_save script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.876s] Installing gps_viz script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.876s] Installing img_frontier_nav script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.877s] Installing lrn script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.877s] Installing metrics_save script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.877s] Installing obj_mask_triangulation script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.877s] Installing viz_net script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.878s] Installing wildos script to /root/ros2_ws/install/visual_navigation/lib/visual_navigation
+[4.879s] 
+[4.879s] Installed /root/ros2_ws/build/visual_navigation
+[4.879s] running symlink_data
+[4.989s] Invoked command in '/root/ros2_ws/build/visual_navigation' returned '0': AMENT_PREFIX_PATH=/root/ros2_ws/install/triangulation3d:/root/ros2_ws/install/object_search_msgs:/root/ros2_ws/install/graphnav_msgs:/root/ros2_ws/install/gps_visualization:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/ros2_ws/install/object_search_msgs:/root/ros2_ws/install/graphnav_msgs:/root/ros2_ws/install/gps_visualization:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/root/ros2_ws/install/object_search_msgs/lib:/root/ros2_ws/install/graphnav_msgs/lib:/root/ros2_ws/install/gps_visualization/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/ros2_ws/build/visual_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/visual_navigation/lib/python3.12/site-packages:/root/ros2_ws/build/triangulation3d:/root/ros2_ws/install/triangulation3d/lib/python3.12/site-packages:/root/ros2_ws/install/object_search_msgs/lib/python3.12/site-packages:/root/ros2_ws/install/graphnav_msgs/lib/python3.12/site-packages:/root/ros2_ws/install/gps_visualization/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/visual_navigation/build --no-deps symlink_data

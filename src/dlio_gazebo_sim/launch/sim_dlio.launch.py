@@ -295,6 +295,11 @@ def generate_launch_description():
         additional_env={
             'PYTHONPATH': [wildos_source_path, ':', EnvironmentVariable('PYTHONPATH', default_value='')],
             'MPLCONFIGDIR': '/tmp/matplotlib',
+            'PYTHONUNBUFFERED': '1',
+            'HF_HUB_DISABLE_XET': '1',
+            'HF_HUB_OFFLINE': '1',
+            'TRANSFORMERS_OFFLINE': '1',
+            'PYTORCH_CUDA_ALLOC_CONF': 'expandable_segments:True',
         },
     )
 
@@ -313,6 +318,11 @@ def generate_launch_description():
         additional_env={
             'PYTHONPATH': [wildos_source_path, ':', EnvironmentVariable('PYTHONPATH', default_value='')],
             'MPLCONFIGDIR': '/tmp/matplotlib',
+            'PYTHONUNBUFFERED': '1',
+            'HF_HUB_DISABLE_XET': '1',
+            'HF_HUB_OFFLINE': '1',
+            'TRANSFORMERS_OFFLINE': '1',
+            'PYTORCH_CUDA_ALLOC_CONF': 'expandable_segments:True',
         },
     )
 
@@ -331,6 +341,7 @@ def generate_launch_description():
         additional_env={
             'PYTHONPATH': [wildos_source_path, ':', EnvironmentVariable('PYTHONPATH', default_value='')],
             'MPLCONFIGDIR': '/tmp/matplotlib',
+            'PYTHONUNBUFFERED': '1',
         },
     )
 

@@ -4,6 +4,3 @@ source;share/triangulation3d/hook/pythonpath.sh
 source;share/triangulation3d/hook/ament_prefix_path.ps1
 source;share/triangulation3d/hook/ament_prefix_path.dsv
 source;share/triangulation3d/hook/ament_prefix_path.sh
-source;../../build/triangulation3d/share/triangulation3d/hook/pythonpath_develop.ps1
-source;../../build/triangulation3d/share/triangulation3d/hook/pythonpath_develop.dsv
-source;../../build/triangulation3d/share/triangulation3d/hook/pythonpath_develop.sh

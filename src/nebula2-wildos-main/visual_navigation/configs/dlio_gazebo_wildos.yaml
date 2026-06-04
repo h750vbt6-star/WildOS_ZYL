@@ -7,7 +7,7 @@ use_naclip: true
 use_summary_for_spatial: true
 radio_dim: 768
 static_scale_factor: 0.75
-model_precision: FP32
+model_precision: FP16
 
 # Nav Params
 num_cameras: 3

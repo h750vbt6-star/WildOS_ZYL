@@ -1,1 +1,382 @@
-/root/ros2_ws/build/dlio_gazebo_sim/models/dlio_car/model.sdf
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="dlio_car">
+    <pose>0 0 0.12 0 0 0</pose>
+    <self_collide>false</self_collide>
+
+    <link name="base_link">
+      <inertial>
+        <mass>12.0</mass>
+        <inertia>
+          <ixx>0.20</ixx>
+          <iyy>0.35</iyy>
+          <izz>0.42</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="base_collision">
+        <geometry>
+          <box>
+            <size>0.70 0.45 0.20</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="base_visual">
+        <geometry>
+          <box>
+            <size>0.70 0.45 0.20</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.08 0.35 0.80 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="lidar">
+      <pose relative_to="base_link">0.12 0 0.33 0 0 0</pose>
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0004</ixx>
+          <iyy>0.0004</iyy>
+          <izz>0.0004</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="lidar_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.08</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="lidar_sensor" type="gpu_lidar">
+        <topic>/points_raw</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>720</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159265</min_angle>
+              <max_angle>3.14159265</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>32</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.45</min_angle>
+              <max_angle>0.35</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.2</min>
+            <max>18.0</max>
+            <resolution>0.03</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+      </sensor>
+    </link>
+
+    <link name="imu">
+      <pose relative_to="base_link">0 0 0.12 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <iyy>0.00002</iyy>
+          <izz>0.00002</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="imu_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.06 0.03</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.9 0.75 0.2 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="imu_sensor" type="imu">
+        <topic>/imu_raw</topic>
+        <update_rate>100</update_rate>
+        <always_on>true</always_on>
+      </sensor>
+    </link>
+
+    <link name="wildos_front_camera">
+      <pose relative_to="base_link">0.36 0 0.24 0 0 0</pose>
+      <inertial>
+        <mass>0.08</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <iyy>0.00005</iyy>
+          <izz>0.00005</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="front_camera_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.04 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="front_camera_sensor" type="camera">
+        <topic>/wildos/front/color/image_raw</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <camera>
+          <optical_frame_id>wildos_front_camera_color_optical_frame</optical_frame_id>
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>40.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+
+    <link name="wildos_left_camera">
+      <pose relative_to="base_link">0.08 0.25 0.24 0 0 1.57079632679</pose>
+      <inertial>
+        <mass>0.08</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <iyy>0.00005</iyy>
+          <izz>0.00005</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="left_camera_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.04 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="left_camera_sensor" type="camera">
+        <topic>/wildos/left/color/image_raw</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <camera>
+          <optical_frame_id>wildos_left_camera_color_optical_frame</optical_frame_id>
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>40.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+
+    <link name="wildos_right_camera">
+      <pose relative_to="base_link">0.08 -0.25 0.24 0 0 -1.57079632679</pose>
+      <inertial>
+        <mass>0.08</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <iyy>0.00005</iyy>
+          <izz>0.00005</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="right_camera_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.04 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="right_camera_sensor" type="camera">
+        <topic>/wildos/right/color/image_raw</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <camera>
+          <optical_frame_id>wildos_right_camera_color_optical_frame</optical_frame_id>
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>40.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+
+    <link name="left_wheel">
+      <pose relative_to="base_link">0 0.26 -0.04 1.57079632679 0 0</pose>
+      <inertial>
+        <mass>0.6</mass>
+        <inertia>
+          <ixx>0.002</ixx>
+          <iyy>0.002</iyy>
+          <izz>0.002</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="left_wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.10</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="left_wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.10</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.02 0.02 0.02 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="right_wheel">
+      <pose relative_to="base_link">0 -0.26 -0.04 1.57079632679 0 0</pose>
+      <inertial>
+        <mass>0.6</mass>
+        <inertia>
+          <ixx>0.002</ixx>
+          <iyy>0.002</iyy>
+          <izz>0.002</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="right_wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.10</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="right_wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.10</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.02 0.02 0.02 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="lidar_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>lidar</child>
+    </joint>
+    <joint name="imu_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>imu</child>
+    </joint>
+    <joint name="wildos_front_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>wildos_front_camera</child>
+    </joint>
+    <joint name="wildos_left_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>wildos_left_camera</child>
+    </joint>
+    <joint name="wildos_right_camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>wildos_right_camera</child>
+    </joint>
+    <joint name="left_wheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>left_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint name="right_wheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>right_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>right_wheel_joint</left_joint>
+      <right_joint>left_wheel_joint</right_joint>
+      <wheel_separation>0.52</wheel_separation>
+      <wheel_radius>0.10</wheel_radius>
+      <topic>/cmd_vel</topic>
+      <odom_topic>/gazebo/odom</odom_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+    </plugin>
+
+    <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
+      <publish_model_pose>true</publish_model_pose>
+      <publish_link_pose>false</publish_link_pose>
+      <publish_collision_pose>false</publish_collision_pose>
+      <publish_visual_pose>false</publish_visual_pose>
+      <publish_nested_model_pose>false</publish_nested_model_pose>
+      <use_pose_vector_msg>false</use_pose_vector_msg>
+      <update_frequency>50</update_frequency>
+    </plugin>
+  </model>
+</sdf>

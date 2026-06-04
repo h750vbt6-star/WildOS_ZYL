@@ -10,6 +10,7 @@ lidar_topic: /dlio/odom_node/pointcloud/deskewed
 triangulated_object_topic: /triangulated_object
 navigation_goal_topic: /imgnav_waypoint
 particle_viz_topic: /object_hypotheses
+goal_direction_viz_topic: /goal_direction
 
 # ROS2 subscriber params
 qos_history_depth: 10
