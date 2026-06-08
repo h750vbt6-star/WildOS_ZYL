@@ -12,6 +12,7 @@ def generate_launch_description():
     gz_pkg = FindPackageShare('ros_gz_sim')
     dlio_pkg = FindPackageShare('direct_lidar_inertial_odometry')
     elevation_pkg = FindPackageShare('elevation_mapping_cupy')
+    wildos_bridge_pkg = FindPackageShare('wildos_rosbag_bridge')
 
     world_name = LaunchConfiguration('world')
     world = PathJoinSubstitution([pkg, 'worlds', world_name])
@@ -31,7 +32,13 @@ def generate_launch_description():
     rosbag_imu_topic = LaunchConfiguration('rosbag_imu_topic')
     rosbag_rate = LaunchConfiguration('rosbag_rate')
     rosbag_loop = LaunchConfiguration('rosbag_loop')
+    rosbag_start_offset = LaunchConfiguration('rosbag_start_offset')
     rosbag_start_delay = LaunchConfiguration('rosbag_start_delay')
+    rosbag_dlio_extra_params = LaunchConfiguration('rosbag_dlio_extra_params')
+    rosbag_deskewed_lidar_topic = LaunchConfiguration('rosbag_deskewed_lidar_topic')
+    rosbag_deskewed_lidar_frame = LaunchConfiguration('rosbag_deskewed_lidar_frame')
+    rosbag_elevation_config = LaunchConfiguration('rosbag_elevation_config')
+    use_rosbag_deskewed_lidar_bridge = LaunchConfiguration('use_rosbag_deskewed_lidar_bridge')
     linear_x = LaunchConfiguration('linear_x')
     angular_z = LaunchConfiguration('angular_z')
     start_delay = LaunchConfiguration('start_delay')
@@ -97,7 +104,7 @@ def generate_launch_description():
         ])),
     )
 
-    dlio = IncludeLaunchDescription(
+    dlio_gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([dlio_pkg, 'launch', 'dlio.launch.py'])
         ),
@@ -107,6 +114,21 @@ def generate_launch_description():
             'imu_topic': imu_topic,
             'dlio_output': dlio_output,
         }.items(),
+        condition=IfCondition(gazebo_source),
+    )
+
+    dlio_rosbag = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([dlio_pkg, 'launch', 'dlio.launch.py'])
+        ),
+        launch_arguments={
+            'rviz': rviz,
+            'pointcloud_topic': pointcloud_topic,
+            'imu_topic': imu_topic,
+            'dlio_output': dlio_output,
+            'dlio_extra_params': rosbag_dlio_extra_params,
+        }.items(),
+        condition=IfCondition(rosbag_source),
     )
 
     rosbag_play = TimerAction(
@@ -116,6 +138,7 @@ def generate_launch_description():
                 cmd=[
                     'ros2', 'bag', 'play', rosbag_path,
                     '--clock',
+                    '--start-offset', rosbag_start_offset,
                     '--rate', rosbag_rate,
                     '--remap',
                     [rosbag_pointcloud_topic, ':=', pointcloud_topic],
@@ -132,6 +155,7 @@ def generate_launch_description():
                     'ros2', 'bag', 'play', rosbag_path,
                     '--clock',
                     '--loop',
+                    '--start-offset', rosbag_start_offset,
                     '--rate', rosbag_rate,
                     '--remap',
                     [rosbag_pointcloud_topic, ':=', pointcloud_topic],
@@ -147,7 +171,34 @@ def generate_launch_description():
         condition=IfCondition(rosbag_source),
     )
 
-    elevation_mapping = IncludeLaunchDescription(
+    rosbag_wildos_camera_bridge = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([wildos_bridge_pkg, 'launch', 'alphasense_to_wildos.launch.py'])
+        ),
+        condition=IfCondition(PythonExpression([
+            "'", data_source, "'.lower() == 'rosbag' and '", launch_wildos, "'.lower() == 'true'"
+        ])),
+    )
+
+    rosbag_deskewed_lidar_bridge = Node(
+        package='dlio_gazebo_sim',
+        executable='odom_cloud_to_lidar_frame',
+        name='odom_cloud_to_lidar_frame',
+        output='screen',
+        condition=IfCondition(PythonExpression([
+            "'", data_source, "'.lower() == 'rosbag' and '",
+            launch_elevation, "'.lower() == 'true' and '",
+            use_rosbag_deskewed_lidar_bridge, "'.lower() == 'true'"
+        ])),
+        parameters=[{
+            'use_sim_time': True,
+            'input_topic': '/dlio/odom_node/pointcloud/deskewed',
+            'output_topic': rosbag_deskewed_lidar_topic,
+            'target_frame': rosbag_deskewed_lidar_frame,
+        }],
+    )
+
+    elevation_mapping_gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([elevation_pkg, 'launch', 'elevation_mapping.launch.py'])
         ),
@@ -156,7 +207,23 @@ def generate_launch_description():
             'launch_rviz': 'false',
             'use_sim_time': 'true',
         }.items(),
-        condition=IfCondition(launch_elevation),
+        condition=IfCondition(PythonExpression([
+            "'", data_source, "'.lower() == 'gazebo' and '", launch_elevation, "'.lower() == 'true'"
+        ])),
+    )
+
+    elevation_mapping_rosbag = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([elevation_pkg, 'launch', 'elevation_mapping.launch.py'])
+        ),
+        launch_arguments={
+            'robot_config': rosbag_elevation_config,
+            'launch_rviz': 'false',
+            'use_sim_time': 'true',
+        }.items(),
+        condition=IfCondition(PythonExpression([
+            "'", data_source, "'.lower() == 'rosbag' and '", launch_elevation, "'.lower() == 'true'"
+        ])),
     )
 
     bridge = Node(
@@ -425,6 +492,36 @@ def generate_launch_description():
         DeclareLaunchArgument('rosbag_imu_topic', default_value='/alphasense_driver_ros/imu'),
         DeclareLaunchArgument('rosbag_rate', default_value='1.0'),
         DeclareLaunchArgument('rosbag_loop', default_value='false'),
+        DeclareLaunchArgument(
+            'rosbag_dlio_extra_params',
+            default_value=PathJoinSubstitution([pkg, 'config', 'dlio_oxford_spires_rosbag.yaml']),
+            description='DLIO parameter override used automatically when data_source:=rosbag',
+        ),
+        DeclareLaunchArgument(
+            'rosbag_deskewed_lidar_topic',
+            default_value='/points_deskewed_lidar',
+            description='Deskewed cloud topic re-expressed in the rosbag LiDAR frame for elevation mapping.',
+        ),
+        DeclareLaunchArgument(
+            'rosbag_deskewed_lidar_frame',
+            default_value='pandar',
+            description='LiDAR frame used by the rosbag point cloud header.',
+        ),
+        DeclareLaunchArgument(
+            'rosbag_elevation_config',
+            default_value='dlio_gazebo/rosbag_deskewed_lidar.yaml',
+            description='Elevation mapping robot config used automatically when data_source:=rosbag.',
+        ),
+        DeclareLaunchArgument(
+            'use_rosbag_deskewed_lidar_bridge',
+            default_value='true',
+            description='Transform DLIO odom-frame deskewed cloud back into the LiDAR frame for elevation mapping.',
+        ),
+        DeclareLaunchArgument(
+            'rosbag_start_offset',
+            default_value='0.0',
+            description='Start playback this many seconds after the beginning of the bag.',
+        ),
         DeclareLaunchArgument('rosbag_start_delay', default_value='2.0'),
         DeclareLaunchArgument('world', default_value='dlio_room.sdf'),
         DeclareLaunchArgument('linear_x', default_value='0.45'),
@@ -475,9 +572,13 @@ def generate_launch_description():
         gazebo_cloud_adapter,
         synthetic_sensors,
         circle_cmd,
+        rosbag_wildos_camera_bridge,
         rosbag_play,
-        dlio,
-        elevation_mapping,
+        dlio_gazebo,
+        dlio_rosbag,
+        rosbag_deskewed_lidar_bridge,
+        elevation_mapping_gazebo,
+        elevation_mapping_rosbag,
         graphnav_builder,
         nav_graph_markers,
         grid_threshold_markers,

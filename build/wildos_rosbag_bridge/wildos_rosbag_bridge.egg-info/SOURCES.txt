@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+launch/alphasense_to_wildos.launch.py
+resource/wildos_rosbag_bridge
+wildos_rosbag_bridge/__init__.py
+wildos_rosbag_bridge/alphasense_to_wildos.py
+wildos_rosbag_bridge.egg-info/PKG-INFO
+wildos_rosbag_bridge.egg-info/SOURCES.txt
+wildos_rosbag_bridge.egg-info/dependency_links.txt
+wildos_rosbag_bridge.egg-info/entry_points.txt
+wildos_rosbag_bridge.egg-info/requires.txt
+wildos_rosbag_bridge.egg-info/top_level.txt
+wildos_rosbag_bridge.egg-info/zip-safe

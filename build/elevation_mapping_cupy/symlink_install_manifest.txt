@@ -55,6 +55,7 @@
 /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/core/plugin_config.yaml
 /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/core/weights.dat
 /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/dlio_gazebo/base.yaml
+/root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/dlio_gazebo/rosbag_deskewed_lidar.yaml
 /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/menzi/base.yaml
 /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/synthetic/synthetic_depth.yaml
 /root/ros2_ws/install/elevation_mapping_cupy/share/elevation_mapping_cupy/config/setups/turtle_bot/turtle_bot_semantics_image.yaml

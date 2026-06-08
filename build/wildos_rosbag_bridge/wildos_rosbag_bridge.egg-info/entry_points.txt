@@ -1,0 +1,2 @@
+[console_scripts]
+alphasense_to_wildos = wildos_rosbag_bridge.alphasense_to_wildos:main

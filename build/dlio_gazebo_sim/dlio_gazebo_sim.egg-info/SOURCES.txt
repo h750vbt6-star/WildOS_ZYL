@@ -8,11 +8,13 @@ setup.py
 ../../build/dlio_gazebo_sim/dlio_gazebo_sim.egg-info/requires.txt
 ../../build/dlio_gazebo_sim/dlio_gazebo_sim.egg-info/top_level.txt
 ../../build/dlio_gazebo_sim/dlio_gazebo_sim.egg-info/zip-safe
+config/dlio_oxford_spires_rosbag.yaml
 dlio_gazebo_sim/__init__.py
 dlio_gazebo_sim/circle_cmd.py
 dlio_gazebo_sim/gazebo_cloud_adapter.py
 dlio_gazebo_sim/grid_threshold_markers.py
 dlio_gazebo_sim/nav_graph_markers.py
+dlio_gazebo_sim/odom_cloud_to_lidar_frame.py
 dlio_gazebo_sim/synthetic_dlio_sensors.py
 dlio_gazebo_sim.egg-info/PKG-INFO
 dlio_gazebo_sim.egg-info/SOURCES.txt

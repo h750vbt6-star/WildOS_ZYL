@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>wildos_rosbag_bridge</name>
+  <version>0.0.1</version>
+  <description>ROS bag camera adapter for feeding alphasense camera streams to WildOS.</description>
+  <maintainer email="user@example.com">ros2_ws</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

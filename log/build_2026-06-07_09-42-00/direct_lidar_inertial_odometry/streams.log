@@ -1,0 +1,139 @@
+[0.014s] Invoking command in '/root/ros2_ws/build/direct_lidar_inertial_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /root/ros2_ws/build/direct_lidar_inertial_odometry -- -j8 -l8
+[0.139s] [  2%] Built target direct_lidar_inertial_odometry__rosidl_generator_type_description
+[0.141s] [  4%] Built target direct_lidar_inertial_odometry__rs
+[0.153s] [  4%] Built target ament_cmake_python_symlink_direct_lidar_inertial_odometry
+[0.170s] [  6%] Built target direct_lidar_inertial_odometry__cpp
+[0.180s] [ 17%] Built target direct_lidar_inertial_odometry__rosidl_generator_c
+[0.206s] [ 21%] Built target nanoflann
+[0.225s] [ 28%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_c
+[0.230s] [ 34%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cpp
+[0.235s] [ 41%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_c
+[0.238s] [ 47%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_introspection_c
+[0.238s] [ 54%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cpp
+[0.243s] [ 60%] Built target direct_lidar_inertial_odometry__rosidl_typesupport_cpp
+[0.270s] [ 67%] Built target nano_gicp
+[0.276s] [ 67%] Built target direct_lidar_inertial_odometry
+[0.312s] [ 69%] Built target direct_lidar_inertial_odometry__py
+[0.327s] [ 76%] Built target dlio_map_node
+[0.340s] [ 82%] Built target dlio_odom_node
+[0.346s] [ 86%] Built target direct_lidar_inertial_odometry__rosidl_generator_py
+[0.378s] [ 95%] Built target direct_lidar_inertial_odometry_s__rosidl_typesupport_fastrtps_c
+[0.379s] [ 95%] Built target direct_lidar_inertial_odometry_s__rosidl_typesupport_introspection_c
+[0.380s] [100%] Built target direct_lidar_inertial_odometry_s__rosidl_typesupport_c
+[0.508s] running egg_info
+[0.547s] writing direct_lidar_inertial_odometry.egg-info/PKG-INFO
+[0.547s] writing dependency_links to direct_lidar_inertial_odometry.egg-info/dependency_links.txt
+[0.548s] writing top-level names to direct_lidar_inertial_odometry.egg-info/top_level.txt
+[0.655s] reading manifest file 'direct_lidar_inertial_odometry.egg-info/SOURCES.txt'
+[0.660s] writing manifest file 'direct_lidar_inertial_odometry.egg-info/SOURCES.txt'
+[0.731s] [100%] Built target ament_cmake_python_build_direct_lidar_inertial_odometry_egg
+[0.745s] Invoked command in '/root/ros2_ws/build/direct_lidar_inertial_odometry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /root/ros2_ws/build/direct_lidar_inertial_odometry -- -j8 -l8
+[0.757s] Invoking command in '/root/ros2_ws/build/direct_lidar_inertial_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /root/ros2_ws/build/direct_lidar_inertial_odometry
+[0.771s] -- Install configuration: "Release"
+[0.772s] -- Execute custom install script
+[0.772s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/rosidl_interfaces/direct_lidar_inertial_odometry
+[0.773s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/srv/SavePCD.json
+[0.774s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_generator_c__visibility_control.h
+[0.774s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__functions.h
+[0.774s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__struct.h
+[0.774s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__type_support.h
+[0.775s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/save_pcd.h
+[0.775s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/library_path.sh
+[0.775s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/library_path.dsv
+[0.775s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.775s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__rosidl_typesupport_fastrtps_c.h
+[0.776s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.776s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__rosidl_typesupport_introspection_c.h
+[0.776s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_generator_cpp__visibility_control.hpp
+[0.777s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__builder.hpp
+[0.777s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__struct.hpp
+[0.777s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__traits.hpp
+[0.777s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__type_support.hpp
+[0.777s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/save_pcd.hpp
+[0.777s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.778s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__rosidl_typesupport_fastrtps_cpp.hpp
+[0.778s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/include/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry/srv/detail/save_pcd__rosidl_typesupport_introspection_cpp.hpp
+[0.778s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/pythonpath.sh
+[0.778s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/pythonpath.dsv
+[0.778s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry-1.1.1-py3.12.egg-info/PKG-INFO
+[0.779s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry-1.1.1-py3.12.egg-info/SOURCES.txt
+[0.779s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry-1.1.1-py3.12.egg-info/dependency_links.txt
+[0.779s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry-1.1.1-py3.12.egg-info/top_level.txt
+[0.780s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/__init__.py
+[0.780s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_c.c
+[0.780s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.780s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/_direct_lidar_inertial_odometry_s.ep.rosidl_typesupport_introspection_c.c
+[0.781s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_c.so
+[0.781s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_fastrtps_c.so
+[0.781s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_introspection_c.so
+[0.781s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv/__init__.py
+[0.781s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv/_save_pcd.py
+[0.781s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv/_save_pcd_s.c
+[0.782s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_fastrtps_c.so
+[0.782s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_introspection_c.so
+[0.782s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/direct_lidar_inertial_odometry_s__rosidl_typesupport_c.so
+[0.783s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/rust_packages/direct_lidar_inertial_odometry
+[0.784s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/Cargo.toml
+[0.784s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/build.rs
+[0.784s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/src/lib.rs
+[0.784s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/src/srv.rs
+[0.785s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/rust/src/srv/rmw.rs
+[0.785s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/srv/SavePCD.idl
+[0.785s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/srv/SavePCD.srv
+[0.785s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/package_run_dependencies/direct_lidar_inertial_odometry
+[0.785s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/parent_prefix_path/direct_lidar_inertial_odometry
+[0.785s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/ament_prefix_path.sh
+[0.786s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/ament_prefix_path.dsv
+[0.786s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/path.sh
+[0.786s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/environment/path.dsv
+[0.786s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/local_setup.bash
+[0.786s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/local_setup.sh
+[0.786s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/local_setup.zsh
+[0.787s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/local_setup.dsv
+[0.787s] -- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/package.dsv
+[0.799s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/ament_index/resource_index/packages/direct_lidar_inertial_odometry
+[0.799s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/rosidl_cmake-extras.cmake
+[0.799s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.799s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.799s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/ament_cmake_export_libraries-extras.cmake
+[0.800s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/ament_cmake_export_targets-extras.cmake
+[0.800s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.800s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.800s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometryConfig.cmake
+[0.801s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometryConfig-version.cmake
+[0.801s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/package.xml
+[0.802s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/direct_lidar_inertial_odometry/dlio_odom_node
+[0.802s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/direct_lidar_inertial_odometry/dlio_map_node
+[0.803s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cfg/dlio.yaml
+[0.803s] -- Symlinking: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cfg/empty.yaml
+[0.813s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cfg/params.yaml
+[0.813s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/launch/dlio.launch.py
+[0.813s] -- Up-to-date symlink: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/launch/dlio.rviz
+[0.814s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_generator_c.so
+[0.814s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_fastrtps_c.so
+[0.814s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_introspection_c.so
+[0.814s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_c.so
+[0.815s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cpp.so
+[0.815s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_introspection_cpp.so
+[0.815s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_typesupport_cpp.so
+[0.857s] Listing '/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry'...
+[0.857s] Listing '/root/ros2_ws/install/direct_lidar_inertial_odometry/lib/python3.12/site-packages/direct_lidar_inertial_odometry/srv'...
+[0.867s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/libdirect_lidar_inertial_odometry__rosidl_generator_py.so
+[0.868s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_cExport.cmake
+[0.868s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_cExport-release.cmake
+[0.868s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cExport.cmake
+[0.868s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cExport-release.cmake
+[0.868s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cExport.cmake
+[0.868s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cExport-release.cmake
+[0.868s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_cExport.cmake
+[0.868s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_cExport-release.cmake
+[0.869s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_cppExport.cmake
+[0.869s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.869s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[0.869s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cppExport.cmake
+[0.869s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_introspection_cppExport-release.cmake
+[0.869s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_cppExport.cmake
+[0.869s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/direct_lidar_inertial_odometry__rosidl_typesupport_cppExport-release.cmake
+[0.869s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_pyExport.cmake
+[0.870s] -- Up-to-date: /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cmake/export_direct_lidar_inertial_odometry__rosidl_generator_pyExport-release.cmake
+[0.870s] Invoked command in '/root/ros2_ws/build/direct_lidar_inertial_odometry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /root/ros2_ws/build/direct_lidar_inertial_odometry

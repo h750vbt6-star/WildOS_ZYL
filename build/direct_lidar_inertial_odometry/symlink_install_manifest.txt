@@ -72,6 +72,7 @@
 /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/direct_lidar_inertial_odometry/dlio_odom_node
 /root/ros2_ws/install/direct_lidar_inertial_odometry/lib/direct_lidar_inertial_odometry/dlio_map_node
 /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cfg/dlio.yaml
+/root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cfg/empty.yaml
 /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/cfg/params.yaml
 /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/launch/dlio.launch.py
 /root/ros2_ws/install/direct_lidar_inertial_odometry/share/direct_lidar_inertial_odometry/launch/dlio.rviz

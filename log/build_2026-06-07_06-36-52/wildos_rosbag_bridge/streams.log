@@ -1,0 +1,26 @@
+[0.966s] Invoking command in '/root/ros2_ws/build/wildos_rosbag_bridge': PYTHONPATH=/root/ros2_ws/build/wildos_rosbag_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/wildos_rosbag_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/wildos_rosbag_bridge/build --no-deps symlink_data
+[1.298s] running develop
+[1.504s] running egg_info
+[1.504s] creating wildos_rosbag_bridge.egg-info
+[1.526s] writing wildos_rosbag_bridge.egg-info/PKG-INFO
+[1.526s] writing dependency_links to wildos_rosbag_bridge.egg-info/dependency_links.txt
+[1.527s] writing entry points to wildos_rosbag_bridge.egg-info/entry_points.txt
+[1.527s] writing requirements to wildos_rosbag_bridge.egg-info/requires.txt
+[1.527s] writing top-level names to wildos_rosbag_bridge.egg-info/top_level.txt
+[1.527s] writing manifest file 'wildos_rosbag_bridge.egg-info/SOURCES.txt'
+[1.582s] reading manifest file 'wildos_rosbag_bridge.egg-info/SOURCES.txt'
+[1.582s] writing manifest file 'wildos_rosbag_bridge.egg-info/SOURCES.txt'
+[1.615s] running build_ext
+[1.618s] Creating /root/ros2_ws/install/wildos_rosbag_bridge/lib/python3.12/site-packages/wildos-rosbag-bridge.egg-link (link to .)
+[1.619s] Installing alphasense_to_wildos script to /root/ros2_ws/install/wildos_rosbag_bridge/lib/wildos_rosbag_bridge
+[1.619s] 
+[1.619s] Installed /root/ros2_ws/build/wildos_rosbag_bridge
+[1.619s] running symlink_data
+[1.620s] creating /root/ros2_ws/install/wildos_rosbag_bridge/share/ament_index
+[1.620s] creating /root/ros2_ws/install/wildos_rosbag_bridge/share/ament_index/resource_index
+[1.620s] creating /root/ros2_ws/install/wildos_rosbag_bridge/share/ament_index/resource_index/packages
+[1.620s] symbolically linking /root/ros2_ws/build/wildos_rosbag_bridge/resource/wildos_rosbag_bridge -> /root/ros2_ws/install/wildos_rosbag_bridge/share/ament_index/resource_index/packages
+[1.620s] symbolically linking /root/ros2_ws/build/wildos_rosbag_bridge/package.xml -> /root/ros2_ws/install/wildos_rosbag_bridge/share/wildos_rosbag_bridge
+[1.620s] creating /root/ros2_ws/install/wildos_rosbag_bridge/share/wildos_rosbag_bridge/launch
+[1.620s] symbolically linking /root/ros2_ws/build/wildos_rosbag_bridge/launch/alphasense_to_wildos.launch.py -> /root/ros2_ws/install/wildos_rosbag_bridge/share/wildos_rosbag_bridge/launch
+[1.650s] Invoked command in '/root/ros2_ws/build/wildos_rosbag_bridge' returned '0': PYTHONPATH=/root/ros2_ws/build/wildos_rosbag_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/install/wildos_rosbag_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/ros2_ws/build/wildos_rosbag_bridge/build --no-deps symlink_data

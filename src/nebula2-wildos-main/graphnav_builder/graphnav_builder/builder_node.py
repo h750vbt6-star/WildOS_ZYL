@@ -852,7 +852,7 @@ class SparseGraphBuilderNode(RclpyNode):
             pose.position.z = grid.msg.info.pose.position.z
             pose.orientation.w = 1.0
             free_radius = min(sdf_obstacle[cell_idx], sdf_unknown[cell_idx], self.max_free_radius)
-            explored_radius = max(free_radius, sdf_unknown[cell_idx])
+            explored_radius = sdf_unknown[cell_idx]
             self.nodes.append(GraphNodeState(
                 pose=pose,
                 uuid_msg=self.make_uuid(len(self.nodes)),
@@ -869,7 +869,7 @@ class SparseGraphBuilderNode(RclpyNode):
             for point in node.frontier_points:
                 xy = (point.x, point.y)
                 cell = grid.xy_to_cell(xy)
-                if cell is None or not grid.is_known(cell):
+                if cell is None or not grid.is_known(cell):# 如果frontier points对应的cell在当前可通行地图的外面就不管它
                     kept_frontiers_cells.append(point)
             node.frontier_points = kept_frontiers_cells
             node.is_frontier = bool(node.frontier_points)
@@ -885,7 +885,7 @@ class SparseGraphBuilderNode(RclpyNode):
             for idx, node in enumerate(self.nodes):
                 node_xy = self.pose_xy(node.pose)
                 dist = self.distance_xy(node_xy, frontier_xy)
-                if dist > self.frontier_association_radius:
+                if dist > self.frontier_association_radius:# 这个还是认为设置的意思如果一个frontier cell离node太远就不检查了，这里设置的是1.5m
                     continue
                 if not grid.collision_free(node_xy, free_side_xy):
                     continue
