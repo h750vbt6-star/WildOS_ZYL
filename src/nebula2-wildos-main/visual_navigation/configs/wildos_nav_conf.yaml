@@ -58,7 +58,7 @@ syncsub_slop: 0.2
 # Object Search Config
 object_search_config:
     text_queries:
-        - "Van"
+        - "NASA logo"
     pixel_level_seg: false
     mask_threshold: 0.09
     obj_frontier_score: 0.9
