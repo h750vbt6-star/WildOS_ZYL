@@ -18,6 +18,13 @@ dlio_gazebo_sim/grid_threshold_markers.py
 dlio_gazebo_sim/nav_graph_markers.py
 dlio_gazebo_sim/odom_cloud_to_lidar_frame.py
 dlio_gazebo_sim/synthetic_dlio_sensors.py
+dlio_gazebo_sim.egg-info/PKG-INFO
+dlio_gazebo_sim.egg-info/SOURCES.txt
+dlio_gazebo_sim.egg-info/dependency_links.txt
+dlio_gazebo_sim.egg-info/entry_points.txt
+dlio_gazebo_sim.egg-info/requires.txt
+dlio_gazebo_sim.egg-info/top_level.txt
+dlio_gazebo_sim.egg-info/zip-safe
 launch/sim_dlio.launch.py
 models/dlio_car/model.config
 models/dlio_car/model.sdf

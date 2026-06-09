@@ -1,14 +1,1 @@
-/**:
-  ros__parameters:
-    # Gazebo publishes the simulated LiDAR/IMU measurements in sensor frames
-    # whose forward axes are opposite the visual/drive base_link convention.
-    # DLIO uses T_odom_base * T_base_sensor, so rotate the sensor frames by
-    # yaw=pi relative to base_link while keeping the physical offsets unchanged.
-    extrinsics/baselink2imu/t: [0.0, 0.0, 0.12]
-    extrinsics/baselink2imu/R: [-1.0, 0.0, 0.0,
-                                 0.0, -1.0, 0.0,
-                                 0.0, 0.0, 1.0]
-    extrinsics/baselink2lidar/t: [0.12, 0.0, 0.33]
-    extrinsics/baselink2lidar/R: [-1.0, 0.0, 0.0,
-                                   0.0, -1.0, 0.0,
-                                   0.0, 0.0, 1.0]
+/root/ros2_ws/build/dlio_gazebo_sim/config/dlio_gazebo_extrinsics.yaml
