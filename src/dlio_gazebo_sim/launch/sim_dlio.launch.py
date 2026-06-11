@@ -14,13 +14,15 @@ def generate_launch_description():
     dlio_pkg = FindPackageShare('direct_lidar_inertial_odometry')
     elevation_pkg = FindPackageShare('elevation_mapping_cupy')
     wildos_bridge_pkg = FindPackageShare('wildos_rosbag_bridge')
+    # 找到各个包的share路径，并将其存储在变量中以供后续使用
+
     world_name = LaunchConfiguration('world')
     world = PathJoinSubstitution([pkg, 'worlds', world_name])
     model_path = PathJoinSubstitution([pkg, 'models'])
     wildos_source_path = '/root/ros2_ws/src/nebula2-wildos-main'
     cuda_path = '/usr/local/lib/python3.12/dist-packages/nvidia/cuda_runtime'
     cuda_nvrtc_lib = '/usr/local/lib/python3.12/dist-packages/nvidia/cuda_nvrtc/lib'
-
+    # 注意下边这种写法，左边的是变量名
     rviz = LaunchConfiguration('rviz')
     gz_gui = LaunchConfiguration('gz_gui')
     data_source = LaunchConfiguration('data_source')
@@ -111,6 +113,7 @@ def generate_launch_description():
     graphnav_max_x = LaunchConfiguration('graphnav_max_x')
     graphnav_min_y = LaunchConfiguration('graphnav_min_y')
     graphnav_max_y = LaunchConfiguration('graphnav_max_y')
+
     gazebo_source = PythonExpression(["'", data_source, "'.lower() == 'gazebo'"])
     rosbag_source = PythonExpression(["'", data_source, "'.lower() == 'rosbag'"])
 
