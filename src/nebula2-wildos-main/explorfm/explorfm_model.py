@@ -160,13 +160,13 @@ class ExploRFM(nn.Module):
 
         traversability = None
         if self.traversability_head is not None:
-            traversability = self.traversability_head(spatial_features)
+            traversability = self.traversability_head(spatial_features.float())
             traversability = F.interpolate(traversability, size=x.shape[-2:], mode='bilinear', align_corners=False)
             traversability = F.sigmoid(traversability)
 
         frontiers = None
         if self.frontier_head is not None:
-            frontiers = self.frontier_head(spatial_features)
+            frontiers = self.frontier_head(spatial_features.float())
             frontiers = F.interpolate(frontiers, size=x.shape[-2:], mode='bilinear', align_corners=False)
             frontiers = F.sigmoid(frontiers)
 
@@ -205,14 +205,21 @@ class ExploRFMInference:
         )
         self.model_precision = ModelPrecision[model_precision.upper()]
         self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
-        self.model.eval().to(self.device)
+        self.model.eval()
         self.model.requires_grad_(False)
 
         if self.model_precision.is_fp16():
             self.model.half()
             self.model.radio_model.input_conditioner.dtype = torch.float16
+            # The lightweight decoder heads become numerically unstable in FP16
+            # on older GPUs. Keep the backbone in FP16 and decode in FP32.
+            if self.model.traversability_head is not None:
+                self.model.traversability_head.float()
+            if self.model.frontier_head is not None:
+                self.model.frontier_head.float()
         elif self.model_precision.is_fp32():
             self.model.float()
+        self.model.to(self.device)
 
         self.transforms = transforms.Compose([
             transforms.ToTensor(),

@@ -22,6 +22,8 @@ def generate_launch_description():
     rviz = LaunchConfiguration('rviz', default='false')
     pointcloud_topic = LaunchConfiguration('pointcloud_topic', default='points_raw')
     imu_topic = LaunchConfiguration('imu_topic', default='imu_raw')
+    dlio_output = LaunchConfiguration('dlio_output', default='log')
+    dlio_extra_params = LaunchConfiguration('dlio_extra_params')
 
     # Define arguments
     declare_rviz_arg = DeclareLaunchArgument(
@@ -39,6 +41,16 @@ def generate_launch_description():
         default_value=imu_topic,
         description='IMU topic name'
     )
+    declare_dlio_output_arg = DeclareLaunchArgument(
+        'dlio_output',
+        default_value=dlio_output,
+        description='DLIO node output destination: screen or log'
+    )
+    declare_dlio_extra_params_arg = DeclareLaunchArgument(
+        'dlio_extra_params',
+        default_value=PathJoinSubstitution([current_pkg, 'cfg', 'empty.yaml']),
+        description='Optional YAML file loaded after the default DLIO parameters'
+    )
 
     # Load parameters
     dlio_yaml_path = PathJoinSubstitution([current_pkg, 'cfg', 'dlio.yaml'])
@@ -48,8 +60,8 @@ def generate_launch_description():
     dlio_odom_node = Node(
         package='direct_lidar_inertial_odometry',
         executable='dlio_odom_node',
-        output='screen',
-        parameters=[dlio_yaml_path, dlio_params_yaml_path],
+        output=dlio_output,
+        parameters=[dlio_yaml_path, dlio_params_yaml_path, dlio_extra_params],
         remappings=[
             ('pointcloud', pointcloud_topic),
             ('imu', imu_topic),
@@ -66,8 +78,8 @@ def generate_launch_description():
     dlio_map_node = Node(
         package='direct_lidar_inertial_odometry',
         executable='dlio_map_node',
-        output='screen',
-        parameters=[dlio_yaml_path, dlio_params_yaml_path],
+        output=dlio_output,
+        parameters=[dlio_yaml_path, dlio_params_yaml_path, dlio_extra_params],
         remappings=[
             ('keyframes', 'dlio/odom_node/pointcloud/keyframe'),
         ],
@@ -88,6 +100,8 @@ def generate_launch_description():
         declare_rviz_arg,
         declare_pointcloud_topic_arg,
         declare_imu_topic_arg,
+        declare_dlio_output_arg,
+        declare_dlio_extra_params_arg,
         dlio_odom_node,
         dlio_map_node,
         rviz_node

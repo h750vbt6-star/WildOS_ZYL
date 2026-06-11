@@ -1,6 +1,7 @@
 /elevation_mapping_node:
   ros__parameters:
     #### Basic parameters ########
+    use_sim_time: true
     drift_compensation_variance_inlier: 0.1
     checker_layer: 'elevation'                # layer name for checking the validity of the cell.
     initialized_variance: 10.0                     # initial variance for each cell.    

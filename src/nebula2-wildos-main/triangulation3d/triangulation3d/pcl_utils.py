@@ -63,6 +63,8 @@ def combine_pointcloud2(clouds: list[PointCloud2]) -> PointCloud2:
         all_points.extend(points)
 
     header = Header()
+    if clouds:
+        header.frame_id = clouds[0].header.frame_id
     combined_pcl_msg = point_cloud2.create_cloud(header, FIELDS, all_points)
 
     return combined_pcl_msg

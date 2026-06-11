@@ -4,6 +4,7 @@ from rclpy.duration import Duration
 
 from tf2_ros.buffer import Buffer
 from tf2_ros.transform_listener import TransformListener
+from tf2_ros import TransformException
 from visual_navigation.utils.buffer import MessageBuffer
 from visual_navigation.utils.tf_lookup_sub import TFLookupSubscriber
 
@@ -11,7 +12,7 @@ from sensor_msgs_py import point_cloud2
 from object_search_msgs.msg import ObjectMaskWithTf
 from visualization_msgs.msg import Marker
 from nav_msgs.msg import Odometry, Path as PathMsg
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import Point, PoseStamped
 from sensor_msgs.msg import Image as ImageMsg, CameraInfo, PointCloud2
 from message_filters import ApproximateTimeSynchronizer, Subscriber
 from cv_bridge import CvBridge
@@ -32,7 +33,11 @@ CAMERA_MAPPING = {
     0: "front",
     1: "left",
     2: "right"
-}    
+}
+
+
+def normalize_frame_id(frame_id):
+    return frame_id.lstrip("/")
 
 class ObjectMaskTriangulator(Node):
     default_config = {
@@ -48,6 +53,7 @@ class ObjectMaskTriangulator(Node):
         "triangulated_object_topic": "/spot1/triangulated_object",
         "navigation_goal_topic": "/spot1/imgnav_waypoint",
         "particle_viz_topic": "/spot1/object_hypotheses",
+        "goal_direction_viz_topic": "/spot1/goal_direction",
 
         # ROS2 subscriber params
         "qos_history_depth": 10,
@@ -91,6 +97,7 @@ class ObjectMaskTriangulator(Node):
         self.particle_generator = ParticleGenerator(config.particle_generator_config)
         self.triangulator = Triangulator()
         self.triangulated_position = None
+        self.current_position = None
         self.prev_view_pos = None
         self.found_lidar_in_mask = False
 
@@ -122,6 +129,9 @@ class ObjectMaskTriangulator(Node):
         )
         self.particle_viz_publisher = self.create_publisher(
             PointCloud2, config.particle_viz_topic, 10
+        )
+        self.goal_direction_viz_publisher = self.create_publisher(
+            Marker, config.goal_direction_viz_topic, 10
         )
 
     def init_subscribers(self, config):
@@ -169,6 +179,7 @@ class ObjectMaskTriangulator(Node):
             obj_mask_msg.odom.pose.pose.position.y,
             obj_mask_msg.odom.pose.pose.position.z
         ])
+        self.current_position = cur_pos
 
         # Check if LiDAR points fall within the object mask
         self.check_lidar_in_mask(all_cam_data, lidar_msg)
@@ -214,10 +225,10 @@ class ObjectMaskTriangulator(Node):
             cam_data = {}
             cam_frame = self.cam_tf_frame.format(CAMERA_MAPPING[cam_id])
 
-            assert camera_infos[cam_id].header.frame_id[1:] == cam_frame, \
+            assert normalize_frame_id(camera_infos[cam_id].header.frame_id) == cam_frame, \
                 f"CameraInfo frame_id {camera_infos[cam_id].header.frame_id} does not match expected {cam_frame}"
             
-            assert camera_tfs[cam_id].child_frame_id == cam_frame, \
+            assert normalize_frame_id(camera_tfs[cam_id].child_frame_id) == cam_frame, \
                 f"Camera TF child_frame_id {camera_tfs[cam_id].child_frame_id} does not match expected {cam_frame}"
 
             cam_data["object_mask"] = obj_mask[cam_id, 0, :, :]  # HxW
@@ -266,12 +277,19 @@ class ObjectMaskTriangulator(Node):
                 self.get_logger().warn(f"No object detected in camera {cam_name}, skipping...")
                 continue
 
-            cam_from_lidar = self.tf_buffer.lookup_transform(
-                cam_frame,
-                self.lidar_tf_frame,
-                rclpy.time.Time(),
-                timeout=Duration(seconds=0.0)
-            )
+            try:
+                cam_from_lidar = self.tf_buffer.lookup_transform(
+                    cam_frame,
+                    self.lidar_tf_frame,
+                    rclpy.time.Time(),
+                    timeout=Duration(seconds=0.0)
+                )
+            except TransformException as exc:
+                self.get_logger().warn(
+                    f"TF unavailable from {self.lidar_tf_frame} to {cam_frame}, "
+                    f"skipping camera {cam_name}: {exc}"
+                )
+                continue
             R_cl = R.from_quat([
                 cam_from_lidar.transform.rotation.x,
                 cam_from_lidar.transform.rotation.y,
@@ -310,8 +328,12 @@ class ObjectMaskTriangulator(Node):
             inside_mask = cam_obj_mask[lidar_pix[:, 1], lidar_pix[:, 0]].astype(bool)
             lidar_points_cam = lidar_points_cam[inside_mask]
 
-            if lidar_points_cam.shape[0] < self.min_lidar_points:
-                self.get_logger().info(f"Not enough lidar points found in object mask for camera {cam_name}, skipping...")
+            num_lidar_points = lidar_points_cam.shape[0]
+            if num_lidar_points < self.min_lidar_points:
+                self.get_logger().info(
+                    f"Not enough lidar points found in object mask for camera {cam_name} "
+                    f"({num_lidar_points}/{self.min_lidar_points}), skipping..."
+                )
                 continue
             
             dists = np.linalg.norm(lidar_points_cam, axis=-1)
@@ -412,6 +434,38 @@ class ObjectMaskTriangulator(Node):
         marker.color.g = 1.0
         marker.color.b = 0.0
         self.triangulated_obj_publisher.publish(marker)
+        self.publish_goal_direction_marker()
+
+    def publish_goal_direction_marker(self):
+        if self.current_position is None or self.triangulated_position is None:
+            return
+
+        marker = Marker()
+        marker.header.frame_id = self.global_frame
+        marker.header.stamp = self.get_clock().now().to_msg()
+        marker.ns = "goal_direction"
+        marker.id = 0
+        marker.type = Marker.ARROW
+        marker.action = Marker.ADD
+
+        start = Point()
+        start.x = float(self.current_position[0])
+        start.y = float(self.current_position[1])
+        start.z = float(self.current_position[2] + 0.35)
+        end = Point()
+        end.x = float(self.triangulated_position[0])
+        end.y = float(self.triangulated_position[1])
+        end.z = float(self.triangulated_position[2] + 0.35)
+        marker.points = [start, end]
+
+        marker.scale.x = 0.10
+        marker.scale.y = 0.22
+        marker.scale.z = 0.28
+        marker.color.a = 1.0
+        marker.color.r = 1.0
+        marker.color.g = 1.0
+        marker.color.b = 0.0
+        self.goal_direction_viz_publisher.publish(marker)
 
     def publish_goal_hypotheses(self):
         # Combine the points from all the cameras into a single PointCloud message
@@ -421,10 +475,24 @@ class ObjectMaskTriangulator(Node):
 def main(args=None):
     rclpy.init(args=args)
     from ament_index_python.packages import get_package_share_directory
-    import os
+    import argparse
+
+    custom_args = rclpy.utilities.remove_ros_args(args)
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--config",
+        type=str,
+        default="triangulation3d_objsearch_conf.yaml",
+        help="Configuration file name (YAML) for the node."
+    )
+    custom_args = parser.parse_args(custom_args[1:])
+
+    conf_name = f"{custom_args.config}"
+    if conf_name.endswith(".yaml") is False:
+        conf_name += ".yaml"
 
     package_share_directory = Path(get_package_share_directory('visual_navigation'))
-    conf = package_share_directory / "configs" / "triangulation3d_objsearch_conf.yaml"
+    conf = package_share_directory / "configs" / conf_name
 
     mask_triang_node = ObjectMaskTriangulator(OmegaConf.load(conf))
     rclpy.spin(mask_triang_node)

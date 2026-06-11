@@ -12,6 +12,14 @@ from visual_navigation.utils.viz import (
 )
 
 
+def _range_title(label: str, value_map: np.ndarray) -> str:
+    values = np.asarray(value_map, dtype=np.float32)
+    finite = values[np.isfinite(values)]
+    if finite.size == 0:
+        return f"{label} nan"
+    return f"{label} {finite.min():.2f}-{finite.max():.2f}"
+
+
 class VisualizeGoalAgnosticGeoFrontierScoring(VisualizeGeoFrontierScoring):
     def __init__(self, angular_bins: np.ndarray, **kwargs):
         super().__init__(**kwargs)
@@ -498,25 +506,25 @@ class VisualizeGoalAgnosticGeoFrontierScoring(VisualizeGeoFrontierScoring):
 
             rgb_img = nav_data[i]["image"]
             rgb_img = cv2.resize(rgb_img, (0,0), fx=self.fig_resize_factor, fy=self.fig_resize_factor)
-            img_grid[(0, plt_idx)] = (rgb_img, f"Image {self.camera_mapping[i]}")
+            img_grid[(0, plt_idx)] = (rgb_img, f"RGB {self.camera_mapping[i]}")
 
             if "object_mask" in nav_data[i] and nav_data[i]["object_mask"] is not None:
                 obj_mask = nav_data[i]["object_mask"].astype(np.float32)
                 obj_mask = cv2.resize(obj_mask, (0,0), fx=self.fig_resize_factor, fy=self.fig_resize_factor)
                 mask_overlay = show_mask(rgb_img, obj_mask)
-                img_grid[(0, plt_idx)] = (mask_overlay, f"Image {self.camera_mapping[i]} + Obj Mask")
+                img_grid[(0, plt_idx)] = (mask_overlay, f"RGB {self.camera_mapping[i]} + Obj")
 
             # overlay frontiers on the image
             frontier_map = nav_data[i]["img_frontiers"].astype(np.float32)
             frontier_map = cv2.resize(frontier_map, (0,0), fx=self.fig_resize_factor, fy=self.fig_resize_factor)
             frontier_overlay = overlay_heatmap(rgb_img, frontier_map)
-            img_grid[(1, plt_idx)] = (frontier_overlay, "Frontier Conf.")
+            img_grid[(1, plt_idx)] = (frontier_overlay, _range_title("Frontier", frontier_map))
 
             # overlay traversability on the image
             traversability_map = nav_data[i]["traversability"].astype(np.float32)
             traversability_map = cv2.resize(traversability_map, (0,0), fx=self.fig_resize_factor, fy=self.fig_resize_factor)
             trav_overlay = overlay_heatmap(rgb_img, traversability_map)
-            img_grid[(2, plt_idx)] = (trav_overlay, "Traversability Conf.")
+            img_grid[(2, plt_idx)] = (trav_overlay, _range_title("Trav", traversability_map))
 
             # Show projected geo_frontiers and paths to straight-line goal from camera
             path_overlay = rgb_img.copy()
@@ -531,7 +539,7 @@ class VisualizeGoalAgnosticGeoFrontierScoring(VisualizeGeoFrontierScoring):
                     (0,0,0),
                     0
                 )
-                img_grid[(3, plt_idx)] = (dummy_img, "Frontier Nodes")
+                img_grid[(3, plt_idx)] = (dummy_img, "No GeoFrontiers")
                 continue
 
             geo_frontiers = nav_data[i]["geo_frontiers"] * self.fig_resize_factor
@@ -561,20 +569,26 @@ class VisualizeGoalAgnosticGeoFrontierScoring(VisualizeGeoFrontierScoring):
                 # draw_text(path_overlay, (y,x), f"{score[heading_bin]:.2f}", color=(255,255,255))
                 draw_path(path_overlay, path, color)
                 draw_point(path_overlay, (y,x), (0,0,255), radius=8)
-            img_grid[(3, plt_idx)] = (path_overlay, "Frontier Nodes")
+            img_grid[(3, plt_idx)] = (path_overlay, _range_title("Geo+Score", score_map))
 
 
-        grid = make_subplot_grid(img_grid, (num_rows, num_cols), pad=15)
+        grid = make_subplot_grid(img_grid, (num_rows, num_cols), pad=10, title_font_scale=0.38)
         cbar = make_colorbar(
-            height=grid.shape[0] - 100,
+            height=max(20, grid.shape[0] - 68),
             width=20,
             vmin=0,
             vmax=1,
             cmap=cv2.COLORMAP_JET,
             num_ticks=10,
-            font_scale=0.5,
-            pad=50
+            font_scale=0.35,
+            pad=34
         )
+        if cbar.shape[0] != grid.shape[0]:
+            dh = grid.shape[0] - cbar.shape[0]
+            if dh > 0:
+                cbar = pad_image(cbar, bottom=dh)
+            else:
+                grid = pad_image(grid, bottom=-dh)
         grid = cv2.hconcat([grid, cbar])
 
         return grid

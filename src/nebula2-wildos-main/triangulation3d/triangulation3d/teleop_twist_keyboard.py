@@ -64,21 +64,21 @@ CTRL-C to quit
 """
 
 moveBindings = {
-    'w': (0, 0, 1), # forward
-    's': (0, 0, -1), # backward
-    'a': (-1, 0, 0), # left
-    'd': (1, 0, 0), # right
-    'q': (0, -1, 0), # up
-    'e': (0, 1, 0), # down
+    'w': (1, 0, 0), # forward
+    's': (-1, 0, 0), # backward
+    'a': (0, 1, 0), # left
+    'd': (0, -1, 0), # right
+    'q': (0, 0, 1), # up
+    'e': (0, 0, -1), # down
 }
 
 turnBindings = {
     'p': (1, 0, 0), # pitch up
-    'l': (-1, 0, 0), # pitch down
-    'o': (0, 0, 1), # roll right
-    'k': (0, 0, -1), # roll left
-    'i': (0, 1, 0), # yaw right
-    'j': (0, -1, 0) # yaw left
+    'o': (0, 1, 0), # pitch down
+    'i': (0, 0, 1), # yaw left
+    'j': (0, 0, 1), # yaw left
+    'k': (0, 0, 0), # stop rotation
+    'l': (0, 0, -1) # yaw right
 }
 
 

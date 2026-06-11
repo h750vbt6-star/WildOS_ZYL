@@ -81,6 +81,7 @@ install(TARGETS
   graphnav_planner_component
   planner_node
   path_follower_component
+  path_follower_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
@@ -88,6 +89,10 @@ install(TARGETS
 
 install(DIRECTORY include/
   DESTINATION include
+)
+
+install(DIRECTORY launch/
+  DESTINATION share/${PROJECT_NAME}/launch
 )
 
 if(BUILD_TESTING)

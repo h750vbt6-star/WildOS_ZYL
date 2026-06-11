@@ -90,11 +90,16 @@ def add_title(
     :param thickness: Thickness of the title text.
     :param color: Color for the title text (r,g,b) in [0,255].
     """
+    max_text_width = max(8, img.shape[1] - 8)
     (text_w, text_h), _ = cv2.getTextSize(
         title, cv2.FONT_HERSHEY_SIMPLEX, font_scale, thickness)
-    out = pad_image(img, top=text_h + 10, color=(255,255,255))
-    x = (out.shape[1] - text_w) // 2
-    y = text_h + 5
+    while text_w > max_text_width and font_scale > 0.25:
+        font_scale *= 0.9
+        (text_w, text_h), _ = cv2.getTextSize(
+            title, cv2.FONT_HERSHEY_SIMPLEX, font_scale, thickness)
+    out = pad_image(img, top=text_h + 8, color=(255,255,255))
+    x = max(4, (out.shape[1] - text_w) // 2)
+    y = text_h + 4
     cv2.putText(
         out, title, (x,y),
         cv2.FONT_HERSHEY_SIMPLEX, font_scale, color, thickness, cv2.LINE_AA
