@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/root/ros2_ws/build/gps_visualization/rosidl_generator_py/gps_visualization/gps_visualization_s__rosidl_typesupport_introspection_c.so" "TARGETS" "gps_visualization_s__rosidl_typesupport_introspection_c" "DESTINATION" "lib/python3.12/site-packages/gps_visualization")

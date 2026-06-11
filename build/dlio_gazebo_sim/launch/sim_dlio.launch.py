@@ -1,1 +1,0 @@
-/root/ros2_ws/src/dlio_gazebo_sim/launch/sim_dlio.launch.py

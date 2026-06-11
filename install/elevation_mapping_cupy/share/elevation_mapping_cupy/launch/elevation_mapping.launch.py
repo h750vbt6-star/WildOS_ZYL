@@ -1,1 +1,0 @@
-/root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy/launch/elevation_mapping.launch.py

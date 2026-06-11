@@ -1,1 +1,0 @@
-/root/ros2_ws/build/semantic_sensor/launch/semantic_pointcloud.launch.py

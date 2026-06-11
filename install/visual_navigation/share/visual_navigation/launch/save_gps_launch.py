@@ -1,1 +1,0 @@
-/root/ros2_ws/build/visual_navigation/launch/save_gps_launch.py

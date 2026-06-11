@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: wildos-rosbag-bridge
-Version: 0.0.1
-Summary: ROS bag camera adapter for WildOS.
-Maintainer: ros2_ws
-Maintainer-email: user@example.com
-License: MIT

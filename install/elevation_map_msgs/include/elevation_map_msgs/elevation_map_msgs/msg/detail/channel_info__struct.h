@@ -1,1 +1,0 @@
-/root/ros2_ws/build/elevation_map_msgs/rosidl_generator_c/elevation_map_msgs/msg/detail/channel_info__struct.h

@@ -1,1 +1,0 @@
-/root/ros2_ws/build/graphnav_msgs/rosidl_generator_c/graphnav_msgs/msg/node_traversability_properties.h

@@ -1,1 +1,0 @@
-/root/ros2_ws/build/graphnav_msgs/rosidl_generator_c/graphnav_msgs/msg/detail/edge_traversability__type_support.h

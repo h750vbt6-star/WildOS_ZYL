@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/root/ros2_ws/build/direct_lidar_inertial_odometry/dlio_odom_node" "/root/ros2_ws/build/direct_lidar_inertial_odometry/dlio_map_node" "TARGETS" "dlio_odom_node" "dlio_map_node" "DESTINATION" "lib/direct_lidar_inertial_odometry")

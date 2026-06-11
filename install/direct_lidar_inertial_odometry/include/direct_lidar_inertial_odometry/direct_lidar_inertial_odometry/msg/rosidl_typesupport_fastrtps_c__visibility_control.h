@@ -1,1 +1,0 @@
-/root/ros2_ws/build/direct_lidar_inertial_odometry/rosidl_typesupport_fastrtps_c/direct_lidar_inertial_odometry/msg/rosidl_typesupport_fastrtps_c__visibility_control.h

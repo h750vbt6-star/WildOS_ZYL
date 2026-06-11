@@ -1,7 +1,0 @@
-/root/ros2_ws/build/graphnav_msgs/rosidl_adapter/graphnav_msgs:msg/NavigationGraph.idl
-/root/ros2_ws/build/graphnav_msgs/rosidl_adapter/graphnav_msgs:msg/Node.idl
-/root/ros2_ws/build/graphnav_msgs/rosidl_adapter/graphnav_msgs:msg/NodeTraversabilityProperties.idl
-/root/ros2_ws/build/graphnav_msgs/rosidl_adapter/graphnav_msgs:msg/Edge.idl
-/root/ros2_ws/build/graphnav_msgs/rosidl_adapter/graphnav_msgs:msg/EdgeTraversability.idl
-/root/ros2_ws/build/graphnav_msgs/rosidl_adapter/graphnav_msgs:msg/KeyValue.idl
-/root/ros2_ws/build/graphnav_msgs/rosidl_adapter/graphnav_msgs:msg/UUID.idl

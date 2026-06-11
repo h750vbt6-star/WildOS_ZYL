@@ -1,1 +1,0 @@
-/root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy/launch/synthetic_depth_demo.launch.py

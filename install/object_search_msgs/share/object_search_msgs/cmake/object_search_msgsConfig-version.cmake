@@ -1,1 +1,0 @@
-/root/ros2_ws/build/object_search_msgs/ament_cmake_core/object_search_msgsConfig-version.cmake

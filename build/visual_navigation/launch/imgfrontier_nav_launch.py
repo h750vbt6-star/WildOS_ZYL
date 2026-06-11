@@ -1,1 +1,0 @@
-/root/ros2_ws/src/nebula2-wildos-main/visual_navigation/launch/imgfrontier_nav_launch.py

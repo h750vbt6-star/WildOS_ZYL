@@ -1,1 +1,0 @@
-/root/ros2_ws/build/visual_navigation/launch/wildos_launch.py

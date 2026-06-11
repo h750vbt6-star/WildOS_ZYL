@@ -1,1 +1,0 @@
-/root/ros2_ws/build/elevation_map_msgs/rosidl_generator_c/elevation_map_msgs/srv/detail/check_safety__struct.h

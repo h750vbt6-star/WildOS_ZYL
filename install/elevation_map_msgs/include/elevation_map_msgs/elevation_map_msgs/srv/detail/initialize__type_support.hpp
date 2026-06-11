@@ -1,1 +1,0 @@
-/root/ros2_ws/build/elevation_map_msgs/rosidl_generator_cpp/elevation_map_msgs/srv/detail/initialize__type_support.hpp

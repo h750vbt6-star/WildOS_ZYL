@@ -1,2 +1,0 @@
-[console_scripts]
-graphnav_builder = graphnav_builder.builder_node:main

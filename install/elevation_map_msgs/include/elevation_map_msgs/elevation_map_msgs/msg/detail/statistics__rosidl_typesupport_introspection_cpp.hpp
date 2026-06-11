@@ -1,1 +1,0 @@
-/root/ros2_ws/build/elevation_map_msgs/rosidl_typesupport_introspection_cpp/elevation_map_msgs/msg/detail/statistics__rosidl_typesupport_introspection_cpp.hpp

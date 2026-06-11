@@ -1,1 +1,0 @@
-/root/ros2_ws/src/nebula2-wildos-main/object_search_msgs/msg/ObjectMaskWithTf.msg

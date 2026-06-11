@@ -1,1 +1,0 @@
-/root/ros2_ws/build/direct_lidar_inertial_odometry/rosidl_cmake/rosidl_cmake-extras.cmake

@@ -1,1 +1,0 @@
-/root/ros2_ws/build/object_search_msgs/rosidl_generator_c/object_search_msgs/msg/rosidl_generator_c__visibility_control.h

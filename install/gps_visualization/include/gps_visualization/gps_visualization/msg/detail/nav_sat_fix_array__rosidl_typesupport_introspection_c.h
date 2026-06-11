@@ -1,1 +1,0 @@
-/root/ros2_ws/build/gps_visualization/rosidl_typesupport_introspection_c/gps_visualization/msg/detail/nav_sat_fix_array__rosidl_typesupport_introspection_c.h

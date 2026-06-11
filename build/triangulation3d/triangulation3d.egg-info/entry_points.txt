@@ -1,4 +1,0 @@
-[console_scripts]
-teleop_triangulation = triangulation3d.teleop_triangulation:main
-teleop_twist_keyboard = triangulation3d.teleop_twist_keyboard:main
-triangulation_visualizer = triangulation3d.multicam_visualizer:main

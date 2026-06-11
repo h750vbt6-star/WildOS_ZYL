@@ -1,1 +1,0 @@
-/root/ros2_ws/build/object_search_msgs/rosidl_cmake/rosidl_cmake-extras.cmake

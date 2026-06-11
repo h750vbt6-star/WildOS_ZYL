@@ -1,1 +1,0 @@
-/root/ros2_ws/src/elevation_mapping_cupy/elevation_mapping_cupy/scripts/synthetic_pointcloud_tf_publisher.py

@@ -1,1 +1,0 @@
-/root/ros2_ws/src/direct_lidar_inertial_odometry-feature-ros2/launch/dlio.launch.py
