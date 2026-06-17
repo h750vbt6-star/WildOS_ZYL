@@ -1,6 +1,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <graaflib/graph.h>
 #include <graaflib/algorithm/shortest_path/dijkstra_shortest_path.h>
+#include <algorithm>
 #include <unordered_map>
 #include <map>
 
@@ -121,7 +122,7 @@ std::vector<Eigen::Vector3d> Planner::plan_to_goal(Eigen::Vector3d& goal, double
       double cur_frontier_dist_cost_factor = std::numeric_limits<double>::max();
       for (const auto& kv: node.properties)
       {
-        if (kv.key == "frontier_scores")
+        if (use_frontier_scores_ && kv.key == "frontier_scores")
         {
           has_frontier_scores = true;
           int num_bins = kv.value.size();
@@ -131,7 +132,8 @@ std::vector<Eigen::Vector3d> Planner::plan_to_goal(Eigen::Vector3d& goal, double
             heading_angle += 2 * M_PI;
           int best_bin = static_cast<int>(std::round(heading_angle / angle_per_bin)) % num_bins;
           frontier_score = kv.value[best_bin];
-          cur_frontier_dist_cost_factor = 1.0 - frontier_score_factor_ * std::log(frontier_score);
+          const double bounded_score = std::clamp(frontier_score, min_frontier_score_for_cost_, 1.0);
+          cur_frontier_dist_cost_factor = 1.0 - frontier_score_factor_ * std::log(bounded_score);
 
           if (latest_frontier_){
             double distance_to_latest_frontier = (node_pos - *latest_frontier_).norm();
@@ -150,9 +152,7 @@ std::vector<Eigen::Vector3d> Planner::plan_to_goal(Eigen::Vector3d& goal, double
       {
         is_scored_graph = false;
         frontier_cost = frontier_path_distance * frontier_dist_cost_factor_;
-        // RCLCPP_WARN(logger_, "Node %ld is a frontier but has no frontier_scores property", id);
-      
-        // add to local frontier based on just distance
+        // In distance-only mode or when no scores are available, frontier preference is purely geometric.
         if (latest_frontier_){
             double distance_to_latest_frontier = (node_pos - *latest_frontier_).norm();
             if (distance_to_latest_frontier < local_frontier_radius_){

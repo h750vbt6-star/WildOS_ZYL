@@ -260,9 +260,11 @@ public:
   double frontier_dist_cost_factor_ = 2.0;
   double goal_dist_cost_factor_ = 1.0;
   double frontier_score_factor_ = 10.0;
+  double min_frontier_score_for_cost_ = 1e-3;
   double min_local_frontier_score_ = 0.4;
   double local_frontier_radius_ = 7.0;
   double path_smoothness_period_ = 10.0; // seconds
+  bool use_frontier_scores_ = true;
 
   visualization_msgs::msg::MarkerArray get_score_visualization(const rclcpp::Time& stamp, std::string frame_id, bool with_id_text = false) const;
 
