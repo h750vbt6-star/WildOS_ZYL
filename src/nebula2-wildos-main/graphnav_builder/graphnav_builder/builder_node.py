@@ -735,8 +735,14 @@ class SparseGraphBuilderNode(RclpyNode):
         if self.latest_odom is None or not self.nodes:
             return
         robot_xy = self.pose_xy(self.latest_odom.pose.pose)
+        connected_node_indices = {
+            idx
+            for edge in self.edges
+            for idx in edge
+        }
+        candidates = connected_node_indices if connected_node_indices else range(len(self.nodes))
         self.current_node_idx = min(
-            range(len(self.nodes)),
+            candidates,
             key=lambda idx: self.distance_xy(robot_xy, self.pose_xy(self.nodes[idx].pose)),
         )
 

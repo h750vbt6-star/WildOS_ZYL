@@ -30,8 +30,10 @@ setup(
             'odom_cloud_to_lidar_frame = dlio_gazebo_sim.odom_cloud_to_lidar_frame:main',
             'nav_graph_markers = dlio_gazebo_sim.nav_graph_markers:main',
             'grid_threshold_markers = dlio_gazebo_sim.grid_threshold_markers:main',
+            'traversability_costmap = dlio_gazebo_sim.traversability_costmap:main',
             'initial_goal_mux = dlio_gazebo_sim.initial_goal_mux:main',
             'goal_pose_to_nav2_action = dlio_gazebo_sim.goal_pose_to_nav2_action:main',
+            'static_path_publisher = dlio_gazebo_sim.static_path_publisher:main',
         ],
     },
 )

@@ -1,6 +1,7 @@
 import math
 
 import rclpy
+from action_msgs.msg import GoalStatus
 from geometry_msgs.msg import PoseStamped
 from nav2_msgs.action import NavigateToPose
 from rclpy.action import ActionClient
@@ -24,11 +25,11 @@ class GoalPoseToNav2Action(Node):
         self.declare_parameter('goal_topic', '/goal_pose')
         self.declare_parameter('action_name', '/navigate_to_pose')
         self.declare_parameter('default_frame_id', 'odom')
-        self.declare_parameter('send_period', 1.0)
-        self.declare_parameter('min_goal_distance', 0.25)
-        self.declare_parameter('min_goal_yaw', 0.35)
+        self.declare_parameter('send_period', 0.2)
+        self.declare_parameter('min_goal_distance', 0.08)
+        self.declare_parameter('min_goal_yaw', 0.15)
         self.declare_parameter('stamp_goal_with_now', True)
-        self.declare_parameter('cancel_on_new_goal', False)
+        self.declare_parameter('cancel_on_new_goal', True)
         self.declare_parameter('server_wait_timeout', 0.1)
 
         goal_topic = self.get_parameter('goal_topic').value
@@ -141,10 +142,14 @@ class GoalPoseToNav2Action(Node):
             goal_handle = future.result()
         except Exception as exc:
             self.get_logger().warn(f'Failed to send Nav2 goal: {exc}')
+            self.current_goal_handle = None
+            self.sent_goal = None
             return
 
         if not goal_handle.accepted:
             self.get_logger().warn('Nav2 rejected goal.')
+            self.current_goal_handle = None
+            self.sent_goal = None
             return
 
         self.current_goal_handle = goal_handle
@@ -160,12 +165,15 @@ class GoalPoseToNav2Action(Node):
 
     def result_callback(self, future):
         self.goal_active = False
+        self.current_goal_handle = None
         try:
             result = future.result()
         except Exception as exc:
             self.get_logger().warn(f'Failed to get Nav2 result: {exc}')
+            self.sent_goal = None
             return
         self.get_logger().info(f'Nav2 goal finished with status {result.status}.')
+        self.sent_goal = None
 
     def feedback_callback(self, _feedback_msg):
         return

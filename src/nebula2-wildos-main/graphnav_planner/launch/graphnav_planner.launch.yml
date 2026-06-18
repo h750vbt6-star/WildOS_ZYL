@@ -35,6 +35,10 @@ launch:
           value: 1.0
         - name: frontier_score_factor
           value: 20.0
+        - name: use_frontier_scores
+          value: true
+        - name: min_frontier_score_for_cost
+          value: 0.001
         - name: min_local_frontier_score
           value: 0.4
         - name: local_frontier_radius
@@ -91,6 +95,6 @@ launch:
           to: $(eval "'/$(var ns)/diagnostics' if $(var remap_ros_topics_to_ns) else '/diagnostics'")
       param:
         - name: wp_lookahead_dist
-          value: 5.0
+          value: 0.6
         - name: use_sim_time
           value: $(var use_sim_time)

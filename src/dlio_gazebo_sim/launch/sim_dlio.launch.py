@@ -54,6 +54,7 @@ def generate_launch_description():
     launch_explorfm_probe = LaunchConfiguration('launch_explorfm_probe')
     launch_goal_mux = LaunchConfiguration('launch_goal_mux')
     launch_graphnav_planner = LaunchConfiguration('launch_graphnav_planner')
+    launch_static_path = LaunchConfiguration('launch_static_path')
     launch_goal_pose_bridge = LaunchConfiguration('launch_goal_pose_bridge')
     launch_nav2 = LaunchConfiguration('launch_nav2')
     wildos_config = LaunchConfiguration('wildos_config')
@@ -77,12 +78,18 @@ def generate_launch_description():
     graphnav_planner_frontier_dist_cost_factor = LaunchConfiguration('graphnav_planner_frontier_dist_cost_factor')
     graphnav_planner_goal_dist_cost_factor = LaunchConfiguration('graphnav_planner_goal_dist_cost_factor')
     graphnav_planner_frontier_score_factor = LaunchConfiguration('graphnav_planner_frontier_score_factor')
+    graphnav_planner_use_frontier_scores = LaunchConfiguration('graphnav_planner_use_frontier_scores')
+    graphnav_planner_min_frontier_score_for_cost = LaunchConfiguration('graphnav_planner_min_frontier_score_for_cost')
     graphnav_planner_min_local_frontier_score = LaunchConfiguration('graphnav_planner_min_local_frontier_score')
     graphnav_planner_local_frontier_radius = LaunchConfiguration('graphnav_planner_local_frontier_radius')
     graphnav_planner_path_smoothness_period = LaunchConfiguration('graphnav_planner_path_smoothness_period')
     graphnav_planner_goal_radius = LaunchConfiguration('graphnav_planner_goal_radius')
     graphnav_path_follower_lookahead = LaunchConfiguration('graphnav_path_follower_lookahead')
+    graphnav_path_follower_arrival_radius = LaunchConfiguration('graphnav_path_follower_arrival_radius')
     graphnav_path_follower_timeout = LaunchConfiguration('graphnav_path_follower_timeout')
+    static_path_waypoints = LaunchConfiguration('static_path_waypoints')
+    static_path_frame = LaunchConfiguration('static_path_frame')
+    static_path_prepend_current_pose = LaunchConfiguration('static_path_prepend_current_pose')
     nav2_launch_file = LaunchConfiguration('nav2_launch_file')
     nav2_params_file = LaunchConfiguration('nav2_params_file')
     nav2_autostart = LaunchConfiguration('nav2_autostart')
@@ -422,6 +429,23 @@ def generate_launch_description():
         }],
     )
 
+    traversability_costmap = Node(
+        package='dlio_gazebo_sim',
+        executable='traversability_costmap',
+        name='traversability_costmap',
+        output='screen',
+        condition=IfCondition(launch_nav2),
+        parameters=[{
+            'use_sim_time': True,
+            'grid_map_topic': graphnav_grid_map_topic,
+            'costmap_topic': '/traversability_costmap',
+            'traversability_layer': 'traversability',
+            'observed_layer': 'elevation',
+            'safe_threshold': graphnav_safe_threshold,
+            'unknown_is_free': True,
+        }],
+    )
+
     wildos_front_camera_link_tf = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -600,6 +624,8 @@ def generate_launch_description():
             'frontier_dist_cost_factor': ParameterValue(graphnav_planner_frontier_dist_cost_factor, value_type=float),
             'goal_dist_cost_factor': ParameterValue(graphnav_planner_goal_dist_cost_factor, value_type=float),
             'frontier_score_factor': ParameterValue(graphnav_planner_frontier_score_factor, value_type=float),
+            'use_frontier_scores': ParameterValue(graphnav_planner_use_frontier_scores, value_type=bool),
+            'min_frontier_score_for_cost': ParameterValue(graphnav_planner_min_frontier_score_for_cost, value_type=float),
             'min_local_frontier_score': ParameterValue(graphnav_planner_min_local_frontier_score, value_type=float),
             'local_frontier_radius': ParameterValue(graphnav_planner_local_frontier_radius, value_type=float),
             'path_smoothness_period': ParameterValue(graphnav_planner_path_smoothness_period, value_type=float),
@@ -622,6 +648,7 @@ def generate_launch_description():
         parameters=[{
             'use_sim_time': True,
             'wp_lookahead_dist': ParameterValue(graphnav_path_follower_lookahead, value_type=float),
+            'waypoint_arrival_radius': ParameterValue(graphnav_path_follower_arrival_radius, value_type=float),
             'path_timeout': ParameterValue(graphnav_path_follower_timeout, value_type=float),
         }],
         remappings=[
@@ -629,6 +656,24 @@ def generate_launch_description():
             ('~/odom', graphnav_odom_topic),
             ('~/goal_pose', nav2_goal_topic),
         ],
+    )
+
+    static_path_publisher = Node(
+        package='dlio_gazebo_sim',
+        executable='static_path_publisher',
+        name='static_path_publisher',
+        output='screen',
+        condition=IfCondition(launch_static_path),
+        parameters=[{
+            'use_sim_time': True,
+            'path_topic': graphnav_planner_path_topic,
+            'odom_topic': graphnav_odom_topic,
+            'frame_id': static_path_frame,
+            'waypoints': static_path_waypoints,
+            'prepend_current_pose': ParameterValue(static_path_prepend_current_pose, value_type=bool),
+            'wait_for_subscriber': True,
+            'publish_period': 0.5,
+        }],
     )
 
     goal_pose_bridge = Node(
@@ -729,6 +774,7 @@ def generate_launch_description():
         DeclareLaunchArgument('launch_explorfm_probe', default_value='false'),
         DeclareLaunchArgument('launch_goal_mux', default_value='false'),
         DeclareLaunchArgument('launch_graphnav_planner', default_value='false'),
+        DeclareLaunchArgument('launch_static_path', default_value='false'),
         DeclareLaunchArgument('launch_goal_pose_bridge', default_value='false'),
         DeclareLaunchArgument('launch_nav2', default_value='false'),
         DeclareLaunchArgument('wildos_config', default_value='dlio_gazebo_wildos.yaml'),
@@ -751,13 +797,23 @@ def generate_launch_description():
         DeclareLaunchArgument('graphnav_planner_trav_class', default_value='elevation_traversability'),
         DeclareLaunchArgument('graphnav_planner_frontier_dist_cost_factor', default_value='2.0'),
         DeclareLaunchArgument('graphnav_planner_goal_dist_cost_factor', default_value='1.0'),
-        DeclareLaunchArgument('graphnav_planner_frontier_score_factor', default_value='20.0'),
+        DeclareLaunchArgument('graphnav_planner_frontier_score_factor', default_value='4.0'),
+        DeclareLaunchArgument('graphnav_planner_use_frontier_scores', default_value='true'),
+        DeclareLaunchArgument('graphnav_planner_min_frontier_score_for_cost', default_value='0.001'),
         DeclareLaunchArgument('graphnav_planner_min_local_frontier_score', default_value='0.4'),
         DeclareLaunchArgument('graphnav_planner_local_frontier_radius', default_value='10.0'),
         DeclareLaunchArgument('graphnav_planner_path_smoothness_period', default_value='0.0'),
         DeclareLaunchArgument('graphnav_planner_goal_radius', default_value='3.0'),
-        DeclareLaunchArgument('graphnav_path_follower_lookahead', default_value='5.0'),
-        DeclareLaunchArgument('graphnav_path_follower_timeout', default_value='1.0'),
+        DeclareLaunchArgument('graphnav_path_follower_lookahead', default_value='0.6'),
+        DeclareLaunchArgument('graphnav_path_follower_arrival_radius', default_value='0.35'),
+        DeclareLaunchArgument('graphnav_path_follower_timeout', default_value='0.0'),
+        DeclareLaunchArgument(
+            'static_path_waypoints',
+            default_value='0,0;2,0;4,0;7,0;9,0;12,0;16,0',
+            description='Semicolon-separated x,y waypoints for the static Nav2 path test.',
+        ),
+        DeclareLaunchArgument('static_path_frame', default_value='odom'),
+        DeclareLaunchArgument('static_path_prepend_current_pose', default_value='true'),
         DeclareLaunchArgument(
             'nav2_launch_file',
             default_value=PathJoinSubstitution([pkg, 'launch', 'nav2_dlio_navigation.launch.py']),
@@ -768,10 +824,10 @@ def generate_launch_description():
         ),
         DeclareLaunchArgument('nav2_autostart', default_value='true'),
         DeclareLaunchArgument('nav2_action_name', default_value='/navigate_to_pose'),
-        DeclareLaunchArgument('goal_pose_bridge_send_period', default_value='1.0'),
-        DeclareLaunchArgument('goal_pose_bridge_min_goal_distance', default_value='0.25'),
-        DeclareLaunchArgument('goal_pose_bridge_min_goal_yaw', default_value='0.35'),
-        DeclareLaunchArgument('goal_pose_bridge_cancel_on_new_goal', default_value='false'),
+        DeclareLaunchArgument('goal_pose_bridge_send_period', default_value='0.2'),
+        DeclareLaunchArgument('goal_pose_bridge_min_goal_distance', default_value='0.08'),
+        DeclareLaunchArgument('goal_pose_bridge_min_goal_yaw', default_value='0.15'),
+        DeclareLaunchArgument('goal_pose_bridge_cancel_on_new_goal', default_value='true'),
         DeclareLaunchArgument('use_synthetic_sensors', default_value='false'),
         DeclareLaunchArgument('use_gazebo_cloud_adapter', default_value='true'),
         DeclareLaunchArgument(
@@ -821,6 +877,7 @@ def generate_launch_description():
         graphnav_builder,
         nav_graph_markers,
         grid_threshold_markers,
+        traversability_costmap,
         wildos_front_camera_link_tf,
         wildos_front_camera_optical_tf,
         wildos_left_camera_link_tf,
@@ -833,6 +890,7 @@ def generate_launch_description():
         initial_goal_mux,
         graphnav_planner,
         graphnav_path_follower,
+        static_path_publisher,
         goal_pose_bridge,
         nav2,
     ])

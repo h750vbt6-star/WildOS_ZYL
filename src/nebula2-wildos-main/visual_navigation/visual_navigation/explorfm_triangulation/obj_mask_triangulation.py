@@ -10,7 +10,7 @@ from visual_navigation.utils.tf_lookup_sub import TFLookupSubscriber
 
 from sensor_msgs_py import point_cloud2
 from object_search_msgs.msg import ObjectMaskWithTf
-from visualization_msgs.msg import Marker
+from visualization_msgs.msg import Marker, MarkerArray
 from nav_msgs.msg import Odometry, Path as PathMsg
 from geometry_msgs.msg import Point, PoseStamped
 from sensor_msgs.msg import Image as ImageMsg, CameraInfo, PointCloud2
@@ -28,6 +28,8 @@ from triangulation3d.camera_data import Camera
 from triangulation3d.particle_generator import ParticleGenerator
 from triangulation3d.bbox_generator import BoundingBoxGenerator
 from triangulation3d.triangulator import Triangulator
+
+from visual_navigation.explorfm_triangulation.triangulator_viz import TriangulationViz
 
 CAMERA_MAPPING = {
     0: "front",
@@ -101,6 +103,11 @@ class ObjectMaskTriangulator(Node):
         self.prev_view_pos = None
         self.found_lidar_in_mask = False
 
+        self.viz = TriangulationViz(
+            camera_mapping=CAMERA_MAPPING,
+            num_cameras=self.num_cameras
+        )
+
         # Subscribers and Publishers
         self.init_publishers(config)
         self.init_subscribers(config)
@@ -122,7 +129,7 @@ class ObjectMaskTriangulator(Node):
 
     def init_publishers(self, config: OmegaConf):
         self.triangulated_obj_publisher = self.create_publisher(
-            Marker, config.triangulated_object_topic, 10
+            MarkerArray, config.triangulated_object_topic, 10
         )
         self.nav_goal_publisher = self.create_publisher(
             PoseStamped, config.navigation_goal_topic, 10
@@ -414,26 +421,17 @@ class ObjectMaskTriangulator(Node):
         self.nav_goal_publisher.publish(nav_goal)
         self.get_logger().info(f"Published navigation goal at {self.triangulated_position}")
 
-        # Publish as a visualization marker
-        marker = Marker()
-        marker.header.frame_id = self.global_frame
-        marker.header.stamp = self.get_clock().now().to_msg()
-        marker.type = Marker.SPHERE
-        marker.action = Marker.ADD
-        marker.ns = "triangulated_object"
-        marker.id = 0
-        marker.pose.position.x = float(self.triangulated_position[0])
-        marker.pose.position.y = float(self.triangulated_position[1])
-        marker.pose.position.z = float(self.triangulated_position[2])
-        marker.pose.orientation.w = 1.0
-        marker.scale.x = 1.2
-        marker.scale.y = 1.2
-        marker.scale.z = 1.2
-        marker.color.a = 1.0
-        marker.color.r = 0.0
-        marker.color.g = 1.0
-        marker.color.b = 0.0
-        self.triangulated_obj_publisher.publish(marker)
+        # Publish triangulated marker via TriangulationViz
+        view_data = {
+            "object": {
+                "views": self.views,
+                "triangulated_position": self.triangulated_position,
+            }
+        }
+        stamp = self.get_clock().now().to_msg()
+        marker_arr = self.viz.get_triangulated_markers(view_data, self.global_frame, stamp)
+        self.triangulated_obj_publisher.publish(marker_arr)
+
         self.publish_goal_direction_marker()
 
     def publish_goal_direction_marker(self):
@@ -468,9 +466,19 @@ class ObjectMaskTriangulator(Node):
         self.goal_direction_viz_publisher.publish(marker)
 
     def publish_goal_hypotheses(self):
-        # Combine the points from all the cameras into a single PointCloud message
-        combined_pcl_msg = self.triangulator.combine_points(self.views, pcl_frame_id=self.global_frame)
-        self.particle_viz_publisher.publish(combined_pcl_msg)
+        # Combine point clouds via TriangulationViz
+        view_data = {
+            "object": {
+                "views": self.views,
+                "triangulated_position": self.triangulated_position,
+            }
+        }
+        stamp = self.get_clock().now().to_msg()
+        combined_pcl_msg = self.viz.get_goal_hypotheses(
+            view_data, self.triangulator, self.global_frame, stamp
+        )
+        if combined_pcl_msg is not None:
+            self.particle_viz_publisher.publish(combined_pcl_msg)
 
 def main(args=None):
     rclpy.init(args=args)

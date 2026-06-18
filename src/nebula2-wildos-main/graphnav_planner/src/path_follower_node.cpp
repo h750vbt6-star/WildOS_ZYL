@@ -5,9 +5,12 @@
 #include <nav_msgs/msg/path.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <nav_msgs/msg/odometry.hpp>
+#include <geometry_msgs/msg/quaternion.hpp>
 #include <Eigen/Dense>
 #include <algorithm>
 #include <cmath>
+#include <limits>
+#include <vector>
 
 namespace graphnav_planner
 {
@@ -18,9 +21,11 @@ public:
   PathFollowerNode(const rclcpp::NodeOptions& options)
     : Node("path_follower_node", options), tf_buffer_(this->get_clock()), tf_listener_(tf_buffer_, this)
   {
-    this->declare_parameter("wp_lookahead_dist", 2.0);
+    this->declare_parameter("wp_lookahead_dist", 0.6);
     wp_lookahead_dist_ = this->get_parameter("wp_lookahead_dist").as_double();
-    this->declare_parameter("path_timeout", 1.0);
+    this->declare_parameter("waypoint_arrival_radius", 0.35);
+    waypoint_arrival_radius_ = this->get_parameter("waypoint_arrival_radius").as_double();
+    this->declare_parameter("path_timeout", 0.0);
     path_timeout_ = this->get_parameter("path_timeout").as_double();
     path_sub_ = this->create_subscription<nav_msgs::msg::Path>(
         "~/path", 10, std::bind(&PathFollowerNode::path_callback, this, std::placeholders::_1));
@@ -30,14 +35,45 @@ public:
   }
 
 private:
+  struct PathProjection
+  {
+    double distance = std::numeric_limits<double>::infinity();
+    double progress = 0.0;
+  };
+
   void path_callback(const nav_msgs::msg::Path::ConstSharedPtr msg)
   {
+    if (msg->poses.empty())
+    {
+      RCLCPP_WARN_THROTTLE(
+          this->get_logger(),
+          *this->get_clock(),
+          2000,
+          "Received empty GraphNav path; keeping the previous valid path.");
+      return;
+    }
+
     path_ = msg;
+    cumulative_lengths_.clear();
+    cumulative_lengths_.reserve(path_->poses.size());
+    cumulative_lengths_.push_back(0.0);
+    for (size_t i = 1; i < path_->poses.size(); ++i)
+    {
+      cumulative_lengths_.push_back(
+        cumulative_lengths_.back() +
+        segment_length(path_->poses[i - 1], path_->poses[i]));
+    }
+    path_progress_ = 0.0;
   }
 
   void odom_callback(const nav_msgs::msg::Odometry::ConstSharedPtr msg)
   {
-    if (!path_ || (rclcpp::Time(msg->header.stamp) - rclcpp::Time(path_->header.stamp)).seconds() > path_timeout_)
+    if (!path_)
+    {
+      return;
+    }
+    if (path_timeout_ > 0.0 &&
+        (rclcpp::Time(msg->header.stamp) - rclcpp::Time(path_->header.stamp)).seconds() > path_timeout_)
     {
       return;
     }
@@ -45,11 +81,7 @@ private:
     {
       return;
     }
-    if (path_->poses.size() < 2)
-    {
-      pose_pub_->publish(path_->poses[0]);
-      return;
-    }
+
     geometry_msgs::msg::PoseStamped odom_pose;
     odom_pose.header = msg->header;
     odom_pose.pose = msg->pose.pose;
@@ -65,61 +97,169 @@ private:
     }
     Eigen::Vector3d robot_pos(odom_pose_in_path_frame.pose.position.x, odom_pose_in_path_frame.pose.position.y,
                               odom_pose_in_path_frame.pose.position.z);
-    std::vector<Eigen::Vector3d> path_points;
-    std::vector<double> path_robot_distances;
-    for (const auto& pose : path_->poses)
+
+    if (path_->poses.size() == 1)
     {
-      path_points.push_back(Eigen::Vector3d(pose.pose.position.x, pose.pose.position.y, pose.pose.position.z));
-      path_robot_distances.push_back((path_points.back() - robot_pos).norm());
-    }
-    size_t closest_index =
-        std::min_element(path_robot_distances.begin(), path_robot_distances.end()) - path_robot_distances.begin();
-    // if last waypoint is closest, publish it
-    if (closest_index == path_->poses.size() - 1)
-    {
-      auto last_pose = path_->poses.back();
-      last_pose.header.frame_id = path_->header.frame_id;
-      last_pose.header.stamp = msg->header.stamp;
-      pose_pub_->publish(last_pose);
+      auto pose = path_->poses.front();
+      pose.header.frame_id = path_->header.frame_id;
+      pose.header.stamp = msg->header.stamp;
+      pose_pub_->publish(pose);
       return;
     }
-    // find next waypoint past lookahead distance
-    size_t wp_index = closest_index + 1;
-    while (wp_index + 1 < path_->poses.size() && path_robot_distances[wp_index] < wp_lookahead_dist_)
+
+    const double total_length = cumulative_lengths_.empty() ? 0.0 : cumulative_lengths_.back();
+    const double distance_to_goal = distance_to_waypoint(robot_pos, path_->poses.back());
+    if (distance_to_goal <= waypoint_arrival_radius_)
     {
-      // only increment as long as the direction is roughly the same
-      Eigen::Vector3d current_dir = (path_points[wp_index] - path_points[wp_index - 1]).normalized();
-      Eigen::Vector3d next_dir = (path_points[wp_index + 1] - path_points[wp_index]).normalized();
-      if (current_dir.dot(next_dir) < 0.5)  // more than 60 degree turn
-      {
-        break;
-      }
-      wp_index++;
+      path_progress_ = total_length;
+      auto pose = path_->poses.back();
+      pose.header.frame_id = path_->header.frame_id;
+      pose.header.stamp = msg->header.stamp;
+      pose_pub_->publish(pose);
+      return;
     }
-    // interpolate between wp_index - 1 and wp_index  to find where distance equals wp_lookahead_dist_
-    double a = path_robot_distances[wp_index - 1] - wp_lookahead_dist_;
-    double b = path_robot_distances[wp_index] - wp_lookahead_dist_;
-    // a + wp_fraction * (b - a) = 0
-    double wp_fraction = -a / (b - a);
-    wp_fraction = std::clamp(wp_fraction, 0.0, 1.0);
+
+    const PathProjection projection = project_robot_onto_path(robot_pos);
+    path_progress_ = std::max(path_progress_, projection.progress);
+
+    const double target_progress = std::min(path_progress_ + wp_lookahead_dist_, total_length);
+    auto pose = pose_at_progress(target_progress, msg->header.stamp);
+    pose_pub_->publish(pose);
+  }
+
+  double distance_to_waypoint(
+      const Eigen::Vector3d& robot_pos,
+      const geometry_msgs::msg::PoseStamped& waypoint) const
+  {
+    const double dx = waypoint.pose.position.x - robot_pos.x();
+    const double dy = waypoint.pose.position.y - robot_pos.y();
+    return std::hypot(dx, dy);
+  }
+
+  double segment_length(
+      const geometry_msgs::msg::PoseStamped& from,
+      const geometry_msgs::msg::PoseStamped& to) const
+  {
+    const double dx = to.pose.position.x - from.pose.position.x;
+    const double dy = to.pose.position.y - from.pose.position.y;
+    const double dz = to.pose.position.z - from.pose.position.z;
+    return std::sqrt(dx * dx + dy * dy + dz * dz);
+  }
+
+  PathProjection project_robot_onto_path(const Eigen::Vector3d& robot_pos) const
+  {
+    PathProjection best;
+    if (!path_ || path_->poses.empty())
+    {
+      return best;
+    }
+
+    for (size_t i = 0; i + 1 < path_->poses.size(); ++i)
+    {
+      const auto& start = path_->poses[i].pose.position;
+      const auto& end = path_->poses[i + 1].pose.position;
+      const Eigen::Vector2d p0(start.x, start.y);
+      const Eigen::Vector2d p1(end.x, end.y);
+      const Eigen::Vector2d robot_xy(robot_pos.x(), robot_pos.y());
+      const Eigen::Vector2d segment = p1 - p0;
+      const double segment_sq_norm = segment.squaredNorm();
+
+      double t = 0.0;
+      if (segment_sq_norm > 1e-9)
+      {
+        t = std::clamp((robot_xy - p0).dot(segment) / segment_sq_norm, 0.0, 1.0);
+      }
+
+      const Eigen::Vector2d projected_xy = p0 + t * segment;
+      const double distance = (robot_xy - projected_xy).norm();
+      const double progress = cumulative_lengths_[i] + t * segment_length(path_->poses[i], path_->poses[i + 1]);
+      if (distance < best.distance)
+      {
+        best.distance = distance;
+        best.progress = progress;
+      }
+    }
+
+    if (!std::isfinite(best.distance))
+    {
+      best.distance = distance_to_waypoint(robot_pos, path_->poses.front());
+      best.progress = 0.0;
+    }
+
+    return best;
+  }
+
+  geometry_msgs::msg::Quaternion yaw_to_quaternion(double yaw) const
+  {
+    geometry_msgs::msg::Quaternion q;
+    q.z = std::sin(0.5 * yaw);
+    q.w = std::cos(0.5 * yaw);
+    return q;
+  }
+
+  geometry_msgs::msg::PoseStamped pose_at_progress(
+      double progress,
+      const builtin_interfaces::msg::Time& stamp) const
+  {
     geometry_msgs::msg::PoseStamped pose;
     pose.header.frame_id = path_->header.frame_id;
-    pose.header.stamp = msg->header.stamp;
-    pose.pose.position.x = path_->poses[wp_index].pose.position.x * wp_fraction +
-                           path_->poses[wp_index - 1].pose.position.x * (1 - wp_fraction);
-    pose.pose.position.y = path_->poses[wp_index].pose.position.y * wp_fraction +
-                           path_->poses[wp_index - 1].pose.position.y * (1 - wp_fraction);
-    pose.pose.position.z = path_->poses[wp_index].pose.position.z * wp_fraction +
-                           path_->poses[wp_index - 1].pose.position.z * (1 - wp_fraction);
-    if (wp_fraction > 0.95)
+    pose.header.stamp = stamp;
+
+    if (path_->poses.empty())
     {
-      pose.pose.orientation = path_->poses[wp_index].pose.orientation;
+      return pose;
+    }
+    if (path_->poses.size() == 1 || cumulative_lengths_.empty())
+    {
+      pose = path_->poses.front();
+      pose.header.frame_id = path_->header.frame_id;
+      pose.header.stamp = stamp;
+      return pose;
+    }
+
+    const double clamped_progress = std::clamp(progress, 0.0, cumulative_lengths_.back());
+    auto upper = std::upper_bound(cumulative_lengths_.begin(), cumulative_lengths_.end(), clamped_progress);
+    size_t segment_idx = 0;
+    if (upper == cumulative_lengths_.begin())
+    {
+      segment_idx = 0;
+    }
+    else if (upper == cumulative_lengths_.end())
+    {
+      segment_idx = cumulative_lengths_.size() - 2;
     }
     else
     {
-      pose.pose.orientation = path_->poses[wp_index - 1].pose.orientation;
+      segment_idx = static_cast<size_t>(std::distance(cumulative_lengths_.begin(), upper) - 1);
     }
-    pose_pub_->publish(pose);
+
+    const auto& start = path_->poses[segment_idx];
+    const auto& end = path_->poses[segment_idx + 1];
+    const double segment_start = cumulative_lengths_[segment_idx];
+    const double segment_end = cumulative_lengths_[segment_idx + 1];
+    const double segment_len = std::max(segment_end - segment_start, 1e-9);
+    const double t = std::clamp((clamped_progress - segment_start) / segment_len, 0.0, 1.0);
+
+    pose.pose.position.x = start.pose.position.x + t * (end.pose.position.x - start.pose.position.x);
+    pose.pose.position.y = start.pose.position.y + t * (end.pose.position.y - start.pose.position.y);
+    pose.pose.position.z = start.pose.position.z + t * (end.pose.position.z - start.pose.position.z);
+
+    const double dx = end.pose.position.x - start.pose.position.x;
+    const double dy = end.pose.position.y - start.pose.position.y;
+    if (clamped_progress >= cumulative_lengths_.back() - 1e-6)
+    {
+      pose.pose.orientation = path_->poses.back().pose.orientation;
+    }
+    else if (std::hypot(dx, dy) > 1e-6)
+    {
+      pose.pose.orientation = yaw_to_quaternion(std::atan2(dy, dx));
+    }
+    else
+    {
+      pose.pose.orientation = start.pose.orientation;
+    }
+
+    return pose;
   }
 
   rclcpp::Subscription<nav_msgs::msg::Path>::SharedPtr path_sub_;
@@ -128,8 +268,11 @@ private:
 
   tf2_ros::Buffer tf_buffer_;
   tf2_ros::TransformListener tf_listener_;
-  double wp_lookahead_dist_ = 2.0;
-  double path_timeout_ = 1.0;
+  double wp_lookahead_dist_ = 0.6;
+  double waypoint_arrival_radius_ = 0.35;
+  double path_timeout_ = 0.0;
+  double path_progress_ = 0.0;
+  std::vector<double> cumulative_lengths_;
 
   nav_msgs::msg::Path::ConstSharedPtr path_;
 };
