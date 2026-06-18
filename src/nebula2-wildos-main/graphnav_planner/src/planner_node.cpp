@@ -26,6 +26,8 @@ public:
     this->declare_parameter("frontier_dist_cost_factor", 2.0);
     this->declare_parameter("goal_dist_cost_factor", 1.0);
     this->declare_parameter("frontier_score_factor", 10.0);
+    this->declare_parameter("use_frontier_scores", true);
+    this->declare_parameter("min_frontier_score_for_cost", 1e-3);
     this->declare_parameter("min_local_frontier_score", 0.4);
     this->declare_parameter("local_frontier_radius", 7.0);
     this->declare_parameter("path_smoothness_period", 10.0);
@@ -33,6 +35,8 @@ public:
     planner_.frontier_dist_cost_factor_ = this->get_parameter("frontier_dist_cost_factor").as_double();
     planner_.goal_dist_cost_factor_ = this->get_parameter("goal_dist_cost_factor").as_double();
     planner_.frontier_score_factor_ = this->get_parameter("frontier_score_factor").as_double();
+    planner_.use_frontier_scores_ = this->get_parameter("use_frontier_scores").as_bool();
+    planner_.min_frontier_score_for_cost_ = this->get_parameter("min_frontier_score_for_cost").as_double();
     planner_.min_local_frontier_score_ = this->get_parameter("min_local_frontier_score").as_double();
     planner_.local_frontier_radius_ = this->get_parameter("local_frontier_radius").as_double();
     planner_.path_smoothness_period_ = this->get_parameter("path_smoothness_period").as_double();
