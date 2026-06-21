@@ -63,8 +63,19 @@ class OdomCloudToLidarFrame(Node):
 
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
-        self.pub = self.create_publisher(PointCloud2, self.output_topic, 10)
-        self.create_subscription(PointCloud2, self.input_topic, self.cloud_callback, 10)
+
+
+        from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
+        cloud_qos = QoSProfile(
+            history=QoSHistoryPolicy.KEEP_LAST,
+            depth=5,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            durability=QoSDurabilityPolicy.VOLATILE,
+        )
+        self.pub = self.create_publisher(PointCloud2, self.output_topic, cloud_qos)
+        self.create_subscription(PointCloud2, self.input_topic, self.cloud_callback, cloud_qos)
+
+
         self.warn_count = 0
 
         self.get_logger().info(

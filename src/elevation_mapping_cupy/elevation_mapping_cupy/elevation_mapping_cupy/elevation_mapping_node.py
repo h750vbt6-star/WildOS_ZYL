@@ -9,7 +9,7 @@ from typing import Dict, List
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import HistoryPolicy, QoSPresetProfiles, QoSProfile, ReliabilityPolicy
+from rclpy.qos import HistoryPolicy, QoSProfile, ReliabilityPolicy
 from ament_index_python.packages import get_package_share_directory
 from cv_bridge import CvBridge
 from elevation_map_msgs.msg import ChannelInfo
@@ -364,13 +364,16 @@ class ElevationMappingNode(Node):
     def pointcloud_qos_from_config(config: Dict) -> QoSProfile:
         reliability = str(config.get("qos_reliability", "best_effort")).lower()
         depth = int(config.get("qos_depth", 10))
-        if reliability == "reliable":
-            return QoSProfile(
-                history=HistoryPolicy.KEEP_LAST,
-                depth=depth,
-                reliability=ReliabilityPolicy.RELIABLE,
-            )
-        return QoSPresetProfiles.get_from_short_key("sensor_data")
+        qos_reliability = (
+            ReliabilityPolicy.RELIABLE
+            if reliability == "reliable"
+            else ReliabilityPolicy.BEST_EFFORT
+        )
+        return QoSProfile(
+            history=HistoryPolicy.KEEP_LAST,
+            depth=depth,
+            reliability=qos_reliability,
+        )
 
     def channel_info_callback(self, msg: ChannelInfo, sub_key: str) -> None:
         self._image_channels[sub_key] = list(msg.channels)

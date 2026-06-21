@@ -95,7 +95,7 @@ class ExploRFMTriangulator(TFLookupSubscriber):
 
         # Triangulation config
         "max_views": 350,
-        "min_lidar_points": 150,
+        "min_lidar_points": 60,
         "min_view_distance": 1.0,
         "particle_generator_config":{
             "num_particles": 1000,

@@ -1,7 +1,7 @@
 # Model Params
 frontier_ckpt: /root/ros2_ws/src/nebula2-wildos-main/ckpts/frontier_head.ckpt
 traversability_ckpt: /root/ros2_ws/src/nebula2-wildos-main/ckpts/trav_head.ckpt
-model_version: c-radio_v3-b
+model_version: /root/ros2_ws/src/nebula2-wildos-main/ckpts/c-radio_v3-b_half.pth.tar
 adaptor_version: null
 use_naclip: true
 use_summary_for_spatial: true
@@ -10,7 +10,7 @@ static_scale_factor: 0.75
 model_precision: FP16
 
 # Nav Params
-num_cameras: 3
+num_cameras: 1
 cams_inverted: false
 num_angular_bins: 16
 reach_in_2D: true
@@ -38,8 +38,8 @@ compute_paths: false
 # ROS2 frames and topics for dlio_gazebo_sim.
 parent_frame: odom
 cam_frame: wildos_{}_camera_color_optical_frame
-camera_img_topic: /wildos/{}/color/image_raw
-camera_info_topic: /wildos/{}/color/camera_info
+camera_img_topic: /camera/camera/color/image_raw/compressed
+camera_info_topic: /camera/camera/color/camera_info
 odometry_topic: /dlio/odom_node/odom
 navigation_graph_topic: /nav_graph
 
@@ -52,14 +52,14 @@ graph_viz_topic: /nav_graph_viz
 object_mask_topic: /object_mask
 
 # ROS2 subscriber params
-qos_history_depth: 10
-syncsub_queue_size: 600
-syncsub_slop: 6.0
+qos_history_depth: 1
+syncsub_queue_size: 10
+syncsub_slop: 0.8
 
 # Object Search Config
 object_search_config:
     text_queries:
-        - "NASA logo"
+        - "uppercase letter B"
     pixel_level_seg: false
     mask_threshold: 0.09
     obj_frontier_score: 0.9
@@ -67,12 +67,12 @@ object_search_config:
 
 # TFLookup Config
 tf_lookup_config:
-    buffer_size: 3
-    cache_time: 10
+    buffer_size: 1
+    cache_time: 30
     timer_duration: 0.1
     lookup_timeout: 0
     qos_history_depth: 1
     wait_for_oldest: false
     clear_buffer_on_process: true
     spin_thread: true
-    use_latest_transform: true
+    use_latest_transform: false

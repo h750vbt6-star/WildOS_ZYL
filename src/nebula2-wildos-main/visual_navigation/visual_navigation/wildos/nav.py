@@ -301,69 +301,47 @@ class WildOS_Nav(TFLookupSubscriber):
         camerainfo_topic_str = config.camera_info_topic
         img_msg_type = CompressedImage if self.using_compressed_imgs else ImageMsg
 
-        self.camera_subs = {}
-        self.latest_camera_info = {}
-        self.latest_image_msgs = {}
-        self.latest_odom_msg = None
-        for i in range(self.num_cameras):
-            self.create_subscription(
+        self.odom_sub = Subscriber(
+            self, Odometry, config.odometry_topic, qos_profile=config.qos_history_depth
+        )
+        self.navgraph_sub = Subscriber(
+            self, NavigationGraph, config.navigation_graph_topic, qos_profile=config.qos_history_depth
+        )
+        self.camera_subs = [
+            Subscriber(
+                self,
                 img_msg_type,
                 cameraimg_topic_str.format(CAMERA_MAPPING[i]),
-                lambda msg, cam_idx=i: self.image_callback(cam_idx, msg),
-                config.qos_history_depth,
+                qos_profile=config.qos_history_depth,
             )
-            self.create_subscription(
+            for i in range(self.num_cameras)
+        ]
+        self.camera_info_subs = [
+            Subscriber(
+                self,
                 CameraInfo,
                 camerainfo_topic_str.format(CAMERA_MAPPING[i]),
-                lambda msg, cam_idx=i: self.camera_info_callback(cam_idx, msg),
-                config.qos_history_depth,
+                qos_profile=config.qos_history_depth,
             )
-        self.create_subscription(
-            Odometry,
-            config.odometry_topic,
-            self.odom_callback,
-            config.qos_history_depth,
+            for i in range(self.num_cameras)
+        ]
+
+        ts_subs = [self.odom_sub, self.navgraph_sub] + self.camera_subs + self.camera_info_subs
+        self.ts = ApproximateTimeSynchronizer(
+            ts_subs,
+            queue_size=config.syncsub_queue_size,
+            slop=config.syncsub_slop,
         )
-        self.create_subscription(
-            NavigationGraph,
-            config.navigation_graph_topic,
-            self.navgraph_callback,
-            config.qos_history_depth,
-        )
-
-    def image_callback(self, cam_idx, msg):
-        self.latest_image_msgs[cam_idx] = msg
-
-    def camera_info_callback(self, cam_idx, msg):
-        self.latest_camera_info[cam_idx] = msg
-
-    def odom_callback(self, msg):
-        self.latest_odom_msg = msg
-
-    def navgraph_callback(self, navgraph_msg):
-        if self.latest_odom_msg is None:
-            self.get_logger().warn("Skipping WildOS callback until odometry is available.")
-            return
-
-        missing_images = [CAMERA_MAPPING[i] for i in range(self.num_cameras) if i not in self.latest_image_msgs]
-        if missing_images:
-            self.get_logger().warn(f"Skipping WildOS callback until images are available for: {missing_images}")
-            return
-
-        missing_info = [CAMERA_MAPPING[i] for i in range(self.num_cameras) if i not in self.latest_camera_info]
-        if missing_info:
-            self.get_logger().warn(f"Skipping WildOS callback until CameraInfo is available for: {missing_info}")
-            return
-
-        self.listener_callback(
-            self.latest_odom_msg,
-            navgraph_msg,
-            *[self.latest_image_msgs[i] for i in range(self.num_cameras)],
-        )
+        self.ts.registerCallback(self.listener_callback)
     
-    def listener_callback(self, odom_msg, navgraph_msg, *image_msgs):
+    def listener_callback(self, odom_msg, navgraph_msg, *synced_msgs):
         self.clbk_cntr += 1
         self.get_logger().info(f"Received callback {self.clbk_cntr}")
+
+        image_msgs = synced_msgs[:self.num_cameras]
+        camera_info_msgs = list(synced_msgs[self.num_cameras:])
+        for i, cam_info_msg in enumerate(camera_info_msgs):
+            cam_info_msg.header.frame_id = self.cam_tf_frame.format(CAMERA_MAPPING[i])
 
         assert odom_msg.header.frame_id == self.global_frame, \
             f"Odom frame {odom_msg.header.frame_id} does not match global frame {self.global_frame}"
@@ -375,7 +353,7 @@ class WildOS_Nav(TFLookupSubscriber):
                 "odom": odom_msg,
                 "navgraph": navgraph_msg,
                 "image_msgs": image_msgs,
-                "camera_info_msgs": [self.latest_camera_info[i] for i in range(self.num_cameras)]
+                "camera_info_msgs": camera_info_msgs
             },
             stamp=odom_msg.header.stamp,
         )

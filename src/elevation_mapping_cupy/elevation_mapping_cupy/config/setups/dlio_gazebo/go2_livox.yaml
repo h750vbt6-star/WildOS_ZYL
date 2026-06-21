@@ -1,18 +1,16 @@
 /elevation_mapping_node:
   ros__parameters:
-    # Match DLIO frames.
+    # Go2 rosbag branch: DLIO tracks the level, LiDAR-centred base_link in odom.
     map_frame: "odom"
     base_frame: "base_link"
     corrected_map_frame: "odom"
 
-    # Use DLIO's motion-corrected cloud in odom. Feeding raw lidar directly into
-    # elevation mapping smears the map during yaw rotations.
     subscribers:
-      dlio_deskewed:
-        topic_name: "/dlio/odom_node/pointcloud/deskewed"
+      go2_deskewed_lidar:
+        topic_name: "/points_deskewed_lidar"
         data_type: "pointcloud"
         qos_reliability: "best_effort"
-        qos_depth: 1
+        qos_depth: 5
 
     publishers:
       elevation_map_raw:

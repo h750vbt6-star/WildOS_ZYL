@@ -3,6 +3,7 @@ import struct
 
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
 from sensor_msgs.msg import PointCloud2, PointField
 from sensor_msgs_py import point_cloud2
 
@@ -24,8 +25,14 @@ class GazeboCloudAdapter(Node):
         self.max_range = float(self.get_parameter('max_range').value)
         self.scan_period = float(self.get_parameter('scan_period').value)
 
-        self.cloud_pub = self.create_publisher(PointCloud2, self.output_topic, 10)
-        self.create_subscription(PointCloud2, self.input_topic, self.cloud_callback, 10)
+        cloud_qos = QoSProfile(
+            history=QoSHistoryPolicy.KEEP_LAST,
+            depth=1,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            durability=QoSDurabilityPolicy.VOLATILE,
+        )
+        self.cloud_pub = self.create_publisher(PointCloud2, self.output_topic, cloud_qos)
+        self.create_subscription(PointCloud2, self.input_topic, self.cloud_callback, cloud_qos)
 
     def cloud_callback(self, msg):
         points = []

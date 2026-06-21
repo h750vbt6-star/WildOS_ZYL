@@ -3,3 +3,18 @@
 !/src/**
 !/.gitignore
 src/**/*.pyc
+
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Runtime/cache files
+.ros/
+*.bag
+*.db3
+*.mcap

@@ -2,6 +2,9 @@
 #include <graaflib/graph.h>
 #include <graaflib/algorithm/shortest_path/dijkstra_shortest_path.h>
 #include <algorithm>
+#include <cmath>
+#include <limits>
+#include <optional>
 #include <unordered_map>
 #include <map>
 
@@ -246,6 +249,113 @@ std::vector<Eigen::Vector3d> Planner::plan_to_goal(Eigen::Vector3d& goal, double
   }
 
   graph_.remove_vertex(virtual_goal);
+  return path_points;
+}
+
+
+std::vector<Eigen::Vector3d> Planner::plan_to_best_frontier_score(rclcpp::Time current_time)
+{
+  struct FrontierCandidate
+  {
+    graaf::vertex_id_t id;
+    double score_sum;
+  };
+
+  std::vector<FrontierCandidate> candidates;
+
+  for (const auto& [id, node] : graph_.get_vertices())
+  {
+    if (trav_class_idx_ >= node.trav_properties.size() || !node.trav_properties[trav_class_idx_].is_frontier)
+    {
+      continue;
+    }
+
+    std::optional<double> score_sum;
+    for (const auto& kv : node.properties)
+    {
+      if (kv.key != "frontier_scores")
+      {
+        continue;
+      }
+
+      double sum = 0.0;
+      bool has_finite_score = false;
+      for (double score : kv.value)
+      {
+        if (std::isfinite(score))
+        {
+          sum += score;
+          has_finite_score = true;
+        }
+      }
+      if (has_finite_score && sum > 0.0)
+      {
+        score_sum = sum;
+      }
+      break;
+    }
+
+    if (!score_sum)
+    {
+      continue;
+    }
+
+    candidates.push_back({id, *score_sum});
+  }
+
+  if (candidates.empty())
+  {
+    latest_frontier_.reset();
+    RCLCPP_WARN(logger_, "No scored frontier node is available for best_frontier_score planning.");
+    return {};
+  }
+
+  std::sort(candidates.begin(), candidates.end(), [](const auto& lhs, const auto& rhs) {
+    return lhs.score_sum > rhs.score_sum;
+  });
+
+  std::optional<graaf::vertex_id_t> best_frontier;
+  decltype(graaf::algorithm::dijkstra_shortest_path(graph_, current_node_idx_, candidates.front().id)) best_path;
+  double best_score_sum = -std::numeric_limits<double>::infinity();
+  for (const auto& candidate : candidates)
+  {
+    auto candidate_path = graaf::algorithm::dijkstra_shortest_path(graph_, current_node_idx_, candidate.id);
+    if (candidate_path)
+    {
+      best_frontier = candidate.id;
+      best_path = candidate_path;
+      best_score_sum = candidate.score_sum;
+      break;
+    }
+  }
+
+  std::vector<Eigen::Vector3d> path_points;
+  if (!best_frontier || !best_path)
+  {
+    latest_frontier_.reset();
+    RCLCPP_WARN(logger_, "No graph path to any scored frontier node.");
+    return path_points;
+  }
+
+  for (const auto& node_id : best_path->vertices)
+  {
+    const auto& node = graph_.get_vertex(node_id);
+    const auto& pos = node.pose.position;
+    path_points.push_back(Eigen::Vector3d(pos.x, pos.y, pos.z));
+  }
+
+  const auto& frontier_node = graph_.get_vertex(*best_frontier);
+  latest_frontier_ = Eigen::Vector3d(
+    frontier_node.pose.position.x,
+    frontier_node.pose.position.y,
+    frontier_node.pose.position.z);
+  latest_frontier_time_ = current_time;
+
+  RCLCPP_INFO(
+    logger_,
+    "Planning to reachable best scored frontier node %lu with summed score %.3f.",
+    static_cast<unsigned long>(*best_frontier),
+    best_score_sum);
   return path_points;
 }
 

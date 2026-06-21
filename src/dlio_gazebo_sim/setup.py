@@ -27,6 +27,7 @@ setup(
             'circle_cmd = dlio_gazebo_sim.circle_cmd:main',
             'gazebo_cloud_adapter = dlio_gazebo_sim.gazebo_cloud_adapter:main',
             'gazebo_odom_tf = dlio_gazebo_sim.gazebo_odom_tf:main',
+            'livox_imu_adapter = dlio_gazebo_sim.livox_imu_adapter:main',
             'odom_cloud_to_lidar_frame = dlio_gazebo_sim.odom_cloud_to_lidar_frame:main',
             'nav_graph_markers = dlio_gazebo_sim.nav_graph_markers:main',
             'grid_threshold_markers = dlio_gazebo_sim.grid_threshold_markers:main',

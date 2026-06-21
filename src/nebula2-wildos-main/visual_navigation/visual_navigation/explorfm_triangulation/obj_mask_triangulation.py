@@ -31,6 +31,8 @@ from triangulation3d.triangulator import Triangulator
 
 from visual_navigation.explorfm_triangulation.triangulator_viz import TriangulationViz
 
+
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
 CAMERA_MAPPING = {
     0: "front",
     1: "left",
@@ -64,7 +66,7 @@ class ObjectMaskTriangulator(Node):
 
         # Triangulation config
         "max_views": 350,  # Maximum number of cameras to initialize
-        "min_lidar_points": 150,  # Minimum number of lidar points in the object mask for triangulation
+        "min_lidar_points": 60,  # Minimum number of lidar points in the object mask for triangulation
         "min_view_distance": 1.0,  # Minimum distance between camera views to consider them different
         "particle_generator_config": {
             "num_particles": 1000, # Number of particles to generate
@@ -145,8 +147,17 @@ class ObjectMaskTriangulator(Node):
         self.object_mask_sub = Subscriber(
             self, ObjectMaskWithTf, config.object_mask_topic, qos_profile=config.qos_history_depth
         )
+
+
+        cloud_qos = QoSProfile(
+            history=QoSHistoryPolicy.KEEP_LAST,
+            depth=5,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            durability=QoSDurabilityPolicy.VOLATILE,
+        )
+
         self.lidar_sub = Subscriber(
-            self, PointCloud2, config.lidar_topic, qos_profile=config.qos_history_depth
+            self, PointCloud2, config.lidar_topic, qos_profile=cloud_qos
         )
 
         ts_subs = [self.object_mask_sub, self.lidar_sub]

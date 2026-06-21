@@ -20,8 +20,8 @@ def generate_launch_description():
     world = PathJoinSubstitution([pkg, 'worlds', world_name])
     model_path = PathJoinSubstitution([pkg, 'models'])
     wildos_source_path = '/root/ros2_ws/src/nebula2-wildos-main'
-    cuda_path = '/usr/local/lib/python3.12/dist-packages/nvidia/cuda_runtime'
-    cuda_nvrtc_lib = '/usr/local/lib/python3.12/dist-packages/nvidia/cuda_nvrtc/lib'
+    cuda_path = '/usr/local/lib/python3.10/dist-packages/nvidia/cuda_runtime'
+    cuda_nvrtc_lib = '/usr/local/lib/python3.10/dist-packages/nvidia/cuda_nvrtc/lib'
     # 注意下边这种写法，左边的是变量名
     rviz = LaunchConfiguration('rviz')
     gz_gui = LaunchConfiguration('gz_gui')
@@ -38,14 +38,31 @@ def generate_launch_description():
     rosbag_start_offset = LaunchConfiguration('rosbag_start_offset')
     rosbag_start_delay = LaunchConfiguration('rosbag_start_delay')
     rosbag_dlio_extra_params = LaunchConfiguration('rosbag_dlio_extra_params')
+    gazebo_deskewed_lidar_topic = LaunchConfiguration('gazebo_deskewed_lidar_topic')
+    gazebo_deskewed_lidar_frame = LaunchConfiguration('gazebo_deskewed_lidar_frame')
     rosbag_deskewed_lidar_topic = LaunchConfiguration('rosbag_deskewed_lidar_topic')
     rosbag_deskewed_lidar_frame = LaunchConfiguration('rosbag_deskewed_lidar_frame')
     rosbag_elevation_config = LaunchConfiguration('rosbag_elevation_config')
     use_rosbag_deskewed_lidar_bridge = LaunchConfiguration('use_rosbag_deskewed_lidar_bridge')
+    go2_rosbag_path = LaunchConfiguration('go2_rosbag_path')
+    go2_pointcloud_topic = LaunchConfiguration('go2_pointcloud_topic')
+    go2_imu_topic = LaunchConfiguration('go2_imu_topic')
+    go2_adapter_input_topic = LaunchConfiguration('go2_adapter_input_topic')
+    go2_rosbag_rate = LaunchConfiguration('go2_rosbag_rate')
+    go2_rosbag_loop = LaunchConfiguration('go2_rosbag_loop')
+    go2_rosbag_start_offset = LaunchConfiguration('go2_rosbag_start_offset')
+    go2_rosbag_start_delay = LaunchConfiguration('go2_rosbag_start_delay')
+    go2_rosbag_playback_duration = LaunchConfiguration('go2_rosbag_playback_duration')
+    go2_dlio_extra_params = LaunchConfiguration('go2_dlio_extra_params')
+    go2_deskewed_lidar_topic = LaunchConfiguration('go2_deskewed_lidar_topic')
+    go2_deskewed_lidar_frame = LaunchConfiguration('go2_deskewed_lidar_frame')
+    go2_elevation_config = LaunchConfiguration('go2_elevation_config')
+    go2_acceleration_scale = LaunchConfiguration('go2_acceleration_scale')
     linear_x = LaunchConfiguration('linear_x')
     angular_z = LaunchConfiguration('angular_z')
     start_delay = LaunchConfiguration('start_delay')
     auto_drive = LaunchConfiguration('auto_drive')
+    launch_local_dlio = LaunchConfiguration('launch_local_dlio')
     launch_elevation = LaunchConfiguration('launch_elevation')
     launch_graphnav = LaunchConfiguration('launch_graphnav')
     launch_graphnav_markers = LaunchConfiguration('launch_graphnav_markers')
@@ -75,6 +92,12 @@ def generate_launch_description():
     graphnav_planner_nav_graph_topic = LaunchConfiguration('graphnav_planner_nav_graph_topic')
     graphnav_planner_goal_topic = LaunchConfiguration('graphnav_planner_goal_topic')
     graphnav_planner_trav_class = LaunchConfiguration('graphnav_planner_trav_class')
+    graphnav_planner_no_goal_strategy = LaunchConfiguration('graphnav_planner_no_goal_strategy')
+    graphnav_planner_virtual_goal_frame = LaunchConfiguration('graphnav_planner_virtual_goal_frame')
+    graphnav_planner_virtual_goal_x = LaunchConfiguration('graphnav_planner_virtual_goal_x')
+    graphnav_planner_virtual_goal_y = LaunchConfiguration('graphnav_planner_virtual_goal_y')
+    graphnav_planner_virtual_goal_z = LaunchConfiguration('graphnav_planner_virtual_goal_z')
+    graphnav_planner_virtual_goal_yaw = LaunchConfiguration('graphnav_planner_virtual_goal_yaw')
     graphnav_planner_frontier_dist_cost_factor = LaunchConfiguration('graphnav_planner_frontier_dist_cost_factor')
     graphnav_planner_goal_dist_cost_factor = LaunchConfiguration('graphnav_planner_goal_dist_cost_factor')
     graphnav_planner_frontier_score_factor = LaunchConfiguration('graphnav_planner_frontier_score_factor')
@@ -110,7 +133,9 @@ def generate_launch_description():
     graphnav_num_samples = LaunchConfiguration('graphnav_num_samples')
     graphnav_update_min_travel = LaunchConfiguration('graphnav_update_min_travel')
     graphnav_update_free_radius_fraction = LaunchConfiguration('graphnav_update_free_radius_fraction')
+    graphnav_grid_map_queue_depth = LaunchConfiguration('graphnav_grid_map_queue_depth')
     graphnav_frontier_association_radius = LaunchConfiguration('graphnav_frontier_association_radius')
+    graphnav_min_frontier_cluster_size = LaunchConfiguration('graphnav_min_frontier_cluster_size')
     graphnav_publish_global_memory_markers = LaunchConfiguration('graphnav_publish_global_memory_markers')
     graphnav_global_memory_marker_topic = LaunchConfiguration('graphnav_global_memory_marker_topic')
     graphnav_global_memory_marker_stride = LaunchConfiguration('graphnav_global_memory_marker_stride')
@@ -123,6 +148,21 @@ def generate_launch_description():
 
     gazebo_source = PythonExpression(["'", data_source, "'.lower() == 'gazebo'"])
     rosbag_source = PythonExpression(["'", data_source, "'.lower() == 'rosbag'"])
+    go2_rosbag_source = PythonExpression(["'", data_source, "'.lower() == 'go2_rosbag'"])
+    go2_live_source = PythonExpression(["'", data_source, "'.lower() == 'go2_live'"])
+    gazebo_local_dlio_source = PythonExpression([
+        "'", data_source, "'.lower() == 'gazebo' and '", launch_local_dlio, "'.lower() == 'true'"
+    ])
+    rosbag_local_dlio_source = PythonExpression([
+        "'", data_source, "'.lower() == 'rosbag' and '", launch_local_dlio, "'.lower() == 'true'"
+    ])
+    go2_rosbag_local_dlio_source = PythonExpression([
+        "'", data_source, "'.lower() == 'go2_rosbag' and '", launch_local_dlio, "'.lower() == 'true'"
+    ])
+    go2_live_local_dlio_source = PythonExpression([
+        "'", data_source, "'.lower() == 'go2_live' and '", launch_local_dlio, "'.lower() == 'true'"
+    ])
+    use_sim_time = PythonExpression(["'", data_source, "'.lower() != 'go2_live'"])
 
     gazebo_gui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -150,18 +190,28 @@ def generate_launch_description():
         ])),
     )
 
+    rviz_config_path = PathJoinSubstitution([dlio_pkg, 'launch', 'dlio.rviz'])
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='dlio_gazebo_rviz',
+        arguments=['-d', rviz_config_path],
+        output='screen',
+        condition=IfCondition(rviz),
+    )
+
     dlio_gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([dlio_pkg, 'launch', 'dlio.launch.py'])
         ),
         launch_arguments={
-            'rviz': rviz,
+            'rviz': 'false',
             'pointcloud_topic': pointcloud_topic,
             'imu_topic': imu_topic,
             'dlio_output': dlio_output,
             'dlio_extra_params': gazebo_dlio_extra_params,
         }.items(),
-        condition=IfCondition(gazebo_source),
+        condition=IfCondition(gazebo_local_dlio_source),
     )
 
     dlio_rosbag = IncludeLaunchDescription(
@@ -169,13 +219,41 @@ def generate_launch_description():
             PathJoinSubstitution([dlio_pkg, 'launch', 'dlio.launch.py'])
         ),
         launch_arguments={
-            'rviz': rviz,
+            'rviz': 'false',
             'pointcloud_topic': pointcloud_topic,
             'imu_topic': imu_topic,
             'dlio_output': dlio_output,
             'dlio_extra_params': rosbag_dlio_extra_params,
         }.items(),
-        condition=IfCondition(rosbag_source),
+        condition=IfCondition(rosbag_local_dlio_source),
+    )
+
+    dlio_go2_rosbag = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([dlio_pkg, 'launch', 'dlio.launch.py'])
+        ),
+        launch_arguments={
+            'rviz': 'false',
+            'pointcloud_topic': pointcloud_topic,
+            'imu_topic': imu_topic,
+            'dlio_output': dlio_output,
+            'dlio_extra_params': go2_dlio_extra_params,
+        }.items(),
+        condition=IfCondition(go2_rosbag_local_dlio_source),
+    )
+
+    dlio_go2_live = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([dlio_pkg, 'launch', 'dlio.launch.py'])
+        ),
+        launch_arguments={
+            'rviz': 'false',
+            'pointcloud_topic': go2_pointcloud_topic,
+            'imu_topic': imu_topic,
+            'dlio_output': dlio_output,
+            'dlio_extra_params': go2_dlio_extra_params,
+        }.items(),
+        condition=IfCondition(go2_live_local_dlio_source),
     )
 
     rosbag_play = TimerAction(
@@ -218,6 +296,77 @@ def generate_launch_description():
         condition=IfCondition(rosbag_source),
     )
 
+    go2_rosbag_play = TimerAction(
+        period=go2_rosbag_start_delay,
+        actions=[
+            ExecuteProcess(
+                cmd=[
+                    'ros2', 'bag', 'play', go2_rosbag_path,
+                    '--clock',
+                    '--start-offset', go2_rosbag_start_offset,
+                    '--rate', go2_rosbag_rate,
+                    '--remap',
+                    [go2_pointcloud_topic, ':=', pointcloud_topic],
+                    [go2_imu_topic, ':=', go2_adapter_input_topic],
+                ],
+                name='go2_rosbag_play',
+                output='screen',
+                condition=IfCondition(PythonExpression([
+                    "'", go2_rosbag_loop, "'.lower() != 'true'"
+                ])),
+            ),
+            ExecuteProcess(
+                cmd=[
+                    'ros2', 'bag', 'play', go2_rosbag_path,
+                    '--clock',
+                    '--loop',
+                    '--start-offset', go2_rosbag_start_offset,
+                    '--playback-duration', go2_rosbag_playback_duration,
+                    '--rate', go2_rosbag_rate,
+                    '--remap',
+                    [go2_pointcloud_topic, ':=', pointcloud_topic],
+                    [go2_imu_topic, ':=', go2_adapter_input_topic],
+                ],
+                name='go2_rosbag_play_loop',
+                output='screen',
+                condition=IfCondition(PythonExpression([
+                    "'", go2_rosbag_loop, "'.lower() == 'true'"
+                ])),
+            ),
+        ],
+        condition=IfCondition(go2_rosbag_source),
+    )
+
+    go2_livox_imu_adapter = Node(
+        package='dlio_gazebo_sim',
+        executable='livox_imu_adapter',
+        name='go2_livox_imu_adapter',
+        output='screen',
+        condition=IfCondition(go2_rosbag_local_dlio_source),
+        parameters=[{
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
+            'input_topic': go2_adapter_input_topic,
+            'output_topic': imu_topic,
+            'output_frame': 'livox_imu_frame',
+            'acceleration_scale': ParameterValue(go2_acceleration_scale, value_type=float),
+        }],
+    )
+
+    go2_live_livox_imu_adapter = Node(
+        package='dlio_gazebo_sim',
+        executable='livox_imu_adapter',
+        name='go2_live_livox_imu_adapter',
+        output='screen',
+        condition=IfCondition(go2_live_local_dlio_source),
+        parameters=[{
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
+            'input_topic': go2_imu_topic,
+            'output_topic': imu_topic,
+            'output_frame': 'livox_imu_frame',
+            'acceleration_scale': ParameterValue(go2_acceleration_scale, value_type=float),
+        }],
+    )
+
     rosbag_wildos_camera_bridge = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([wildos_bridge_pkg, 'launch', 'alphasense_to_wildos.launch.py'])
@@ -225,6 +374,23 @@ def generate_launch_description():
         condition=IfCondition(PythonExpression([
             "'", data_source, "'.lower() == 'rosbag' and '", launch_wildos, "'.lower() == 'true'"
         ])),
+    )
+
+    gazebo_deskewed_lidar_bridge = Node(
+        package='dlio_gazebo_sim',
+        executable='odom_cloud_to_lidar_frame',
+        name='gazebo_odom_cloud_to_lidar_frame',
+        output='screen',
+        condition=IfCondition(PythonExpression([
+            "'", data_source, "'.lower() == 'gazebo' and '",
+            launch_elevation, "'.lower() == 'true'"
+        ])),
+        parameters=[{
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
+            'input_topic': '/dlio/odom_node/pointcloud/deskewed',
+            'output_topic': gazebo_deskewed_lidar_topic,
+            'target_frame': gazebo_deskewed_lidar_frame,
+        }],
     )
 
     rosbag_deskewed_lidar_bridge = Node(
@@ -238,10 +404,27 @@ def generate_launch_description():
             use_rosbag_deskewed_lidar_bridge, "'.lower() == 'true'"
         ])),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'input_topic': '/dlio/odom_node/pointcloud/deskewed',
             'output_topic': rosbag_deskewed_lidar_topic,
             'target_frame': rosbag_deskewed_lidar_frame,
+        }],
+    )
+
+    go2_deskewed_lidar_bridge = Node(
+        package='dlio_gazebo_sim',
+        executable='odom_cloud_to_lidar_frame',
+        name='go2_odom_cloud_to_lidar_frame',
+        output='screen',
+        condition=IfCondition(PythonExpression([
+            "'", data_source, "'.lower() in ('go2_rosbag', 'go2_live') and '",
+            launch_elevation, "'.lower() == 'true'"
+        ])),
+        parameters=[{
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
+            'input_topic': '/dlio/odom_node/pointcloud/deskewed',
+            'output_topic': go2_deskewed_lidar_topic,
+            'target_frame': go2_deskewed_lidar_frame,
         }],
     )
 
@@ -252,7 +435,7 @@ def generate_launch_description():
         launch_arguments={
             'robot_config': 'dlio_gazebo/base.yaml',
             'launch_rviz': 'false',
-            'use_sim_time': 'true',
+            'use_sim_time': use_sim_time,
         }.items(),
         condition=IfCondition(PythonExpression([
             "'", data_source, "'.lower() == 'gazebo' and '", launch_elevation, "'.lower() == 'true'"
@@ -266,10 +449,24 @@ def generate_launch_description():
         launch_arguments={
             'robot_config': rosbag_elevation_config,
             'launch_rviz': 'false',
-            'use_sim_time': 'true',
+            'use_sim_time': use_sim_time,
         }.items(),
         condition=IfCondition(PythonExpression([
             "'", data_source, "'.lower() == 'rosbag' and '", launch_elevation, "'.lower() == 'true'"
+        ])),
+    )
+
+    elevation_mapping_go2_rosbag = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([elevation_pkg, 'launch', 'elevation_mapping.launch.py'])
+        ),
+        launch_arguments={
+            'robot_config': go2_elevation_config,
+            'launch_rviz': 'false',
+            'use_sim_time': use_sim_time,
+        }.items(),
+        condition=IfCondition(PythonExpression([
+            "'", data_source, "'.lower() in ('go2_rosbag', 'go2_live') and '", launch_elevation, "'.lower() == 'true'"
         ])),
     )
 
@@ -303,7 +500,7 @@ def generate_launch_description():
             "'", data_source, "'.lower() == 'gazebo' and '", use_synthetic_sensors, "'.lower() == 'true'"
         ])),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'pointcloud_topic': pointcloud_topic,
             'imu_topic': imu_topic,
             'start_delay': start_delay,
@@ -320,7 +517,7 @@ def generate_launch_description():
             "'", data_source, "'.lower() == 'gazebo' and '", use_gazebo_cloud_adapter, "'.lower() == 'true'"
         ])),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'input_topic': '/points_raw/points',
             'output_topic': pointcloud_topic,
             'frame_id': 'lidar',
@@ -337,7 +534,7 @@ def generate_launch_description():
             "'", data_source, "'.lower() == 'gazebo' and '", show_gazebo_base_link, "'.lower() == 'true'"
         ])),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'odom_topic': '/gazebo/odom',
             'parent_frame': 'odom',
             'child_frame': 'gazebo_base_link',
@@ -352,7 +549,7 @@ def generate_launch_description():
             "'", data_source, "'.lower() == 'gazebo' and '", auto_drive, "'.lower() == 'true'"
         ])),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'cmd_vel_topic': '/cmd_vel',
             'start_delay': start_delay,
             'linear_x': linear_x,
@@ -367,7 +564,7 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_graphnav),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'odom_topic': graphnav_odom_topic,
             'grid_map_topic': graphnav_grid_map_topic,
             'nav_graph_topic': graphnav_topic,
@@ -378,12 +575,14 @@ def generate_launch_description():
             'local_map_radius': graphnav_local_map_radius,
             'local_map_resolution': 0.1,
             'max_free_radius': 4.0,
-            'traversable_radius': 0.5,
+            'traversable_radius': 0.35,
             'frontier_association_radius': graphnav_frontier_association_radius,
+            'min_frontier_cluster_size': ParameterValue(graphnav_min_frontier_cluster_size, value_type=int),
             'edge_radius': graphnav_edge_radius,
             'num_samples': graphnav_num_samples,
             'graph_update_min_travel': graphnav_update_min_travel,
             'graph_update_free_radius_fraction': graphnav_update_free_radius_fraction,
+            'grid_map_queue_depth': ParameterValue(graphnav_grid_map_queue_depth, value_type=int),
             'publish_global_memory_markers': graphnav_publish_global_memory_markers,
             'global_memory_marker_topic': graphnav_global_memory_marker_topic,
             'global_memory_marker_stride': graphnav_global_memory_marker_stride,
@@ -404,7 +603,7 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_graphnav_markers),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'nav_graph_topic': graphnav_topic,
             'marker_topic': '/nav_graph_markers',
             'show_radii': True,
@@ -419,7 +618,7 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_grid_threshold_markers),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'grid_map_topic': graphnav_grid_map_topic,
             'marker_topic': '/grid_threshold_markers',
             'traversability_layer': 'traversability',
@@ -436,7 +635,7 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_nav2),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'grid_map_topic': graphnav_grid_map_topic,
             'costmap_topic': '/traversability_costmap',
             'traversability_layer': 'traversability',
@@ -444,6 +643,21 @@ def generate_launch_description():
             'safe_threshold': graphnav_safe_threshold,
             'unknown_is_free': True,
         }],
+    )
+
+    gazebo_livox_frame_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='gazebo_livox_frame_tf',
+        arguments=[
+            '0.12', '0.0', '0.33',
+            '0.0', '0.0', '0.0', '1.0',
+            'base_link', 'livox_frame',
+        ],
+        output='screen',
+        condition=IfCondition(PythonExpression([
+            "'", data_source, "'.lower() == 'gazebo'"
+        ])),
     )
 
     wildos_front_camera_link_tf = Node(
@@ -533,7 +747,7 @@ def generate_launch_description():
             '--do_object_search', wildos_object_search,
             '--ros-args',
             '-r', '__node:=wildos',
-            '-p', 'use_sim_time:=true',
+            '-p', ['use_sim_time:=', use_sim_time],
             '--log-level', 'INFO',
         ],
         name='wildos',
@@ -556,7 +770,7 @@ def generate_launch_description():
             '--config', explorfm_probe_config,
             '--ros-args',
             '-r', '__node:=explorfm_camera_probe',
-            '-p', 'use_sim_time:=true',
+            '-p', ['use_sim_time:=', use_sim_time],
             '--log-level', 'INFO',
         ],
         name='explorfm_camera_probe',
@@ -579,7 +793,7 @@ def generate_launch_description():
             '--config', triangulation_config,
             '--ros-args',
             '-r', '__node:=obj_mask_triangulation',
-            '-p', 'use_sim_time:=true',
+            '-p', ['use_sim_time:=', use_sim_time],
             '--log-level', 'INFO',
         ],
         name='obj_mask_triangulation',
@@ -599,7 +813,7 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_goal_mux),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'real_goal_topic': triangulated_goal_topic,
             'output_goal_topic': active_goal_topic,
             'frame_id': initial_goal_frame,
@@ -619,8 +833,14 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_graphnav_planner),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'trav_class': graphnav_planner_trav_class,
+            'no_goal_strategy': graphnav_planner_no_goal_strategy,
+            'virtual_goal_frame': graphnav_planner_virtual_goal_frame,
+            'virtual_goal_x': ParameterValue(graphnav_planner_virtual_goal_x, value_type=float),
+            'virtual_goal_y': ParameterValue(graphnav_planner_virtual_goal_y, value_type=float),
+            'virtual_goal_z': ParameterValue(graphnav_planner_virtual_goal_z, value_type=float),
+            'virtual_goal_yaw': ParameterValue(graphnav_planner_virtual_goal_yaw, value_type=float),
             'frontier_dist_cost_factor': ParameterValue(graphnav_planner_frontier_dist_cost_factor, value_type=float),
             'goal_dist_cost_factor': ParameterValue(graphnav_planner_goal_dist_cost_factor, value_type=float),
             'frontier_score_factor': ParameterValue(graphnav_planner_frontier_score_factor, value_type=float),
@@ -646,7 +866,7 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_graphnav_planner),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'wp_lookahead_dist': ParameterValue(graphnav_path_follower_lookahead, value_type=float),
             'waypoint_arrival_radius': ParameterValue(graphnav_path_follower_arrival_radius, value_type=float),
             'path_timeout': ParameterValue(graphnav_path_follower_timeout, value_type=float),
@@ -665,7 +885,7 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_static_path),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'path_topic': graphnav_planner_path_topic,
             'odom_topic': graphnav_odom_topic,
             'frame_id': static_path_frame,
@@ -683,7 +903,7 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(launch_goal_pose_bridge),
         parameters=[{
-            'use_sim_time': True,
+            'use_sim_time': ParameterValue(use_sim_time, value_type=bool),
             'goal_topic': nav2_goal_topic,
             'action_name': nav2_action_name,
             'default_frame_id': 'odom',
@@ -698,7 +918,7 @@ def generate_launch_description():
     nav2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(nav2_launch_file),
         launch_arguments={
-            'use_sim_time': 'true',
+            'use_sim_time': use_sim_time,
             'autostart': nav2_autostart,
             'params_file': nav2_params_file,
         }.items(),
@@ -710,8 +930,8 @@ def generate_launch_description():
         DeclareLaunchArgument('gz_gui', default_value='true'),
         DeclareLaunchArgument(
             'data_source',
-            default_value='gazebo',
-            description='Sensor data source: gazebo or rosbag',
+            default_value='go2_rosbag',
+            description='Sensor data source: gazebo, rosbag (Oxford), go2_rosbag, or go2_live',
         ),
         DeclareLaunchArgument('dlio_output', default_value='log'),
         DeclareLaunchArgument(
@@ -719,6 +939,8 @@ def generate_launch_description():
             default_value=PathJoinSubstitution([pkg, 'config', 'dlio_gazebo_extrinsics.yaml']),
             description='DLIO extrinsic override used automatically when data_source:=gazebo.',
         ),
+        DeclareLaunchArgument('gazebo_deskewed_lidar_topic', default_value='/points_deskewed_lidar'),
+        DeclareLaunchArgument('gazebo_deskewed_lidar_frame', default_value='livox_frame'),
         DeclareLaunchArgument('pointcloud_topic', default_value='/points_raw'),
         DeclareLaunchArgument('imu_topic', default_value='/imu_raw'),
         DeclareLaunchArgument(
@@ -761,26 +983,66 @@ def generate_launch_description():
             description='Start playback this many seconds after the beginning of the bag.',
         ),
         DeclareLaunchArgument('rosbag_start_delay', default_value='2.0'),
-        DeclareLaunchArgument('world', default_value='dlio_room.sdf'),
+        DeclareLaunchArgument(
+            'go2_rosbag_path',
+            default_value='/root/ros2_ws/data/go2_full_debug_2026-06-23_175536',
+            description='Path to the Go2 Livox rosbag2 database.',
+        ),
+        DeclareLaunchArgument('go2_pointcloud_topic', default_value='/livox/lidar'),
+        DeclareLaunchArgument('go2_imu_topic', default_value='/livox/imu'),
+        DeclareLaunchArgument(
+            'go2_adapter_input_topic',
+            default_value='/go2/livox/imu_raw_g',
+            description='Private topic carrying the unscaled Livox acceleration in g.',
+        ),
+        DeclareLaunchArgument('go2_rosbag_rate', default_value='0.5'),
+        DeclareLaunchArgument('go2_rosbag_loop', default_value='false'),
+        DeclareLaunchArgument('go2_rosbag_start_offset', default_value='0.0'),
+        DeclareLaunchArgument('go2_rosbag_start_delay', default_value='2.0'),
+        DeclareLaunchArgument(
+            'go2_rosbag_playback_duration',
+            default_value='-1',
+            description='Optional playback duration in seconds; -1 plays the complete Go2 bag.',
+        ),
+        DeclareLaunchArgument(
+            'go2_dlio_extra_params',
+            default_value=PathJoinSubstitution([pkg, 'config', 'dlio_go2_livox_rosbag.yaml']),
+            description='Go2-specific DLIO frames and provisional Livox extrinsics.',
+        ),
+        DeclareLaunchArgument('go2_deskewed_lidar_topic', default_value='/points_deskewed_lidar'),
+        DeclareLaunchArgument('go2_deskewed_lidar_frame', default_value='livox_frame'),
+        DeclareLaunchArgument('go2_elevation_config', default_value='dlio_gazebo/go2_livox.yaml'),
+        DeclareLaunchArgument(
+            'go2_acceleration_scale',
+            default_value='9.80665',
+            description='Scale Livox accelerometer samples from g to m/s^2.',
+        ),
+        # DeclareLaunchArgument('world', default_value='dlio_room.sdf'),
+        DeclareLaunchArgument('world', default_value='dlio_score_ring_test.sdf'),
         DeclareLaunchArgument('linear_x', default_value='0.45'),
         DeclareLaunchArgument('angular_z', default_value='0.22'),
         DeclareLaunchArgument('start_delay', default_value='4.0'),
         DeclareLaunchArgument('auto_drive', default_value='false'),
+        DeclareLaunchArgument(
+            'launch_local_dlio',
+            default_value='false',
+            description='Launch DLIO and Go2 IMU preprocessing on this computer. Keep false when consuming DLIO output from another computer.',
+        ),
         DeclareLaunchArgument('launch_elevation', default_value='true'),
         DeclareLaunchArgument('launch_graphnav', default_value='true'),
         DeclareLaunchArgument('launch_graphnav_markers', default_value='true'),
-        DeclareLaunchArgument('launch_grid_threshold_markers', default_value='false'),
-        DeclareLaunchArgument('launch_wildos', default_value='false'),
+        DeclareLaunchArgument('launch_grid_threshold_markers', default_value='true'),
+        DeclareLaunchArgument('launch_wildos', default_value='true'),
         DeclareLaunchArgument('launch_explorfm_probe', default_value='false'),
-        DeclareLaunchArgument('launch_goal_mux', default_value='false'),
-        DeclareLaunchArgument('launch_graphnav_planner', default_value='false'),
+        DeclareLaunchArgument('launch_goal_mux', default_value='true'),
+        DeclareLaunchArgument('launch_graphnav_planner', default_value='true'),
         DeclareLaunchArgument('launch_static_path', default_value='false'),
-        DeclareLaunchArgument('launch_goal_pose_bridge', default_value='false'),
+        DeclareLaunchArgument('launch_goal_pose_bridge', default_value='true'),
         DeclareLaunchArgument('launch_nav2', default_value='false'),
         DeclareLaunchArgument('wildos_config', default_value='dlio_gazebo_wildos.yaml'),
         DeclareLaunchArgument('explorfm_probe_config', default_value='dlio_gazebo_explorfm_probe.yaml'),
         DeclareLaunchArgument('wildos_object_search', default_value='false'),
-        DeclareLaunchArgument('wildos_python', default_value='/root/wildos_venv/bin/python3'),
+        DeclareLaunchArgument('wildos_python', default_value='/usr/bin/python3'),
         DeclareLaunchArgument('triangulation_config', default_value='dlio_gazebo_triangulation.yaml'),
         DeclareLaunchArgument('triangulated_goal_topic', default_value='/imgnav_waypoint'),
         DeclareLaunchArgument('active_goal_topic', default_value='/active_imgnav_waypoint'),
@@ -795,6 +1057,12 @@ def generate_launch_description():
         DeclareLaunchArgument('graphnav_planner_nav_graph_topic', default_value='/scored_nav_graph'),
         DeclareLaunchArgument('graphnav_planner_goal_topic', default_value='/active_imgnav_waypoint'),
         DeclareLaunchArgument('graphnav_planner_trav_class', default_value='elevation_traversability'),
+        DeclareLaunchArgument('graphnav_planner_no_goal_strategy', default_value='best_frontier_score'),#virtual_goal,best_frontier_score
+        DeclareLaunchArgument('graphnav_planner_virtual_goal_frame', default_value='odom'),
+        DeclareLaunchArgument('graphnav_planner_virtual_goal_x', default_value='100.0'),
+        DeclareLaunchArgument('graphnav_planner_virtual_goal_y', default_value='0.0'),
+        DeclareLaunchArgument('graphnav_planner_virtual_goal_z', default_value='0.0'),
+        DeclareLaunchArgument('graphnav_planner_virtual_goal_yaw', default_value='0.0'),
         DeclareLaunchArgument('graphnav_planner_frontier_dist_cost_factor', default_value='2.0'),
         DeclareLaunchArgument('graphnav_planner_goal_dist_cost_factor', default_value='1.0'),
         DeclareLaunchArgument('graphnav_planner_frontier_score_factor', default_value='4.0'),
@@ -839,16 +1107,18 @@ def generate_launch_description():
         DeclareLaunchArgument('graphnav_odom_topic', default_value='/dlio/odom_node/odom'),
         DeclareLaunchArgument('graphnav_topic', default_value='/nav_graph'),
         DeclareLaunchArgument('graphnav_safe_threshold', default_value='0.2'),
-        DeclareLaunchArgument('graphnav_local_map_radius', default_value='4.5'),
-        DeclareLaunchArgument('graphnav_edge_radius', default_value='2.5'),
-        DeclareLaunchArgument('graphnav_num_samples', default_value='250'),
-        DeclareLaunchArgument('graphnav_update_min_travel', default_value='0.75'),
+        DeclareLaunchArgument('graphnav_local_map_radius', default_value='5.0'),
+        DeclareLaunchArgument('graphnav_edge_radius', default_value='5.0'),
+        DeclareLaunchArgument('graphnav_num_samples', default_value='100'),
+        DeclareLaunchArgument('graphnav_update_min_travel', default_value='0.5'),
         DeclareLaunchArgument('graphnav_update_free_radius_fraction', default_value='0.8'),
+        DeclareLaunchArgument('graphnav_grid_map_queue_depth', default_value='1'),
         DeclareLaunchArgument('graphnav_frontier_association_radius', default_value='1.5'),
-        DeclareLaunchArgument('graphnav_publish_global_memory_markers', default_value='true'),
+        DeclareLaunchArgument('graphnav_min_frontier_cluster_size', default_value='5'),
+        DeclareLaunchArgument('graphnav_publish_global_memory_markers', default_value='false'),
         DeclareLaunchArgument('graphnav_global_memory_marker_topic', default_value='/global_traversability_markers'),
         DeclareLaunchArgument('graphnav_global_memory_marker_stride', default_value='2'),
-        DeclareLaunchArgument('graphnav_publish_global_memory_grid', default_value='true'),
+        DeclareLaunchArgument('graphnav_publish_global_memory_grid', default_value='false'),
         DeclareLaunchArgument('graphnav_global_memory_grid_topic', default_value='/global_traversability_grid'),
         DeclareLaunchArgument('graphnav_min_x', default_value='-1000000000.0'),
         DeclareLaunchArgument('graphnav_max_x', default_value='1000000000.0'),
@@ -862,6 +1132,7 @@ def generate_launch_description():
         ),
         gazebo_gui,
         gazebo_headless,
+        rviz_node,
         bridge,
         gazebo_cloud_adapter,
         gazebo_odom_tf,
@@ -869,15 +1140,24 @@ def generate_launch_description():
         circle_cmd,
         rosbag_wildos_camera_bridge,
         rosbag_play,
+        go2_rosbag_play,
+        go2_livox_imu_adapter,
+        go2_live_livox_imu_adapter,
         dlio_gazebo,
         dlio_rosbag,
+        dlio_go2_rosbag,
+        dlio_go2_live,
+        gazebo_deskewed_lidar_bridge,
         rosbag_deskewed_lidar_bridge,
+        go2_deskewed_lidar_bridge,
         elevation_mapping_gazebo,
         elevation_mapping_rosbag,
+        elevation_mapping_go2_rosbag,
         graphnav_builder,
         nav_graph_markers,
         grid_threshold_markers,
         traversability_costmap,
+        gazebo_livox_frame_tf,
         wildos_front_camera_link_tf,
         wildos_front_camera_optical_tf,
         wildos_left_camera_link_tf,

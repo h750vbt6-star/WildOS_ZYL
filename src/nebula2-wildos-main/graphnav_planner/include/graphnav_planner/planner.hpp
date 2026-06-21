@@ -5,6 +5,8 @@
 #include <vector>
 #include <unordered_map>
 #include <map>
+#include <queue>
+#include <optional>
 #include <sstream>
 #include <iomanip>
 #include <graaflib/graph.h>
@@ -229,6 +231,7 @@ public:
   // void set_dynamic_obstacles(std::vector<Polygon> &obstacles);
   void update_graph(graphnav_msgs::msg::NavigationGraph::ConstSharedPtr graph);
   std::vector<Eigen::Vector3d> plan_to_goal(Eigen::Vector3d& goal, double goal_radius, rclcpp::Time current_time);
+  std::vector<Eigen::Vector3d> plan_to_best_frontier_score(rclcpp::Time current_time);
   // std::vector<Eigen::Vector3d> plan_to_goal(Polygon &goal_area);
 
   grid_map_msgs::msg::GridMap get_unexplored_debug_map()

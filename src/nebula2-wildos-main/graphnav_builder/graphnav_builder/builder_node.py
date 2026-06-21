@@ -11,6 +11,7 @@ from graphnav_msgs.msg import Edge, EdgeTraversability, NavigationGraph, Node, N
 from grid_map_msgs.msg import GridMap
 from nav_msgs.msg import Odometry
 from rclpy.node import Node as RclpyNode
+from rclpy.qos import QoSDurabilityPolicy, QoSHistoryPolicy, QoSProfile, QoSReliabilityPolicy
 from std_msgs.msg import Float32MultiArray, MultiArrayDimension
 from visualization_msgs.msg import Marker, MarkerArray
 
@@ -227,6 +228,36 @@ class TraversabilityGrid:
                 seen_unknown.add(neighbor_idx)
                 frontiers.append((neighbor, free_cell))
         return frontiers
+
+    def filter_frontier_clusters(
+        self,
+        frontiers: Sequence[Tuple[Cell, Cell]],
+        min_cluster_size: int,
+    ) -> List[Tuple[Cell, Cell]]:
+        if min_cluster_size <= 1 or not frontiers:
+            return list(frontiers)
+
+        free_side_by_frontier = {frontier_cell: free_side_cell for frontier_cell, free_side_cell in frontiers}
+        remaining = set(free_side_by_frontier.keys())
+        filtered: List[Tuple[Cell, Cell]] = []
+
+        while remaining:
+            seed = remaining.pop()
+            cluster = [seed]
+            stack = [seed]
+            while stack:
+                cell = stack.pop()
+                for neighbor in self.neighbors8(cell):
+                    if neighbor not in remaining:
+                        continue
+                    remaining.remove(neighbor)
+                    stack.append(neighbor)
+                    cluster.append(neighbor)
+
+            if len(cluster) >= min_cluster_size:
+                filtered.extend((cell, free_side_by_frontier[cell]) for cell in cluster)
+
+        return filtered
 
     def reachable_free_cells(self, seed_xy: Optional[XY]) -> List[Cell]:
         if seed_xy is None or not self.free_cells:
@@ -549,12 +580,14 @@ class SparseGraphBuilderNode(RclpyNode):
         self.declare_parameter('local_map_radius', 10.0)
         self.declare_parameter('local_map_resolution', 0.1)
         self.declare_parameter('max_free_radius', 4.0)
-        self.declare_parameter('traversable_radius', 0.5)
+        self.declare_parameter('traversable_radius', 0.35)
         self.declare_parameter('frontier_association_radius', 1.5)
+        self.declare_parameter('min_frontier_cluster_size', 5)
         self.declare_parameter('edge_radius', 8.0)
         self.declare_parameter('num_samples', 1000)
         self.declare_parameter('graph_update_min_travel', 0.75)
-        self.declare_parameter('graph_update_free_radius_fraction', 0.8)
+        self.declare_parameter('graph_update_free_radius_fraction', 0.7)
+        self.declare_parameter('grid_map_queue_depth', 1)
         self.declare_parameter('publish_global_memory_markers', True)
         self.declare_parameter('global_memory_marker_topic', 'global_traversability_markers')
         self.declare_parameter('global_memory_marker_stride', 2)
@@ -578,10 +611,12 @@ class SparseGraphBuilderNode(RclpyNode):
         self.max_free_radius = float(self.get_parameter('max_free_radius').value)
         self.traversable_radius = float(self.get_parameter('traversable_radius').value)
         self.frontier_association_radius = float(self.get_parameter('frontier_association_radius').value)
+        self.min_frontier_cluster_size = max(1, int(self.get_parameter('min_frontier_cluster_size').value))
         self.edge_radius = float(self.get_parameter('edge_radius').value)
         self.num_samples = int(self.get_parameter('num_samples').value)
         self.graph_update_min_travel = float(self.get_parameter('graph_update_min_travel').value)
         self.graph_update_free_radius_fraction = float(self.get_parameter('graph_update_free_radius_fraction').value)
+        self.grid_map_queue_depth = max(1, int(self.get_parameter('grid_map_queue_depth').value))
         self.publish_global_memory_debug = bool(self.get_parameter('publish_global_memory_markers').value)
         self.global_memory_marker_topic = self.get_parameter('global_memory_marker_topic').value
         self.global_memory_marker_stride = max(1, int(self.get_parameter('global_memory_marker_stride').value))
@@ -605,13 +640,25 @@ class SparseGraphBuilderNode(RclpyNode):
         self.global_memory_marker_pub = self.create_publisher(MarkerArray, self.global_memory_marker_topic, 1)
         self.global_memory_grid_pub = self.create_publisher(GridMap, self.global_memory_grid_topic, 1)
         self.odom_sub = self.create_subscription(Odometry, self.odom_topic, self.odom_callback, 20)
-        self.grid_sub = self.create_subscription(GridMap, self.grid_map_topic, self.grid_map_callback, 10)
+        grid_qos = QoSProfile(
+            history=QoSHistoryPolicy.KEEP_LAST,
+            depth=self.grid_map_queue_depth,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            durability=QoSDurabilityPolicy.VOLATILE,
+        )
+        self.grid_sub = self.create_subscription(GridMap, self.grid_map_topic, self.grid_map_callback, grid_qos)
 
     def odom_callback(self, msg: Odometry):
         self.latest_odom = msg
         self.update_current_node()
 
     def grid_map_callback(self, msg: GridMap):
+        should_update_graph = self.should_update_navigation_graph()
+        publish_global_debug = self.publish_global_memory_grid_debug or self.publish_global_memory_debug
+        if not should_update_graph and not publish_global_debug:
+            self.publish_graph(msg.header.frame_id, msg.header.stamp)
+            return
+
         try:
             grid = TraversabilityGrid(msg, self.traversability_layer, self.safe_threshold, self.observed_layer)
         except ValueError as exc:
@@ -622,23 +669,24 @@ class SparseGraphBuilderNode(RclpyNode):
             self.get_logger().warn('No observed cells in traversability grid; skipping graph update')
             return
 
-        self.global_memory.integrate(grid)
-        global_grid = self.global_memory.to_grid()
+        global_grid = None
+        if publish_global_debug:
+            self.global_memory.integrate(grid)
+            global_grid = self.global_memory.to_grid()
 
-        sdf_unknown = grid.distance_field(grid.unknown_cells)
-        sdf_obstacle = grid.distance_field(grid.obstacle_cells)
-        robot_xy = self.pose_xy(self.latest_odom.pose.pose) if self.latest_odom is not None else None
-        reachable_free_cells = grid.reachable_free_cells(robot_xy)
-
-        if self.should_update_navigation_graph():
+        if should_update_graph:
+            sdf_unknown = grid.distance_field(grid.unknown_cells)
+            sdf_obstacle = grid.distance_field(grid.obstacle_cells)
+            robot_xy = self.pose_xy(self.latest_odom.pose.pose) if self.latest_odom is not None else None
+            reachable_free_cells = grid.reachable_free_cells(robot_xy)
             self.update_navigation_graph(grid, sdf_unknown, sdf_obstacle, reachable_free_cells)
             self.update_current_node()
             self.remember_graph_update()
 
+        self.publish_graph(msg.header.frame_id, msg.header.stamp)
         if global_grid is not None and global_grid.free_cells:
             self.publish_global_memory_grid(global_grid, msg.header.frame_id, msg.header.stamp)
             self.publish_global_memory_markers(msg.header.frame_id, msg.header.stamp)
-        self.publish_graph(msg.header.frame_id, msg.header.stamp)
 
     def publish_global_memory_grid(self, grid: TraversabilityGrid, frame_id: str, stamp):
         if not self.publish_global_memory_grid_debug:
@@ -868,6 +916,10 @@ class SparseGraphBuilderNode(RclpyNode):
 
     def update_frontier_nodes(self, grid: TraversabilityGrid, reachable_free_cells: Sequence[Cell]):
         # Algorithm 4: Detect and Update Frontier Nodes.
+        frontier_cells = grid.unknown_frontier_cells_next_to_free(reachable_free_cells)
+        frontier_cells = grid.filter_frontier_clusters(frontier_cells, self.min_frontier_cluster_size)
+        valid_frontier_indices = {grid.flat_index(frontier_cell) for frontier_cell, _ in frontier_cells}
+
         for node in self.nodes:
             if not node.is_frontier:
                 continue
@@ -875,12 +927,15 @@ class SparseGraphBuilderNode(RclpyNode):
             for point in node.frontier_points:
                 xy = (point.x, point.y)
                 cell = grid.xy_to_cell(xy)
-                if cell is None or not grid.is_known(cell):# 如果frontier points对应的cell在当前可通行地图的外面就不管它
+                if cell is None:
+                    kept_frontiers_cells.append(point)
+                    continue
+                if not grid.is_known(cell) and grid.flat_index(cell) in valid_frontier_indices:
                     kept_frontiers_cells.append(point)
             node.frontier_points = kept_frontiers_cells
             node.is_frontier = bool(node.frontier_points)
 
-        for frontier_cell, free_side_cell in grid.unknown_frontier_cells_next_to_free(reachable_free_cells):
+        for frontier_cell, free_side_cell in frontier_cells:
             frontier_xy = grid.cell_to_xy(frontier_cell)
             free_side_xy = grid.cell_to_xy(free_side_cell)
             if any(self.distance_xy(frontier_xy, self.pose_xy(node.pose)) <= node.explored_radius for node in self.nodes):

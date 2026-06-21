@@ -1,0 +1,22 @@
+# Go2 + Livox rosbag calibration override for DLIO.
+#
+# Provisional convention: base_link is colocated with the Livox origin, but
+# its axes are level with x forward, y left, and z up. The rotation below was
+# estimated from the first three stationary seconds in the 2026-06-21 bag.
+# Replace the translations after the physical lever arms are measured.
+/**:
+  ros__parameters:
+    frames/lidar: livox_frame
+    frames/imu: livox_imu_frame
+
+    extrinsics/baselink2lidar/t: [0.0, 0.0, 0.0]
+    extrinsics/baselink2lidar/R: [0.952850390, 0.000039194, 0.303440493,
+                                  0.000000000, 0.999999992, -0.000129164,
+                                 -0.303440495, 0.000123074, 0.952850382]
+
+    # The IMU is integrated into the Livox. Its small internal lever arm is
+    # intentionally ignored until a measured calibration is available.
+    extrinsics/baselink2imu/t: [0.0, 0.0, 0.0]
+    extrinsics/baselink2imu/R: [0.952850390, 0.000039194, 0.303440493,
+                                0.000000000, 0.999999992, -0.000129164,
+                               -0.303440495, 0.000123074, 0.952850382]

@@ -6,7 +6,7 @@
     checker_layer: 'elevation'                # layer name for checking the validity of the cell.
     initialized_variance: 10.0                     # initial variance for each cell.    
     resolution: 0.1                                # resolution in m.  
-    map_length: 20.0                                 # map's size in m.
+    map_length: 10.0                                 # map's size in m.
     sensor_noise_factor: 0.05                       # point noise ~ sensor_noise_factor * range^2 in the sensor frame (range^2 = x^2+y^2+z^2).
     mahalanobis_thresh: 2.0                         # points outside this distance is outlier.
     outlier_variance: 0.01                          # if point is outlier, add this value to the cell.
@@ -41,7 +41,7 @@
     save_map_storage_id: 'mcap'
     service_namespace: '/elevation_mapping_cupy'
 
-    max_ray_length: 10.0                            # maximum length for ray tracing.
+    max_ray_length: 12.0                            # maximum length for ray tracing.
     cleanup_step: 0.1                               # subtitute this value from validity layer at visibiltiy cleanup.
     cleanup_cos_thresh: 0.1                         # subtitute this value from validity layer at visibiltiy cleanup.
 
