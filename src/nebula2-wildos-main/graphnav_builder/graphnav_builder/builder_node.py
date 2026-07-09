@@ -585,6 +585,7 @@ class SparseGraphBuilderNode(RclpyNode):
         self.declare_parameter('min_frontier_cluster_size', 5)
         self.declare_parameter('edge_radius', 8.0)
         self.declare_parameter('num_samples', 1000)
+        self.declare_parameter('graph_update_every_timestep', True)
         self.declare_parameter('graph_update_min_travel', 0.75)
         self.declare_parameter('graph_update_free_radius_fraction', 0.7)
         self.declare_parameter('grid_map_queue_depth', 1)
@@ -614,6 +615,7 @@ class SparseGraphBuilderNode(RclpyNode):
         self.min_frontier_cluster_size = max(1, int(self.get_parameter('min_frontier_cluster_size').value))
         self.edge_radius = float(self.get_parameter('edge_radius').value)
         self.num_samples = int(self.get_parameter('num_samples').value)
+        self.graph_update_every_timestep = bool(self.get_parameter('graph_update_every_timestep').value)
         self.graph_update_min_travel = float(self.get_parameter('graph_update_min_travel').value)
         self.graph_update_free_radius_fraction = float(self.get_parameter('graph_update_free_radius_fraction').value)
         self.grid_map_queue_depth = max(1, int(self.get_parameter('grid_map_queue_depth').value))
@@ -795,6 +797,9 @@ class SparseGraphBuilderNode(RclpyNode):
         )
 
     def should_update_navigation_graph(self) -> bool:
+        if self.graph_update_every_timestep:
+            return True
+
         if not self.nodes or self.latest_odom is None:
             return True
 

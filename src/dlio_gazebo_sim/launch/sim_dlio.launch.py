@@ -131,6 +131,7 @@ def generate_launch_description():
     graphnav_local_map_radius = LaunchConfiguration('graphnav_local_map_radius')
     graphnav_edge_radius = LaunchConfiguration('graphnav_edge_radius')
     graphnav_num_samples = LaunchConfiguration('graphnav_num_samples')
+    graphnav_update_every_timestep = LaunchConfiguration('graphnav_update_every_timestep')
     graphnav_update_min_travel = LaunchConfiguration('graphnav_update_min_travel')
     graphnav_update_free_radius_fraction = LaunchConfiguration('graphnav_update_free_radius_fraction')
     graphnav_grid_map_queue_depth = LaunchConfiguration('graphnav_grid_map_queue_depth')
@@ -580,6 +581,7 @@ def generate_launch_description():
             'min_frontier_cluster_size': ParameterValue(graphnav_min_frontier_cluster_size, value_type=int),
             'edge_radius': graphnav_edge_radius,
             'num_samples': graphnav_num_samples,
+            'graph_update_every_timestep': ParameterValue(graphnav_update_every_timestep, value_type=bool),
             'graph_update_min_travel': graphnav_update_min_travel,
             'graph_update_free_radius_fraction': graphnav_update_free_radius_fraction,
             'grid_map_queue_depth': ParameterValue(graphnav_grid_map_queue_depth, value_type=int),
@@ -1110,6 +1112,7 @@ def generate_launch_description():
         DeclareLaunchArgument('graphnav_local_map_radius', default_value='5.0'),
         DeclareLaunchArgument('graphnav_edge_radius', default_value='5.0'),
         DeclareLaunchArgument('graphnav_num_samples', default_value='100'),
+        DeclareLaunchArgument('graphnav_update_every_timestep', default_value='true'),
         DeclareLaunchArgument('graphnav_update_min_travel', default_value='0.5'),
         DeclareLaunchArgument('graphnav_update_free_radius_fraction', default_value='0.8'),
         DeclareLaunchArgument('graphnav_grid_map_queue_depth', default_value='1'),
