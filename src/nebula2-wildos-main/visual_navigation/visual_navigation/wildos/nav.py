@@ -665,6 +665,7 @@ def main(args=None):
     def str2bool(v):
         return v.lower() in ('true')
     parser.add_argument("--do_object_search", type=str2bool, default=False, help="Enable object search.")
+    parser.add_argument("--object_query", type=str, default=None, help="Override object_search_config.text_queries with one query.")
     custom_args = parser.parse_args(custom_args[1:])
 
     conf_name = f"{custom_args.config}"
@@ -674,7 +675,11 @@ def main(args=None):
     package_share_directory = Path(get_package_share_directory('visual_navigation'))
     conf = package_share_directory / "configs" / conf_name
 
-    ros2_node = WildOS_Nav(OmegaConf.load(conf), do_object_search=custom_args.do_object_search)
+    config = OmegaConf.load(conf)
+    if custom_args.object_query:
+        config.object_search_config.text_queries = [custom_args.object_query]
+
+    ros2_node = WildOS_Nav(config, do_object_search=custom_args.do_object_search)
     rclpy.spin(ros2_node)
 
     ros2_node.destroy_node()

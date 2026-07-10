@@ -23,7 +23,7 @@
           <geometry>
             <plane>
               <normal>0 0 1</normal>
-              <size>22 10</size>
+              <size>54 30</size>
             </plane>
           </geometry>
         </collision>
@@ -31,7 +31,7 @@
           <geometry>
             <plane>
               <normal>0 0 1</normal>
-              <size>22 10</size>
+              <size>54 30</size>
             </plane>
           </geometry>
           <material>
@@ -43,61 +43,106 @@
 
     <model name="north_wall">
       <static>true</static>
-      <pose>0 4 1 0 0 0</pose>
+      <pose>0 11 1 0 0 0</pose>
       <link name="link">
-        <collision name="collision"><geometry><box><size>20 0.15 2</size></box></geometry></collision>
-        <visual name="visual"><geometry><box><size>20 0.15 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
+        <collision name="collision"><geometry><box><size>44 0.15 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>44 0.15 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
       </link>
     </model>
 
     <model name="south_wall">
       <static>true</static>
-      <pose>0 -4 1 0 0 0</pose>
+      <pose>0 -11 1 0 0 0</pose>
       <link name="link">
-        <collision name="collision"><geometry><box><size>20 0.15 2</size></box></geometry></collision>
-        <visual name="visual"><geometry><box><size>20 0.15 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
+        <collision name="collision"><geometry><box><size>44 0.15 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>44 0.15 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
       </link>
     </model>
 
     <model name="west_wall">
       <static>true</static>
-      <pose>-10 0 1 0 0 0</pose>
+      <pose>-22 0 1 0 0 0</pose>
       <link name="link">
-        <collision name="collision"><geometry><box><size>0.15 8 2</size></box></geometry></collision>
-        <visual name="visual"><geometry><box><size>0.15 8 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
+        <collision name="collision"><geometry><box><size>0.15 22 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.15 22 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
       </link>
     </model>
 
     <model name="east_wall">
       <static>true</static>
-      <pose>10 0 1 0 0 0</pose>
+      <pose>22 0 1 0 0 0</pose>
       <link name="link">
-        <collision name="collision"><geometry><box><size>0.15 8 2</size></box></geometry></collision>
-        <visual name="visual"><geometry><box><size>0.15 8 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
+        <collision name="collision"><geometry><box><size>0.15 22 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.15 22 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
       </link>
     </model>
 
-    <model name="middle_partition_wall">
+    <model name="partition_wall_1_top_door">
       <static>true</static>
-      <pose>0 -1.2 1 0 0 0</pose>
+      <pose>-11 -6 1 0 0 0</pose>
       <link name="link">
-        <collision name="collision"><geometry><box><size>0.18 5.6 2</size></box></geometry></collision>
-        <visual name="visual"><geometry><box><size>0.18 5.6 2</size></box></geometry><material><diffuse>0.7 0.7 0.68 1</diffuse></material></visual>
+        <collision name="collision"><geometry><box><size>0.18 10 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.18 10 2</size></box></geometry><material><diffuse>0.15 0.55 0.18 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="partition_wall_2_bottom_door">
+      <static>true</static>
+      <pose>0 6 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.18 10 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.18 10 2</size></box></geometry><material><diffuse>0.15 0.55 0.18 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="partition_wall_3_top_door">
+      <static>true</static>
+      <pose>11 -6 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.18 10 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.18 10 2</size></box></geometry><material><diffuse>0.15 0.55 0.18 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="left_branch_wall">
+      <static>true</static>
+      <pose>-16 2.5 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4.5 0.18 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4.5 0.18 2</size></box></geometry><material><diffuse>0.15 0.55 0.18 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="middle_branch_wall">
+      <static>true</static>
+      <pose>-4 -5.0 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4.5 0.18 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4.5 0.18 2</size></box></geometry><material><diffuse>0.15 0.55 0.18 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="right_branch_wall">
+      <static>true</static>
+      <pose>16 2.5 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4.5 0.18 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4.5 0.18 2</size></box></geometry><material><diffuse>0.15 0.55 0.18 1</diffuse></material></visual>
       </link>
     </model>
 
     <model name="red_box_target">
       <static>true</static>
-      <pose>7.5 0 0.4 0 0 0</pose>
+      <pose>18 7.5 0.6 0 0 0</pose>
       <link name="link">
-        <collision name="collision"><geometry><box><size>1.4 0.9 0.8</size></box></geometry></collision>
-        <visual name="visual"><geometry><box><size>1.4 0.9 0.8</size></box></geometry><material><diffuse>0.9 0.02 0.02 1</diffuse></material></visual>
+        <collision name="collision"><geometry><box><size>1.8 1.0 1.2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>1.8 1.0 1.2</size></box></geometry><material><diffuse>0.9 0.02 0.02 1</diffuse></material></visual>
       </link>
     </model>
 
     <include>
       <uri>model://dlio_car</uri>
-      <pose>-7 0 0 0 0 0</pose>
+      <pose>-18 -7.5 0 0 0 0</pose>
     </include>
   </world>
 </sdf>

@@ -77,6 +77,7 @@ def generate_launch_description():
     wildos_config = LaunchConfiguration('wildos_config')
     explorfm_probe_config = LaunchConfiguration('explorfm_probe_config')
     wildos_object_search = LaunchConfiguration('wildos_object_search')
+    wildos_object_query = LaunchConfiguration('wildos_object_query')
     wildos_python = LaunchConfiguration('wildos_python')
     triangulation_config = LaunchConfiguration('triangulation_config')
     initial_goal_frame = LaunchConfiguration('initial_goal_frame')
@@ -747,6 +748,7 @@ def generate_launch_description():
             wildos_python, '-m', 'visual_navigation.wildos.nav',
             '--config', wildos_config,
             '--do_object_search', wildos_object_search,
+            '--object_query', wildos_object_query,
             '--ros-args',
             '-r', '__node:=wildos',
             '-p', ['use_sim_time:=', use_sim_time],
@@ -1044,6 +1046,7 @@ def generate_launch_description():
         DeclareLaunchArgument('wildos_config', default_value='dlio_gazebo_wildos.yaml'),
         DeclareLaunchArgument('explorfm_probe_config', default_value='dlio_gazebo_explorfm_probe.yaml'),
         DeclareLaunchArgument('wildos_object_search', default_value='false'),
+        DeclareLaunchArgument('wildos_object_query', default_value='Red Box'),
         DeclareLaunchArgument('wildos_python', default_value='/usr/bin/python3'),
         DeclareLaunchArgument('triangulation_config', default_value='dlio_gazebo_triangulation.yaml'),
         DeclareLaunchArgument('triangulated_goal_topic', default_value='/imgnav_waypoint'),
@@ -1116,7 +1119,7 @@ def generate_launch_description():
         DeclareLaunchArgument('graphnav_update_min_travel', default_value='0.5'),
         DeclareLaunchArgument('graphnav_update_free_radius_fraction', default_value='0.8'),
         DeclareLaunchArgument('graphnav_grid_map_queue_depth', default_value='1'),
-        DeclareLaunchArgument('graphnav_frontier_association_radius', default_value='1.5'),
+        DeclareLaunchArgument('graphnav_frontier_association_radius', default_value='3.0'),
         DeclareLaunchArgument('graphnav_min_frontier_cluster_size', default_value='5'),
         DeclareLaunchArgument('graphnav_publish_global_memory_markers', default_value='false'),
         DeclareLaunchArgument('graphnav_global_memory_marker_topic', default_value='/global_traversability_markers'),

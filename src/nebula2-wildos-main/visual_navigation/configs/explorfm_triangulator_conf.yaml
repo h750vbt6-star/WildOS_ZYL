@@ -14,8 +14,8 @@ num_cameras: 3
 parent_frame: "{robot_name}/odom"
 cam_frame: "{robot_name}/realsense/{cam_name}_color_optical_frame"
 lidar_frame: "{robot_name}/ouster/front/os_lidar"
-camera_img_topic: "realsense/{cam_name}/color/image_raw/compressed"
-camera_info_topic: "realsense/{cam_name}/color/camera_info"
+camera_img_topic: /camera/camera/color/image_raw/compressed
+camera_info_topic: /camera/camera/color/camera_info
 lidar_topic: "ouster/front/points_filtered"
 odometry_topic: "odom"
 
